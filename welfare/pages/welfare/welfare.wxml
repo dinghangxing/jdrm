@@ -1,0 +1,95 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<wxs module="filter" src="../../../util/filter.wxs"></wxs>
+
+<view class="viewbackgroud">
+
+    <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" style='margin-left:50rpx;' data-current="0" bindtap="clickTab">正在进行 </view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" style='margin-right:50rpx;' data-current="1" bindtap="clickTab">福利预告</view>
+
+    </view>
+
+    <swiper class='order-list' current="{{currentTab}}" duration="300" bindchange="swiperTab">
+        
+        <swiper-item >
+         
+            <scroll-view style='height:100%;'  scroll-x="false" scroll-y="true" bindscrolltolower="getStart">  
+              <navigator wx:for="{{startList}}" wx:key="*this" url="../detail/detail?active_id={{item.active_id}}" class='view_over'>
+ 
+                    <image  src='{{item.prize_img1}}' class='left_image' mode='aspectFill'></image>
+                    
+                    
+                    <view class='over_right_view'>
+                      <text class="over_prize_text">{{item.prize_name1}}</text>
+
+                      <view hidden='{{item.is_gender == 0 && item.active_key == "" && item.group_user_limit == 0}}' class='view_over2'>
+                        <text class="recommend_text2">条件</text>
+                        <text wx:if="{{item.is_gender == 1}}" class="recommend_text2 gray" >男</text>
+                        <text wx:if="{{item.is_gender == 2}}" class="recommend_text2 gray" >女</text>
+                      
+                        <text wx:if="{{item.active_key != ''}}" class="recommend_text2 gray" >口令</text>
+
+                        <text wx:if="{{item.group_user_limit > 0}}" class="recommend_text2 gray" >可组队</text>
+                      </view>
+
+                      <view class='view_over3'>
+                        <!-- <image class='image_over' src='/img/image2.png'></image> -->
+                        <!-- <text class="join_text">已参与</text> -->
+                        <text wx:if="{{item.open_type == 1}}" class="lottery_time">{{filter.date(item.open_date) }} 自动开奖</text>
+                        <text wx:if="{{item.open_type == 2}}" class="lottery_time">达到{{item.open_users}}人，自动开奖</text>
+                        <text wx:if="{{item.open_type == 3}}" class="lottery_time">手动开奖</text>
+
+                      </view>
+                    </view>
+                </navigator>
+
+                <view wx:if="{{startMore}}" class='tip'>正在加载</view>
+                 <view wx:if="{{!startMore}}" class='tip'>没有更多</view>
+            </scroll-view>
+            
+        </swiper-item>
+
+       
+        <swiper-item >
+       
+         
+            <scroll-view  style='height:100%;'  scroll-x="false" scroll-y="true" bindscroll="scroll" bindscrolltolower="getNotice">
+               <navigator wx:for="{{noticeList}}" wx:key="*this" url="../detail/detail?active_id={{item.active_id}}" class='view_over'>
+ 
+                    <image  src='{{item.prize_img1}}' class='left_image' mode='aspectFill'></image>
+                    
+                    
+                    <view class='over_right_view'>
+                      <text class="over_prize_text">{{item.prize_name1}}</text>
+
+                      <view hidden='{{item.is_gender == 0 && item.active_key == "" && item.group_user_limit == 0}}' class='view_over2'>
+                        <text class="recommend_text2">条件</text>
+                        <text wx:if="{{item.is_gender == 1}}" class="recommend_text2 gray" >男</text>
+                        <text wx:if="{{item.is_gender == 2}}" class="recommend_text2 gray" >女</text>
+                      
+                        <text wx:if="{{item.active_key != ''}}" class="recommend_text2 gray" >口令</text>
+
+                        <text wx:if="{{item.group_user_limit > 0}}" class="recommend_text2 gray" >可组队</text>
+                      </view>
+
+                      <view class='view_over3'>
+                        <!-- <image class='image_over' src='/img/image2.png'></image> -->
+                        <!-- <text class="join_text">已参与</text> -->
+                      
+                        <text wx:if="{{item.open_type == 1}}" class="lottery_time">{{filter.date(item.open_date) }} 自动开奖</text>
+                        <text wx:if="{{item.open_type == 2}}" class="lottery_time">达到{{item.open_users}}人，自动开奖</text>
+                        <text wx:if="{{item.open_type == 3}}" class="lottery_time">手动开奖</text>
+
+                      </view>
+                    </view>
+                  </navigator>
+                  <view wx:if="{{noticeMore}}" class='tip'>正在加载</view>
+                 <view wx:if="{{!noticeMore}}" class='tip'>没有更多</view>
+            </scroll-view>
+      
+        </swiper-item>
+
+    </swiper>
+
+</view>

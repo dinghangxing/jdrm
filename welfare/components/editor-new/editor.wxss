@@ -1,0 +1,147 @@
+/* components/xing-editor.wxss */
+@import "/app.wxss";
+@import "/wxss/pressStatus.wxss";
+
+page{background: #fff !important;}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-image:before { content: "\e7de"; }
+
+.icon-align-left:before { content: "\e7f5"; }
+
+.icon-close:before { content: "\e7fc"; }
+
+.icon-plus:before { content: "\e7fe"; }
+
+.editor-wrapper {
+  width: 750rpx;
+
+  padding: 20rpx;
+  box-sizing: border-box;
+ position:relative;
+z-index:10;
+
+}
+
+.editor-submit-btn {
+  width: 750rpx;
+  text-align: center;
+  padding: 30rpx 0;
+
+  background: #fff;
+
+  position: fixed;
+  z-index: 100;
+  bottom: 0rpx;
+  left: 0;
+}
+
+.editor-submit-btn::before, .editor-submit-btn::after {
+  border: none;
+}
+
+.editor-add-wrapper {
+ text-align: center;
+  
+ padding:10rpx 0;
+
+
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.editor-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75rpx;
+  height: 75rpx;
+  border: dashed 4rpx #C0C4CC;
+  color: #C0C4CC;
+  box-sizing: border-box;
+}
+
+.editor-node-wrapper {
+  position: relative;
+  width: 690rpx;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+.editor-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 46rpx;
+  height: 46rpx;
+  top: -18rpx;
+  right: -18rpx;
+  border-radius: 50%;
+ background: #fff;
+  color: #fff;
+}
+
+.editor-textarea {
+  display: block;
+  width: 656rpx;
+ 
+  background: #fff;
+  padding: 20rpx;
+ 
+  font-size: 32rpx;
+  /* box-sizing: border-box; */
+}
+
+.editor-image {
+  display: block;
+  width: 690rpx;
+}
+.add-btn-p{
+padding:30rpx 16rpx 0 16rpx;
+display:flex;
+justify-content:space-between;
+
+
+height: 0 ;
+transition: 0.2s;
+overflow: hidden;}
+                  
+.add-btn-p.active{height:100rpx;}
+.add-btn{text-align: center;font-size:24rpx;display: inline-block;color: #3CA1E1;width: 210rpx;height: 70rpx;border-radius: 8rpx;border:1rpx solid #3CA1E1;}
+.add-btn::before{content: "";display: inline-block;height: 100%;vertical-align: middle;}
+
+.add-app-p{background: #dff4f9;padding:35rpx 10rpx;}
+.add-app-ty{float: right;color:#00a0e6;}
+.add-app-logo{vertical-align: middle;width:44rpx;display: inline-block;margin:0 10rpx 0 0 ;}
+.add-app-name{vertical-align: middle;color:#808080;}
+.bottom-space{height: 200rpx;}
+
+.btn-press {
+  background-color: #a0a0a0;
+}
+.insert-img{width: 36rpx;height: 32rpx;vertical-align: middle;margin: 0 17rpx 0 0;display: inline-block;}
+.insert-text{display: inline-block;vertical-align: middle;}
+
+.jiahao-p{position: fixed;z-index:200;bottom: 170rpx;right: 10rpx;width: 112rpx;height: 112rpx;border-radius: 50%;background: #3CA1E1;text-align: center;transition: 400ms;}
+/* .jiahao-p::before{content: "";display: inline-block;vertical-align: middle;height: 100%;} */
+.jiahao-p.open{background: #ccc;transform: rotateZ(-45deg)}
+.jiahao{width: 64rpx;height: 64rpx;display: inline-block;margin: 24rpx 0 0 0;}
+.charu{position: fixed;z-index:200;right: 10rpx;width: 356rpx;height: 66rpx;border:2rpx solid #3CA1E1;border-radius: 35rpx;line-height: 66rpx;color:#3CA1E1;text-align: center;transition: 400ms;
+
+background: #fff;}
+.charu.open{transform: scale(1,1);right: 10rpx;}
+.charu-img{bottom: 400rpx;}
+.charu-copy{bottom: 300rpx;}
+.top-line{background: #f0f0f0;height: 20rpx;}
+
+.gray{background: #ccc;}
+

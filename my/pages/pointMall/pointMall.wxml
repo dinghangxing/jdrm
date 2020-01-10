@@ -1,0 +1,113 @@
+<!--my/pages/pointMall/pointMall.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='data-list' style='padding-bottom:30rpx;'>
+
+  <!-- 每日签到 -->
+  <view class="daily_sign_view">
+
+    <!-- 签到布局-->
+    <view class="continuous_sign_view">
+      <view class="sign_view1">
+        <text class='daily_sign_text'>每日签到</text>
+        <text class='continuoused_sign_text'>已经连续签到 <text style='color:#ff0000'>{{signDayCount}}</text> 天</text>
+        <image class='daily_sign_image' bindtap='pointTipsBtn' src='/img/icon-wenhao-bai.png'></image>
+      </view>
+
+      <!-- <view class='view_line'></view> -->
+
+      <!-- 签到布局 1-->
+      <view class='view_point'>
+        <block wx:for="{{arrSignTime}}" wx:key="*this">
+          <view class='sign_view2' bindtap='signBtn' data-index="{{index}}">
+
+            <view class='data_view'>
+              <view class='date_text'>{{item.dateStr}}</view>
+
+              <view class="sign_image_view">
+                <!-- 签到显示图片 -->
+                <image wx:if="{{item.signed==true}}" class='sign_image' src='/img/icon-qiandao.png'></image>
+                <image wx:elif="{{item.signed==false}}" class='sign_image' style='display:none'></image>
+
+                <!-- 积分 -->
+                <!-- 还没签到的积分布局，排除已经显示的今日可签到项 -->
+                <text wx:if="{{item.signed==false && index!=0 && item.dateStr!='今日'}}" class='sign_points' style='border-radius: 16em; background-color:#e3e3e3;'></text>
+                <!-- 积分布局第一项 -->
+                <text wx:elif="{{item.signed==false && index==0}}" class='sign_points' style='border-radius: 16em; background-color:#3CA1E1;'></text>
+                <!-- 今日可签到的积分布局 -->
+                <text wx:elif="{{item.signed==false && item.dateStr=='今日'}}" class='sign_points' style='border-radius: 16em; background-color:#3CA1E1;'></text>
+               
+
+                <text wx:if="{{item.signed}}" class='sign_text' style='color:#3ca1e1'>+{{item.point}}</text>
+                <text wx:else class='sign_text' style='color: rgb(51, 51, 51);'>+{{item.point}}</text>
+
+              </view>
+              <!-- 中间横杠 -->
+              <view wx:if="{{index!=6 && item.signed && item.dateStr=='今日'}}" class='vertical_line' style='border:#e7e7e7 4rpx solid !important;'></view>
+              <view wx:elif="{{index!=6 && item.signed}}" class='vertical_line' style='border:#3ca1e1 4rpx solid !important;'></view>
+
+              <view wx:elif="{{index<6}}" class='vertical_line' style='border:#e7e7e7 4rpx solid;'></view>
+            </view>
+          </view>
+
+        </block>
+      </view>
+
+      <view wx:if="{{hadClickSignBtn}}" class='sign_btn' style='background-color:#d8d8d8'>签到成功</view>
+      <view wx:else class='sign_btn' bindtap='signReceiveBtn' hover-class='btn-press'>签到领积分</view>
+
+    </view>
+  </view>
+
+  <view class='point_top_view'>
+    <text class='point_mall_text'>积分商城</text>
+
+    <text class='point_count'>{{pointCount}}</text>
+    <text class='point_text'>积分</text>
+  </view>
+
+  <block wx:if="{{pointMallList!=null && pointMallList.length>0}}">
+    <view wx:for="{{pointMallList}}" wx:key="*this" class='view_menue_item' bindtap='clickPointItem' data-index="{{index}}">
+
+      <image class='left_image' src='/img/welfare_quan.png'></image>
+      <view class='pm_view'>
+        <text class='top_text'>{{item.p_name}}</text>
+        <!-- <view class='view_middle'> -->
+        <text class='middle_text2'>{{item.p_value}}积分</text>
+        <text class='middle_text1'>￥{{item.p_info}}</text>
+        <!-- </view> -->
+
+        <!-- <text class='right_bottom_btn'>立即换购</text> -->
+      </view>
+
+
+    </view>
+
+  </block>
+
+  <!-- <view wx:if="{{pointMallList.length > 0}}" class="data_tip">
+    <view wx:if="{{hasMore}}">正在加载</view>
+    <view wx:if="{{!hasMore}}">没有更多了</view>
+  </view> -->
+
+  <block wx:elif="{{pointMallList==null || pointMallList.length==0}}">
+    <view class='view_null'>
+      <text class="view_null_text">没有更多了</text>
+    </view>
+
+  </block>
+
+
+  <view wx:if="{{showToast}}" class='modal-mask'>
+    <view class='modal-view' style='width:570rpx;'>
+    <view class='modal-title' style='font-size:34rpx; color:#000; font-weight:bold'>每日积分说明</view>
+      <view class='modal-body' style='text-align: justify; color:#777; padding:30rpx 30rpx 10rpx 30rpx'>每日均可领取一次积分，领满7次，开始下一轮积分的领取，积分可用于购买平台内的积分类服务</view>
+      
+      <view class='modal-foot'>
+        
+        <view bindtap='confirm' class='modal-comfirm' style='color:#3CA1E1;font-weight:500;font-size:36rpx;height: 90rpx;line-height: 90rpx'>确定</view>
+      </view>
+    </view>
+  </view>
+
+</view>

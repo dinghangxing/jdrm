@@ -1,0 +1,420 @@
+/* pages/people/index/index.wxss */
+
+/* height: 100vh; */
+
+page {
+  height: 100%;
+  background-color: #f0f0f0;
+}
+
+.alphabetical-order {
+  /* height: calc(100% - 145rpx); */
+  height: calc(100% - 145rpx);
+  position: relative;
+  background-color: #f0f0f0;
+}
+
+.alphabet {
+  height: calc(100% - 500rpx); /*calc(100% - 400rpx);*/
+  position: fixed;
+  z-index: 1000;
+  text-align: center;
+  right: 0;
+  top: 300rpx; /*260rpx*/
+  bottom: 0;
+  color: rgb(119, 119, 119);
+  font-size: 18rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.letter {
+  flex: 1;
+  padding: 0 15rpx;
+}
+
+.letter-toast {
+  position: absolute;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 30rpx;
+  border-radius: 15rpx;
+  text-align: center;
+  font-size: 96rpx;
+  line-height: 96rpx;
+  width: 96rpx;
+}
+
+/* 搜索框样式 */
+
+.search_view {
+  height: 56rpx;
+  margin: 20rpx 23rpx;
+  border: 1rpx solid #e3e3e3;
+  background-color: #fff;
+  border-radius: 16rpx;
+  /* position: fixed; *//* z-index: 9; */
+}
+
+.context_search_view {
+  width: 700rpx;
+  text-align: center;
+  margin-top: 10rpx;
+  position: relative;
+}
+
+/* 搜索框小图标 */
+
+.image_search {
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 10rpx;
+}
+
+/* 搜索框提示文字样式 */
+
+.search_text {
+  font-size: 26rpx;
+  position: absolute;
+  bottom: 5rpx;
+  color: rgba(178, 178, 178, 1);
+}
+
+/* 结束*/
+
+.data-list {
+  height: 100%;
+  
+  position: relative;
+}
+
+.letter-tag {
+  background-color: #f0f0f0;
+  font-size: 28rpx;
+  line-height: 28rpx;
+  padding: 15rpx 30rpx;
+  color: #888;
+}
+
+/*===内容展示begin===*/
+
+.msg-item {
+  width: 100%;
+  height: 145rpx;
+  margin: 2rpx;
+  position: relative;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.msg {
+  width: 100%;
+  height: 145rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+}
+
+.msg:active {
+  background-color: #f9f9f9;
+}
+
+.head_view {
+  position: relative;
+}
+
+.header-img {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 22rpx 0 0 30rpx;
+  border-radius: 16em;
+}
+
+.text_header_view {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 22rpx 0 0 30rpx;
+  border-radius: 16em;
+  background-color: #a0a0a0;
+  text-align: center;
+}
+
+.text_header {
+  width: 100rpx;
+  height: 100rpx;
+  padding-top: 5rpx;
+  color: #fff;
+  font-size: 46rpx;
+}
+
+.text_header::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.head_right_bottom_img {
+  width: 26rpx;
+  height: 26rpx;
+  position: absolute;
+  bottom: 0;
+  left: 100rpx;
+}
+
+.top_text_view {
+  position: absolute;
+  left: 153rpx;
+  top: 26rpx;
+  display: inline-block;
+}
+
+.user-name {
+  display: inline-block;
+  font-size: 34rpx;
+  font-weight: 400;
+  color: #000;
+}
+
+.position_text {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: bottom;
+  width: 300rpx;
+  margin-left: 16rpx;
+  margin-bottom: 2rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+.msg-text {
+  position: absolute;
+  left: 153rpx;
+  bottom: 25rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+.interactive_text {
+  float: right;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+  margin-right: 30rpx;
+  padding-top: 40rpx;
+}
+
+/*===内容展示end=====*/
+
+.divide-line {
+  margin: 0 0 0 120rpx;
+  height: 1px;
+  width: auto;
+  position: relative;
+  z-index: 10;
+  background-color: #f0f0f0;
+}
+
+/*左滑展示begin*/
+
+.msg-menu {
+  position: absolute;
+  width: 100%;
+  height: 145rpx;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.menu-delete {
+  position: absolute;
+  width: 150rpx;
+  height: 145rpx;
+  top: 0rpx;
+  right: 0rpx;
+  background-color: #e94f4f;
+  color: #fff;
+  text-align: center;
+  line-height: 145rpx;
+}
+
+.menu-share {
+  position: absolute;
+  width: 150rpx;
+  height: 118rpx;
+  top: 0rpx;
+  right: 150rpx;
+  background-color: rgb(243, 126, 1);
+  color: #fff;
+  text-align: center;
+  line-height: 118rpx;
+}
+
+/*左滑展示頁面end*/
+
+/* 人脉头部信息 begin*/
+
+.view_item {
+  width: 750rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  padding-left: 30rpx;
+  position: relative;
+}
+
+.view_item:active {
+  background: #f9f9f9;
+}
+
+/* border: 1px solid #e3e3e3; */
+
+/* border-radius: 16rpx; */
+
+.view_menue_item {
+  background: #fff;
+  text-align: left;
+}
+
+.menue_item_image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 30rpx;
+  vertical-align: middle;
+}
+
+.menue_item_text {
+  font-size: 34rpx;
+  color: #000;
+  font-weight: 400;
+  position: absolute;
+  top: 50rpx;
+}
+
+.quan_quan {
+  width: 16rpx;
+  height: 16rpx;
+  background-color: rgb(255, 58, 50);
+  border-radius: 16em;
+  display: inline-block;
+  margin-right: 10rpx;
+  vertical-align: middle;
+
+}
+
+.update_text {
+  font-size: 26rpx;
+  color: rgba(119, 119, 119, 119);
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  width: 430rpx;
+}
+
+.view_line {
+  margin-left: 120rpx;
+  height: 2rpx;
+  background: #f9f9f9;
+}
+
+/*人脉头部信息 end*/
+
+/*空頁面展示*/
+
+.view_null {
+  text-align: center;
+}
+
+.view_null_image {
+  width: 223rpx;
+  height: 178rpx;
+  
+  margin-top: 60rpx;
+  margin-bottom: 30rpx;
+}
+
+.view_null_text {
+  font-size: 28rpx;
+  text-align: center;
+  color: rgb(153, 153, 153);
+}
+
+.view_null_btn {
+  width: 70%;
+  margin-top: 30rpx;
+  padding: 16rpx 0;
+  background-color: rgb(5, 144, 242);
+  color: white;
+  font-size: 36rpx;
+  border-radius: 16rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.null_image {
+  margin-right: 10rpx;
+  width: 49rpx;
+  height: 40rpx;
+}
+
+.round_click {
+  height: 126rpx;
+  width: 126rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9;
+}
+
+/**拍名片 点击态*/
+
+.round-press {
+  opacity: 0.8;
+  z-index: 99;
+  text-align: center;
+  position: fixed;
+  bottom: 20rpx;
+  right: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* transform: scale(0.9,0.9); */
+}
+
+/* .statistical-card {
+  width: 750rpx;
+  color: #777;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20rpx;
+  
+} */
+
+/**蓝色按钮点击态*/
+
+.btn-press {
+  background-color: #3796d2;
+}
+
+.btn-search-press {
+  background-color: #f9f9f9;
+}

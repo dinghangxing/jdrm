@@ -1,0 +1,130 @@
+<!--people/newPeople/newPeople.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{holderBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+
+<view class='alphabetical-order'>
+
+  <view class='data-list' style='padding-bottom:30rpx;'>
+    <block wx:if="{{isLoadFinish}}">
+      <!--新的人脉列表 begin -->
+      <block wx:if="{{dataSource!=null && dataSource.length > 0}}">
+        <block wx:for='{{dataSource}}' wx:key='{{pitem.tag}}' wx:for-item='pitem'>
+          <view wx:if="{{pitem.tag != null}}" id='{{pitem.tag}}' class='letter-tag'>{{pitem.tag}}</view>
+          <view wx:else class='letter-tag' style='display:none;'></view>
+
+          <view style='background: #fff;'>
+
+            <view wx:for='{{pitem.dataList}}' wx:key wx:for-item='item' wx:for-index='i' class='msg-item' animation='{{item.wrapAnimation}}'>
+
+              <view id='{{item.card_id}}' class='msg' data-item='{{item}}' animation='{{item.animation}}' bindtap='clickNewPeopleItem' hover-class='btn-press-item'>
+                <!-- bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend' -->
+
+                <view wx:if="{{item.head_img != null && item.head_img.length > 0}}">
+                  <image class='header-img' src='{{item.head_img}}'></image>
+                </view>
+                <view wx:else class='text_header_view'>
+                  <view class='text_header'>{{pitem.firstChar[i]}}</view>
+                </view>
+
+
+                <view class='top_text_view'>
+                  <view class="user-name">{{item.nickname}}</view>
+
+                  <view wx:if="{{item.job == null}}" class="position_text"></view>
+                  <view wx:else class="position_text">{{item.job}}</view>
+                  
+                  
+                </view>
+                <text wx:if="{{item.full_name == null}}" class="msg-text">单位/公司名称未知</text>
+                <text wx:else class="msg-text">{{item.full_name}}</text>
+
+                <!-- status：0，1，2 ；step 判断0 24，35-->
+                <block wx:if="{{item.status == 0 || item.status == 1}}">
+
+                  <block wx:if="{{cardId != 0}}">
+                    <text wx:if="{{item.step == 3}}" class="right_text">已回递</text>
+
+                    <text id='{{item.card_id}}' wx:if="{{item.step == 5}}" class="right_text" style='border: 1px solid rgb(60,161,225); background: rgb(60,161,225); color: rgb(255, 255, 255);' catchtap='clickSavePeopleBtn'>保存</text>
+
+                    <text wx:if="{{item.step == 2}}" class="right_text">等待交换</text>
+                    <text id='{{item.card_id}}' wx:if="{{item.step == 4}}" class="right_text" style='border: 1px solid rgb(60,161,225); background: rgb(60,161,225); color: rgb(255, 255, 255);' catchtap='clickAgreeExChangeBtn'>交换</text>
+
+                    <text id='{{item.card_id}}' wx:if="{{item.status == 1 && item.step == 0}}" class="right_text" style='border: 1px solid rgb(60,161,225); background: rgb(60,161,225); color: rgb(255, 255, 255);' catchtap='clickReplyPeopleBtn'>回递</text>
+                  </block>
+
+                  <block wx:else>
+                    <text wx:if="{{item.step == 3}}" class="right_text" catchtap='clickCreateCard' style='margin-right:10rpx;'>已回递 <text id='{{item.card_id}}' style='border: 1px solid rgb(60,161,225); border-radius: 10rpx;background: rgb(60,161,225); color: rgb(255, 255, 255);margin-top: 40rpx;padding-top: 8rpx;padding-bottom: 8rpx;padding-left: 20rpx;padding-right: 20rpx;' >创建</text></text>
+                  </block>
+
+                </block>
+
+                <block wx:if="{{item.status == 2}}">
+                  <text id='{{item.card_id}}' class="right_text">已互存</text>
+
+                </block>
+
+                <!-- <text id='{{item.card_id}}' wx:if="{{cardId != 0 && item.status == 1}}" class="right_text" style='border: 1px solid rgb(60,161,225); background: rgb(60,161,225); color: rgb(255, 255, 255);' catchtap='clickReplyPeopleBtn'>回递</text> -->
+
+                <!-- <text wx:elif="{{cardId == 0 && item.status == 1}}" class="right_text" catchtap='clickCreateCard' style='margin-right:10rpx;'>已保存 <text id='{{item.card_id}}' style='border: 1px solid rgb(60,161,225); border-radius: 10rpx;background: rgb(60,161,225); color: rgb(255, 255, 255);margin-top: 40rpx;padding-top: 8rpx;padding-bottom: 8rpx;padding-left: 20rpx;padding-right: 20rpx;' >创建</text></text> -->
+
+                <!-- <text wx:if="{{item.status == 2 || item.status == 21 || item.status == 22}}" class="right_text">等待交换</text> -->
+
+                <!-- <text wx:if="{{item.status == 3}}" class="right_text">已回递</text>
+
+                <text id='{{item.card_id}}' wx:if="{{item.status == 4 || item.status == 41 || item.status == 42}}" class="right_text" style='border: 1px solid rgb(60,161,225); background: rgb(60,161,225); color: rgb(255, 255, 255);' catchtap='clickAgreeExChangeBtn'>交换</text>
+
+                <text id='{{item.card_id}}' wx:if="{{item.status == 5}}" class="right_text" style='border: 1px solid rgb(60,161,225); background: rgb(60,161,225); color: rgb(255, 255, 255);' catchtap='clickSavePeopleBtn'>保存</text>
+
+                <text wx:if="{{item.status == 6}}" class="right_text">已互存</text> -->
+
+              </view>
+
+              <view class='msg-menu'>
+                <view id='{{item.card_id}}' class='menu-delete' bindtap='onDeleteMsgTap'>
+                  删除
+                </view>
+
+              </view>
+
+              <view wx:if="{{i>0 && i != pitem.data.length-1}}" class='divide-line'></view>
+
+            </view>
+          </view>
+        </block>
+
+      </block>
+
+      <view wx:if="{{dataSource != null && dataSource.length > 0}}" class="data_tip">
+        <view wx:if="{{hasMore}}">正在加载</view>
+        <view wx:if="{{!hasMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+      </view>
+
+      <!--人脉列表 end-->
+
+      <!--无人脉关系时展示null页面-->
+      <block wx:else>
+        <view class='view_null'>
+          <view class='view_middle'>
+            <image class='view_null_image' src='/img/empty_people_img.png'></image>
+            <view class="view_null_text">主动发送名片，丰富您的人脉圈</view>
+          </view>
+
+          <view style='width:750rpx;height:135rpx; background:#fff;position: fixed;bottom: 0rpx;'></view>
+          <button wx:if="{{cardId != 0}}" class='view_null_btn' hover-class='btn-press' open-type="share">
+            <image class='null_image' src='/img/send_card_image.png'></image>
+            <view>发名片</view>
+          </button>
+
+          <button wx:else class='view_null_btn' hover-class='btn-press' bindtap='clickCreateCardBtn'>
+            <image class='null_image' src='/img/send_card_image.png'></image>
+            <view>创建我的名片</view>
+          </button>
+
+        </view>
+      </block>
+
+    </block>
+
+  </view>
+
+</view>

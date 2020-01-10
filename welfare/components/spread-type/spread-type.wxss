@@ -1,0 +1,21 @@
+.radio-group{background: #fff;box-shadow:0 1rpx 0rpx 0rpx #ccc;}
+.radio{display: block;padding:30rpx 15rpx;border-bottom: 1rpx solid #eeeded;margin: 0 15rpx;}
+.ban-title{font-weight: bold;}
+.ban-text{font-size: 0.8em;}
+.ban-radio{float: right;}
+.ban-price{float: right;font-weight: bold;color:#cd0606;padding:0 10rpx 0 0;}
+.price-item{display: inline-block;margin:30rpx 66rpx 0 66rpx;}
+.price-item:first-child{margin:30rpx 0rpx 0 0rpx;}
+.price-item:last-child{margin:30rpx 0rpx 0 0rpx;}
+.price-item-top{border:1rpx solid #d1d1d1;width:160rpx;height:100rpx;text-align: center;font-size:0.8em;}
+.price-item-top::before{content:"";display: inline-block;height:100%;vertical-align: middle;}
+.active .price-item-top{border:1rpx solid #39bee1;background: #39bee1;color: #fff;}
+.price-item-bottom{border-right:1rpx solid #d1d1d1;border-bottom:1rpx solid #d1d1d1;border-left:1rpx solid #d1d1d1;width:160rpx;height:100rpx;text-align: center;}
+.price-item-bottom:before{content:"";display: inline-block;height: 100%;vertical-align: middle;}
+.active .price-item-bottom{border-right:1rpx solid #39bee1;border-bottom:1rpx solid #39bee1;border-left:1rpx solid #39bee1;}
+.new-price{font-size:0.8em;color:#39bee1;}
+.old-price{font-size:0.6em;text-decoration: line-through;color:#a0a0a0;padding:0 10rpx;}
+.desc-price{font-size:0.6em;color:#a0a0a0;}
+.price-p{display: inline-block;vertical-align: middle;}
+.price-item-list{text-align: center;clear: both;height:236rpx;transition: 0.2s;overflow: hidden;}
+.middle{display:inline-block;vertical-align: middle;}

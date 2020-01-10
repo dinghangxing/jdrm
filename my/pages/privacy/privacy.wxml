@@ -1,0 +1,33 @@
+<!--my/pages/privacy/privacy.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='privacy_view'>隐私设置</view>
+<!--公开我的联系方式布局-->
+<view class="view_menu_item" >
+  <view class='switch_view'>
+    <switch checked="{{isChecked1}}" color="#3a9ddb" bindchange="privateChange1" />
+  </view>
+
+  <view class='menue_item_text'>公开我的名片 <text style='color:rgb(119,119,119); font-size:28rpx'>{{setText}}</text></view>
+</view>
+
+<!--公开朋友对我的评价布局-->
+<!-- <view class="view_menu_item" style='margin-top:2rpx;'>
+ 
+  <view class='switch_view'>
+    <switch checked="{{isChecked2}}" bindchange="privateChange2" />
+  </view>
+
+  <view class='menue_item_text'>公开朋友对我的评价</view>
+</view> -->
+
+<!--公开我可帮朋友引荐的人脉布局-->
+<!-- <view class="view_menu_item" style='margin-top:2rpx;'>
+ 
+  <view class='switch_view'>
+    <switch checked="{{isChecked3}}"  bindchange="privateChange3" />
+  </view>
+
+  <view class='menue_item_text'>公开我可帮朋友引荐的人脉</view>
+
+</view> -->

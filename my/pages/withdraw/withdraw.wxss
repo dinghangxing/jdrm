@@ -1,0 +1,107 @@
+/* my/pages/withdraw/withdraw.wxss */
+@import "/wxss/modal.wxss";
+@import "/wxss/pressStatus.wxss";
+
+page {
+  background-color: #f0f0f0;
+}
+
+.view_background {
+  background-color: #fff;
+}
+
+.top_text {
+  width: 750rpx;
+  padding-top: 30rpx;
+  background-color: #f7f7f7;
+}
+
+.middle_view {
+  padding-top: 36rpx;
+  padding-bottom: 72rpx;
+  background-color: #f7f7f7;
+  text-align: center;
+  display: block;
+  clear: both;
+}
+
+.head_img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 16em;
+  vertical-align: middle;
+}
+
+.user_name {
+  margin-top: 20rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  font-size: 36rpx;
+}
+
+
+.recharge_view{
+  width: 750rpx;
+  height: 410rpx;
+  margin: 20rpx 10rpx;
+  padding-top: 20rpx;
+  
+  background-color: #fff;
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius:10rpx; 
+}
+
+.recharge_text{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+ 
+}
+
+.price_input {
+  
+  float: right;
+  margin: 30rpx 20rpx 0 20rpx;
+  font-size: 80rpx;
+  vertical-align: middle;
+  color:rgb(0,0,0);
+  font-weight: bold;
+  width: 88%;
+  height: 70rpx;
+}
+
+.line{
+  height:116rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+
+.withdraw_btn {
+  width: 95%;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  font-size: 34rpx;
+  margin: 50rpx 10rpx 0 10rpx;
+  border-radius: 10rpx;
+  background-color: rgb(60, 161, 225);
+}
+
+.withdraw_btn:active{
+  opacity: 0.8;
+}
+
+/**蓝色按钮点击态*/
+
+.btn-press {
+  background-color: #3796d2;
+}
+
+/**蓝色边框 按钮点击态*/
+
+.btn-press2 {
+  background-color: #f9f9f9;
+  border: 1rpx solid #f9f9f9;
+}

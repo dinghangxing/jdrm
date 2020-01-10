@@ -1,0 +1,51 @@
+<!--my/pages/redRecord/redRecord.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+
+  <!-- <view class='receive_red' bindtap='clickReceiveRed'>收到的红包</view> -->
+
+  <view class='my_red_view'>
+
+    <image class='user_img' src='{{userAvatarUrl}}'></image>
+
+    <view class='my_total_send'>{{userNickName}}共发出</view>
+    <view style='display: inline-block; margin-top:80rpx; margin-bottom:40rpx;'>
+      <text class='send_count'>{{sendTotal.total_amounts/100}}</text>
+      <text class='price_unit'> 元</text>
+    </view>
+
+    <view class='send_total_count'>发出红包 <text style='color:#F45E4D;font-size:40rpx'>{{sendTotal.total_num == null? 0: sendTotal.total_num}}</text> 个</view>
+
+  </view>
+
+  <block wx:if="{{sendRedList!=null && sendRedList.length>0}}">
+    <view wx:for='{{sendRedList}}' class='receive_list_view'>
+      <view class='line'></view>
+      
+      <view class='left_view'>
+        <view wx:if='{{item.lucky_type == 2}}' class='red_type_text'>拼手气红包</view>
+        <view wx:if='{{item.lucky_type == 1}}' class='red_type_text'>普通红包</view>
+        <view class='red_time'>{{item.create_time}}</view>
+      </view>
+
+      <view class='right_view'>
+        <view class='red_balance'>{{item.total_amounts/100}}元</view>
+
+        <view wx:if='{{item.remain_num == 0 && item.status == 0}}' class='red_status'>已领完 {{item.total_num}}/{{item.total_num}}个</view>
+
+        <view wx:elif='{{(item.total_num - item.remain_num) >= 0 && item.status == 1}}' class='red_status'>已领取 {{item.total_num - item.remain_num}}/{{item.total_num}}个</view>
+
+        <view wx:elif='{{item.status == 0}}' class='red_status'>已过期 {{item.total_num - item.remain_num}}/{{item.total_num}}个</view>
+
+      </view>
+
+    </view>
+  </block>
+
+  <view wx:if="{{sendRedList.length > 0}}" class="data_tip">
+    <view wx:if="{{hasMore}}">正在加载</view>
+    <view wx:if="{{!hasMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+  </view>
+
+</view>

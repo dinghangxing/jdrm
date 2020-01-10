@@ -1,0 +1,149 @@
+{
+  "pages": [
+    "pages/card/index/index",
+    "pages/people/index/index",
+    "pages/welfare/index/index",
+    "pages/login/login",
+    "pages/my/index/index",
+    "pages/cutImg/cutImg",
+    "test/test",
+    "pages/shootCard/shootCard"
+    
+  ],
+  "subpackages": [
+    {
+      "root": "welfare",
+      "pages": [
+        "pages/address/address",
+        "pages/detail/detail",
+        "pages/share/share",
+        "pages/start/start",
+        "pages/topList/topList",
+        "pages/users/users",
+        "pages/welfare/welfare",
+        "pages/winner/winner",
+        "pages/buyTop/buyTop",
+        "pages/edit/edit",
+        "pages/nameList/nameList"
+      ]
+    },
+    {
+      "root": "my",
+      "pages": [
+        "pages/myInitiate/myInitiate",
+        "pages/myJoin/myJoin",
+        "pages/winRecord/winRecord",
+        "pages/pointMall/pointMall",
+        "pages/welfareProfessionCoupon/welfareProfessionCoupon",
+        "pages/welfareProfessionCoupon/addService/addService",
+        "pages/cardProfessionCoupon/cardProfessionCoupon",
+        "pages/cardProfessionCoupon/addService/addService",
+        "pages/privacy/privacy",
+        "pages/useHelp/useHelp",
+        "pages/balance/balance",
+        "pages/balanceDetail/balanceDetail",
+        "pages/redRecord/redRecord",
+        "pages/redReceive/redReceive",
+        "pages/reCharge/reCharge",
+        "pages/useHelp/userHDetail/userHDetail",
+        "pages/welfareProfessionCoupon/shareAddService/shareAService",
+        "pages/withdraw/withdraw",
+        "pages/welfareProfessionCoupon/addService1/addService1"
+      ]
+    },
+    {
+      "root": "people",
+      "pages": [
+        "pages/myVisitor/myVisitor",
+        "pages/newPeople/newPeople",
+        "pages/peopleWelfare/peopleWelfare",
+        "pages/takeCard/takeCard",
+        "pages/cardRecognition/cardRecognition",
+        "pages/search/search"
+      ]
+    },
+    {
+      "root": "card",
+      "pages": [
+        "edit/edit",
+        "service/service",
+        "welfare/welfare",
+        "man/man",
+        "selectMan/selectMan",
+        "detail/detail",
+        "redPackage/openRP/rpDetail",
+        "sendRedPackage/sendRP",
+        "test/test"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "pages/card/index/index": {
+      "network": "all",
+      "packages": [
+        "card"
+      ]
+    },
+    "pages/people/index/index": {
+      "network": "all",
+      "packages": [
+        "people"
+      ]
+    },
+    "pages/welfare/index/index": {
+      "network": "all",
+      "packages": [
+        "welfare"
+      ]
+    },
+    "pages/my/index/index": {
+      "network": "all",
+      "packages": [
+        "my"
+      ]
+    }
+  },
+  "tabBar": {
+    "selectedColor": "#3ca1e1",
+    "color": "#777",
+    "list": [
+      {
+        "pagePath": "pages/card/index/index",
+        "text": "名片",
+        "selectedIconPath": "/img/icon-mingpian.png",
+        "iconPath": "/img/icon-mingpian-hui.png"
+      },
+      {
+        "pagePath": "pages/people/index/index",
+        "text": "人脉",
+        "selectedIconPath": "/img/icon-renmai-lan.png",
+        "iconPath": "/img/icon-renmai-hui.png"
+      },
+      {
+        "pagePath": "pages/welfare/index/index",
+        "text": "福利",
+        "selectedIconPath": "/img/icon-gift-lan.png",
+        "iconPath": "/img/icon-gift-hui.png"
+      },
+      {
+        "pagePath": "pages/my/index/index",
+        "text": "我的",
+        "selectedIconPath": "/img/icon-wode-lan.png",
+        "iconPath": "/img/icon-wode-hui.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTitleText": "简单人脉",
+    "navigationBarBackgroundColor": "#fff",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "debug": true,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于选择公司地址"
+    }
+  }
+}

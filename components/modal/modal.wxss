@@ -1,0 +1,10 @@
+/* components/modal/modal.wxss */
+cover-view{word-break: break-all;word-wrap:break-word;white-space:pre-line;}
+.modal-mask{position: fixed;z-index:200;top: 0;bottom: 0;right: 0;left: 0;background: rgba(0,0,0,0.5);display: flex;justify-content:space-around;align-items:center;}
+.modal-v{width: 600rpx;background: #fff;border-radius: 6rpx;}
+.modal-title{text-align: center;font-size: 36rpx;color: #3d3d3d;padding: 30rpx 0;}
+.modal-content{padding: 0 40rpx 30rpx 40rpx;color: #999;font-size: 30rpx;border-bottom: 2rpx solid #f4f4f5;}
+.modal-foot{text-align: center;}
+.modal-btn{display: inline-block;height: 80rpx;line-height: 80rpx;width: 49%;color: #3ca1e1;font-size: 36rpx;}
+.cancel{color: #000 !important;border-right: 2rpx solid #f4f4f5;}
+

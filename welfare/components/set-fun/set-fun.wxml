@@ -1,0 +1,43 @@
+
+<!-- <view class='m-title'>设置奖品</view> -->
+<swiper class='fun-img-list' current="{{current}}">
+ 
+    <swiper-item wx:for="{{list}}" wx:for-key="*this" catchtouchmove='false'>
+      <image src="{{item.banner_img}}" style='width:100%;height:100%;' />
+    </swiper-item>
+ 
+</swiper>
+ 
+
+
+
+
+  <view class='cj-item'>
+
+    <text class='prize-item-key' decode="{{true}}">奖品名称</text>
+    <view class='prize-item-val'>
+      <swiper class='fun-name-list' vertical="true"  current="{{current}}">
+        <swiper-item wx:for="{{list}}" wx:for-key="*this" catchtouchmove='false'>
+          <view>{{item.prize_name}}</view>
+        </swiper-item>
+      </swiper>
+
+      <view bindtap="change" class='hyg' hover-class='border-press-item'>换一个</view>
+    </view>
+
+  </view>
+
+  <view class='cj-item'>
+    <image wx:if="{{numNull}}"  class='prize_num_tip' src='/welfare/img/prize_num_tip.png'></image>
+    <image wx:if="{{numOver}}" class='prize_num_tip' src='/welfare/img/prize_num_over.png'></image>
+    <view class='prize-item-key' bindtap='tipNum'>
+      奖品份数
+    </view>
+    <view class='prize-item-val'>
+      <input bindinput='prizeNumInput' value='{{prize_num}}' data-index="{{index}}" type='number' placeholder='份数' class='cj-num middle' placeholder-class="input-placeholder" style='width:450rpx;'></input>
+      <text class="middle">个</text>
+    </view>
+
+  </view>
+
+

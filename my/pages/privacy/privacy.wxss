@@ -1,0 +1,39 @@
+/* my/pages/privacy/privacy.wxss */
+
+.view_background{
+  background-color: #fff;
+}
+
+.privacy_view{
+  height: 80rpx;
+  font-size: 28rpx;
+  margin-left: 32rpx;
+  margin-top: 20rpx;
+  text-align: left;
+  color:rgb(119, 119, 119);
+  background-color: #f0f0f0;
+  
+}
+
+.view_menu_item {
+ 
+  background: #ffffff;
+  padding-left: 16rpx;
+  padding-top: 30rpx; 
+  padding-bottom: 30rpx; 
+}
+
+.menue_item_text{
+  width: 75%;
+  font-size: 34rpx;
+  padding-left: 20rpx;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+
+}
+
+.switch_view{
+  float: right; 
+  margin-top: -10rpx;
+  margin-right:20rpx;
+}

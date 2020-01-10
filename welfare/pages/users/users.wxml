@@ -1,0 +1,27 @@
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class="userlist">
+  <view class="user-title">{{total}}位参与者</view>
+  <view wx:for="{{list}}" wx:key="*this" wx:for-item="item" class="percent" data-id="{{index}}" bindtap='showDetail'>
+    <image class="sm-img" src="{{item.icon}}"></image>
+  </view>
+</view>
+
+
+
+<view class="user-more in-line" bindtap="loadMore">
+  <!-- <image class="lt-img" src="/img/loading.png" wx:if="{{!hidden}}"></image> -->
+  <text style='magrin-left:20rpx'>{{noMore ? '没有更多了' : '加载更多'}}</text>
+</view>
+
+<view wx:if="{{isShowDetail}}" class='mask' bindtap='hideDetail'>
+  <view class='cur-view'>
+    <image bindtap='hideDetail' class='close-btn' src='/img/close_img.png'></image>
+    <image  class='cur-icon' src='{{user.icon}}'></image>
+    <view class='cur-nickname'>{{user.nickname}}</view>
+  </view>
+  
+</view>
+
+

@@ -1,0 +1,187 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{false}}" search="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_line'></view>
+
+<!-- <view style='height:125rpx;'></view> -->
+
+<view class='alphabetical-order'>
+  <!--  -->
+  <view id='alphabet' hover-stop-propagation="true" class='alphabet' style='line-height: {{letterHeight}}px; background-color: {{startTouchAlphabet ? "rgba(0, 0, 0, 0.1)" : "transparent"}};' catchtouchcancel='letterTouchCancelEvent' catchtouchstart='letterTouchStartEvent'
+    catchtouchmove='letterTouchMoveEvent' catchtouchend='letterTouchEndEvent'>
+
+    <block wx:if="{{alphabet != null}}">
+      <view class='letter' wx:for="{{alphabet}}" wx:key>{{item == 'PoundSign' ? '#' : item}}
+      </view>
+
+    </block>
+  </view>
+
+  <view wx:if='{{startTouchAlphabet}}' class='letter-toast'>{{touchLetter == 'PoundSign' ? '#' : touchLetter}}</view>
+
+  <scroll-view class='data-list' scroll-y="true" scroll-into-view='{{touchLetter}}' bindscrolltolower='bottomScrollTolower'>
+
+    <!-- <view class='search_view' bindtap='searchBtn' hover-class='btn-search-press'>
+      <view class='context_search_view'>
+        <image class="image_search" src='/img/search_img.png'></image>
+        <text class='search_text'>搜索</text>
+      </view>
+    </view> -->
+
+    <!--人脉头部信息 begin-->
+    <!--新的人脉-->
+    <view class="view_menue_item">
+      <view class='view_item' bindtap='clickNewPeopleView'>
+        <image class='menue_item_image' src='/img/people_image.png'></image>
+        <text class='menue_item_text'>新的人脉</text>
+
+        <view wx:if="{{newPeople != null && newPeople.length > 0}}" style='float:right;margin-top:30rpx; margin-right:60rpx;'>
+          <!-- <view class='quan_quan'></view> -->
+          <view class='update_text'>
+            <text class='quan_quan'></text>{{newPeople}}</view>
+        </view>
+
+        <view wx:else style='float: right; margin-top:30rpx;display:none'>
+          <!-- <view class='quan_quan' style='display:none'></view> -->
+          <view class='update_text' style='display:none'></view>
+        </view>
+
+      </view>
+
+      <view class='view_line'></view>
+
+      <!--我的访客-->
+      <view class='view_item' bindtap='clickMyVisitorView'>
+        <image class='menue_item_image' src='/img/fangke_image.png'></image>
+        <text class='menue_item_text'>我的访客</text>
+        <view wx:if="{{myVisitor != null && myVisitor.length > 0}}" style='float:right;margin-top:30rpx;margin-right:60rpx;'>
+          <!-- <view class='quan_quan'></view> -->
+          <view class='update_text'>
+            <text class='quan_quan'></text>{{myVisitor}}</view>
+        </view>
+
+        <view else style='float:right;margin-top:30rpx;display:none'>
+          <!-- <view class='quan_quan' style='display:none'></view> -->
+          <view class='update_text' style='display:none'></view>
+        </view>
+      </view>
+
+      <view class='view_line'></view>
+
+      <!--人脉福利-->
+      <view class='view_item' bindtap='clickWelfareView'>
+        <image class='menue_item_image' src='/img/welfare_image.png'></image>
+        <text class='menue_item_text'>人脉福利</text>
+        <view wx:if="{{peopleWelfare != null && peopleWelfare.name.length > 0}}" style='float: right; margin-top:30rpx;margin-right:60rpx;'>
+          <!-- <view class='quan_quan'></view> -->
+          <view class='update_text'>
+            <text class='quan_quan'></text>{{peopleWelfare.name}}更新了福利</view>
+        </view>
+        <view wx:else style='float: right; margin-top:30rpx; display:none;'>
+          <!-- <view class='quan_quan' style='display:none'></view> -->
+          <view class='update_text' style='display:none'></view>
+        </view>
+      </view>
+    </view>
+    <!--人脉头部信息 end-->
+    <block wx:if="{{isLoadFinish}}">
+      <block wx:if="{{dataSource!=null && dataSource.length>0}}">
+        <block wx:for='{{dataSource}}' wx:key='{{pitem.tag}}' wx:for-item='pitem'>
+          <view wx:if='{{pitem.tag == "PoundSign"}}' class='letter-tag' style=' display: none'></view>
+          <view wx:else id='{{pitem.tag}}' class='letter-tag' style='{{tagStyle}}'>{{pitem.tag}}</view>
+
+          <view style='background: #fff;'>
+
+            <view wx:for='{{pitem.dataList}}' wx:key wx:for-item='item' wx:for-index='j' class='msg-item' animation='{{item.wrapAnimation}}'>
+
+              <view id='{{item.card_id}}' class='msg' data-item='{{item}}' animation='{{item.animation}}' bindtap='clickPeopleItem' bindtouchstart='ontouchstart' bindtouchmove='ontouchmove' bindtouchend='ontouchend'>
+                <view class='head_view'>
+
+                  <view wx:if="{{item.head_img != null && item.head_img.length > 0}}">
+                    <image class='header-img' src='{{item.head_img}}'></image>
+                  </view>
+                  <view wx:else class='text_header_view'>
+                    <view class='text_header'>{{pitem.firstChar[j]}}</view>
+                  </view>
+
+                  <image wx:if='{{item.user_id > 0 && item.active_type == 1}}' class='head_right_bottom_img' style='width: 22rpx;height: 27rpx;' src='/img/hongbao_biaoshi.png'></image>
+                  <image wx:elif='{{item.user_id > 0 && item.active_type == 2}}' class='head_right_bottom_img' style='width: 26rpx;height: 26rpx;' src='/img/fuli_biaoshi.png'></image>
+                  <image wx:elif='{{item.user_id == 0 || item.user_id == null}}' class='head_right_bottom_img' style='width: 26rpx;height: 23rpx;' src='/img/take_phone.png'></image>
+                  <image wx:else class='head_right_bottom_img' style='display:none'></image>
+
+                </view>
+
+                <view class='top_text_view'>
+                  <view class="user-name">{{item.name}}</view>
+                  <view class="position_text">{{item.job}}</view>
+                </view>
+                <text wx:if="{{item.full_name == null}}" class="msg-text">单位/公司名称未知</text>
+                <text wx:else class="msg-text">{{item.full_name}}</text>
+
+              </view>
+
+              <view class='msg-menu'>
+                <view id='{{item.card_id}}' class='menu-delete' bindtap='onDeleteMsgTap'>
+                  删除
+                </view>
+                <!-- <view id='{{item.card_id}}' class='menu-share' bindtap='onMarkMsgTap'>
+                分享
+              </view> -->
+              </view>
+
+              <view wx:if="{{j>0 && j != pitem.data.length-1}}" class='divide-line'></view>
+
+            </view>
+          </view>
+
+        </block>
+      </block>
+
+      <!--无人脉关系时展示null页面-->
+      <block wx:else>
+        <view class='view_null'>
+          <image class='view_null_image' src='/img/empty_people_img.png'></image>
+          <view class="view_null_text">主动发名片，积累更多人脉</view>
+
+          <button wx:if="{{cardId != 0}}" class='view_null_btn' open-type="share" hover-class='btn-press'>
+            <image class='null_image' src='/img/send_card_image.png'></image>
+            <view>发名片</view>
+          </button>
+
+          <button wx:else class='view_null_btn' bindtap='clickCreateCardBtn' hover-class='btn-press'>
+            <image class='null_image' src='/img/send_card_image.png'></image>
+            <view>创建我的名片</view>
+          </button>
+
+        </view>
+      </block>
+    </block>
+
+    <view wx:if='{{bottomHeight}}' style='height:230rpx;'>
+      <view style='margin-top:30rpx;text-align: center'>
+        <text wx:if='{{allCard > 0}}' style='color:rgb(119, 119, 119);'>{{allCard}}张名片，</text>
+        <text wx:if='{{cardNum > 0}}'style='color:rgb(119, 119, 119);'>{{cardNum}}条人脉</text>
+      </view>
+
+    </view>
+
+    <view wx:else>
+      <view style='margin-top:30rpx;text-align: center'>
+        <text wx:if='{{allCard > 0}}' style='color:rgb(119, 119, 119);'>{{allCard}}张名片</text>
+        <text wx:if='{{cardNum > 0}}'style='color:rgb(119, 119, 119);'>，{{cardNum}}条人脉</text>
+      </view>
+
+    </view>
+  </scroll-view>
+
+
+</view>
+
+<!--圆形点击框  -->
+<view bindtap='clickCardRecognitionView' hover-class="round-press">
+  <image class='round_click' src='/img/paimingpian.png'></image>
+</view>
+
+
+<canvas canvas-id='shareCan' style='position:absolute;left:750rpx;top:-1000rpx;width:500px;height:400px;'></canvas>
+
+<!-- <tabbar index="1"></tabbar> -->

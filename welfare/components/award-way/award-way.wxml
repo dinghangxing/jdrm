@@ -1,0 +1,22 @@
+<view class='cj-item-c' bindtap='switchAction' hover-class='btn-press4'>
+   <view wx:if="{{type < 4}}" class='cj-item-val-c'>
+     <text class='middle'>修改开奖方式</text>
+     <image class='middle' src='/img/into_blue.png' style='width:12rpx;height:20rpx;margin:0 0 0 10rpx;'></image>
+   </view>
+    <view class="picker" style='color:#777;'>
+      <text wx:if="{{type < 4}}">{{title}}</text>
+      <text wx:if="{{type == 4}}">设置发布时间</text>
+    </view>
+</view>
+
+
+<view hidden="{{actionHidden}}" class='action-mask' catchtouchmove='true'>
+  <view  class='action-p {{isShowAct ? "show" : ""}}'>
+    <button data-val="1" data-title="按时间自动开奖" bindtap='select' class='action-item '>按时间自动开奖</button>
+    <button  data-val="2" data-title="按人数自动开奖"  bindtap='select' class='action-item'>按人数自动开奖</button>
+    <button  data-val="3" data-title="手动开奖"  bindtap='select' class='action-item'>手动开奖</button>
+    <button bindtap='switchAction' class='action-cancel'>取消</button>
+  </view>
+  
+</view>
+  

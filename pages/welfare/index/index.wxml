@@ -1,0 +1,182 @@
+<wxs module="filter" src="../../../util/filter.wxs"></wxs>
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{false}}" background="{{barBg}}"></navigationBar>
+
+<view wx:if="{{isTopTip}}" class="top-tip">
+  <view bindtap='closeTopTip' class='close-top-tip'>×</view>
+  <view bindtap='copyGz' class='copy-gz'>复制名称</view>
+  搜索关注公众号，获取更好体验
+</view>
+<view wx:if="{{!pageHidden}}">
+  <view class="title">
+    <image wx:if="{{topActiveList.length > 0}}" class='ttfl-img' src='/img/tthy.png'></image>
+    <view class='share-p'>
+      <view bindtap='showModal' class='to-top-btn'>我也要上首页</view>
+      <view class='share-line'></view>
+      <button open-type='share' class='fenxiang-btn'>分享</button>
+    </view>
+  </view>
+
+
+
+  <navigator wx:for="{{topActiveList}}" wx:key="*this" url="/welfare/pages/detail/detail?active_id={{item.active_id}}&series=1" class='view_lottery'>
+    <image class='lottery_image' src='{{item.prize_img1}}'></image>
+
+    <view class='view_sponsor'>
+      <text class="lottery_text">{{item.nickname}}</text>
+      <!-- <image class='image_addv' src='/img/addv_image.png'></image> -->
+      <text class='lottery_text' style='margin:0 0 0 10rpx;'>赞助</text>
+    </view>
+
+    <view class='view_prize shenlue'>
+      <text wx:if="{{item.prize_name2 != ''}}" class=''>奖项一:</text>
+      <text wx:if="{{item.prize_name2 == ''}}" class='' decode="{{true}}">奖品:</text>
+      {{filter.calcPrizeName(item.prize_name1,item.prize_num1)}}
+    </view>
+    <view wx:if="{{item.prize_name2 != ''}}" class='view_prize shenlue'>
+      <text class='prize-title'>奖项二:</text>
+      {{filter.calcPrizeName(item.prize_name2,item.prize_num2)}}
+    </view>
+    <view wx:if="{{item.prize_name3 != ''}}" class='view_prize shenlue'>
+      <text class='prize-title'>奖项三:</text>
+      {{filter.calcPrizeName(item.prize_name3,item.prize_num3)}}
+
+    </view>
+
+
+    <view class='view_lottery2'>
+      <block wx:if="{{item.apply_status == 1}}">
+        <image class='image_check' src='/img/image2.png'></image>
+        <text class=" join_text">已参与 | </text>
+      </block>
+      <view wx:if="{{item.open_type == 1}}" class="lottery_time">
+        <view class='middle'>{{filter.date(item.open_date) }} 自动开奖</view>
+        <image wx:if="{{item.group_user_limit > 0 }}" class='tuan-zi' src='/img/tuan-zi.png'></image>
+      </view>
+      <view wx:if="{{item.open_type == 2}}" class="lottery_time">
+        <view class='middle'>达到{{item.open_users}}人，自动开奖</view>
+        <image wx:if="{{item.group_user_limit > 0 }}" class='tuan-zi' src='/img/tuan-zi.png'></image>
+      </view>
+      <view wx:if="{{item.open_type == 3}}" class="lottery_time">
+        <view class='middle'>手动开奖</view>
+        <image wx:if="{{item.group_user_limit > 0 }}" class='tuan-zi' src='/img/tuan-zi.png'></image>
+      </view>
+
+    </view>
+
+
+    <view hidden='{{item.is_gender == 0 && item.active_key == "" && item.group_user_limit == 0}}' class='view_recommend'>
+      <text class="recommend_text">参与条件：</text>
+      <text wx:if="{{item.is_gender == 1}}" class="recommend_g">男</text>
+      <text wx:if="{{item.is_gender == 2}}" class="recommend_g">女</text>
+      <text wx:if="{{item.active_key != ''}}" class="recommend_g">口令</text>
+      <text wx:if="{{item.group_user_limit > 0}}" class="recommend_g">可组队</text>
+    </view>
+
+
+  </navigator>
+  <!-- <navigator wx:if="{{topActiveList.length >= 6}}" hover-class="none" url='/welfare/pages/topList/topList' class='more-lottery'>
+    <view class='middle'>查看全部</view>
+    <image class='blue_arr middle' src='/img/into_blue.png' style='width:11rpx;height:20rpx;'></image>
+  </navigator> -->
+  <view wx:if="{{topActiveList.length == 0 && pubActiveList.length == 0}}" class='no-data'>
+    <image class='no-data-img' src='/img/empty_welfare_image.png'></image>
+    <view class='no-data-desc'>暂无福利，快去发起抽奖</view>
+  </view>
+
+  <view class='title'>
+
+    <image wx:if="{{pubActiveList.length > 0}}" class='ggfl-img' src='/img/ggfl.png'></image>
+  </view>
+
+  <navigator wx:for="{{pubActiveList}}" wx:key="*this" url="/welfare/pages/detail/detail?active_id={{item.active_id}}&series=1" class='view_over'>
+
+    <image src='{{item.prize_img1}}' class='left_image' mode='aspectFill'></image>
+
+
+    <view class='over_right_view'>
+      <view class="over_prize_text">
+       <text>{{item.prize_name1}} × {{item.prize_num1}}</text>
+       <text wx:if="{{item.prize_num2 > 0}}">、{{item.prize_name2}} × {{item.prize_num2}}</text>
+       <text wx:if="{{item.prize_num3 > 0}}">、{{item.prize_name3}} × {{item.prize_num3}}</text>
+      </view>
+    
+
+      <view hidden='{{item.is_gender == 0 && item.active_key == "" && item.group_user_limit == 0}}' class='view_over2'>
+        <text class="recommend_text">参与条件：</text>
+        <text wx:if="{{item.is_gender == 1}}" class="recommend_g">男</text>
+        <text wx:if="{{item.is_gender == 2}}" class="recommend_g">女</text>
+
+        <text wx:if="{{item.active_key != ''}}" class="recommend_g">口令</text>
+
+        <text wx:if="{{item.group_user_limit > 0}}" class="recommend_g">可组队</text>
+      </view>
+
+      <view class='view_over3'>
+        <!-- <image class='image_over' src='/img/image2.png'></image> -->
+        <!-- <text class="join_text">已参与</text> -->
+        <text wx:if="{{item.open_type == 1}}" class="lottery_time">{{filter.date(item.open_date) }} 自动开奖</text>
+        <text wx:if="{{item.open_type == 2}}" class="lottery_time">达到{{item.open_users}}人，自动开奖</text>
+        <text wx:if="{{item.open_type == 3}}" class="lottery_time">手动开奖</text>
+
+      </view>
+    </view>
+  </navigator>
+
+  <view wx:if="{{!pubMore && pubActiveList.length > 0 && isShowTips}}" class='more-lottery'>别刷了，我是有底线的！</view>
+
+  <!-- <navigator wx:if="{{pubActiveList.length > 0}}" url='/welfare/pages/welfare/welfare' class='more-lottery'>
+  <text class='middle' style='color:#3ca1e1; font-size:28rpx;'>查看更多</text> 
+   <image  class='blue_arr' src='/img/into_blue.png'  style='width:12rpx;height:20rpx;'></image>
+</navigator> -->
+
+  <view style='height:200rpx;'></view>
+
+  <!-- <view class='contact-us'>想成为赞助商请联系我们 ></view>
+<view class='advert-space'>广告位：虚位以待</view> -->
+
+  <navigator url='/welfare/pages/start/start?type=1' class='to-start' hover-class='round-press'>
+    <image src='/img/faqifuli.png' style='width:126rpx;height:126rpx;'></image>
+  </navigator>
+
+  <view wx:if="{{showModal}}" class='popup_screen' catchtouchmove="ture">
+    <view animation="{{animationData}}" wx:if="{{showModal}}" class="popup_window">
+      <image bindtap='hideModal' src='/img/close_img.png' class='close-modal'></image>
+
+      <view style='margin-top:30rpx;text-align:center;'>
+        <image src='/img/left_maisui.png' style='width:31rpx; height:80rpx;'></image>
+
+        <text wx:if="{{isShowViewInIos}}" class='title_text'>高级功能</text>
+        <text wx:else class='title_text'>福利强推版</text>
+        <image src='/img/right_maisui.png' style='width:31rpx; height:80rpx;'></image>
+      </view>
+
+      <view class='view_li'></view>
+
+      <text wx:if="{{isShowViewInIos}}" class='popup_buy_text'>强推版含有以下功能</text>
+      <text wx:else class='popup_buy_text'>支付<text style='color:#ff0000'>88元起</text>，使用以下功能</text>
+
+      <view style='margin-bottom:50rpx;'>
+        <view class='popup_middle_view'>
+          <image class='image_1' src='/img/selected_image.png'></image>
+          <text class='service_text'>专人审核</text>
+        </view>
+        <view class='popup_middle_view'>
+          <image class='image_1' src='/img/selected_image.png'></image>
+          <text class='service_text'>以固定展示天数开奖</text>
+        </view>
+        <view class='popup_middle_view'>
+          <image class='image_1' src='/img/selected_image.png'></image>
+          <text class='service_text'>福利首页获得曝光，强力引流</text>
+        </view>
+
+
+      </view>
+
+      <view wx:if="{{isShowViewInIos}}" class='popup_right_now_btn' style='font-size:30rpx;color:rgb(119, 119, 119); ;border-radius: 0;background-color: #fff;text-align: left;'>iPhone 用户不能在小程序中继续 </view>
+      <view wx:else class='popup_right_now_btn' bindtap='toBuyTop' hover-class='btn-press'>前往购买 </view>
+    </view>
+  </view>
+</view>
+
+
+<!-- <tabbar index="2"></tabbar> -->

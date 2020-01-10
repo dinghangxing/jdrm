@@ -1,0 +1,13 @@
+/* pages/my/winRecord/winRecord.wxss */
+page{height: 100%;background: #f0f0f0;}
+
+.viewbackgroud{
+  height: calc(100% - 125rpx);
+  
+  box-sizing: border-box;
+}
+.center{text-align: center;}
+.data-tip{text-align: center; color:rgb(119,119,119); background: #f0f0f0;padding: 20rpx 0;}
+
+
+

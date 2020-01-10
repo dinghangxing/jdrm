@@ -1,0 +1,364 @@
+
+
+.title{padding:30rpx 30rpx 0rpx 30rpx;clear: both;position: relative;}
+.ttfl-img{width:158rpx; height: 39rpx;}
+.ggfl-img{width:152rpx; height: 39rpx;}
+.share-p{right:10rpx;top:0rpx;position: absolute;color:#576B95;font-size:28rpx;}
+.share-btn{height: 50rpx;width:200rpx;opacity: 0;position: absolute;top:0;left: 0;}
+.share-img{width:39rpx;vertical-align: middle;}
+.to-top-btn{vertical-align: middle;display: inline-block;padding: 30rpx 0;}
+.fenxiang-btn{color:#576B95;font-size:28rpx;vertical-align: middle;display: inline-block;padding:30rpx 0;}
+.share-line{display: inline-block;vertical-align: middle;height: 30rpx;border-left: 1rpx solid #576B95;margin: 0 20rpx;}
+
+.join_text{font-size: 26rpx;display: inline-block;vertical-align: middle;
+  text-align: center;
+  color: #2BA245;
+  margin-right: 6rpx;}
+
+  .more-lottery{text-align: center;color:rgb(153, 153, 153);padding:20rpx;margin:0 20rpx; }
+  .no-data{text-align: center;padding:200rpx 20rpx 20rpx 20rpx;}
+  .no-data-img{width:202rpx;height:201rpx;}
+  .no-data-desc{padding:25rpx 0 0 0;color: #777;font-size:0.8em;}
+.contact-us{color:#3ca1e1;text-align: right;padding:25rpx;}
+.advert-space{height:370rpx;background: #3ca1e1;color: #fff;text-align: center;margin:0 0 40rpx 0;line-height: 370rpx;}
+
+.view_lottery {
+  margin: 20rpx 10rpx 0 10rpx;
+  padding-bottom: 1rpx;
+  background: #fff;
+ 
+  border-radius: 10rpx;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 0 5rpx 0rpx rgba(0, 0, 0, 0.1);
+  clear: both;
+}
+
+.view_lottery:active {
+  opacity: 0.6;
+}
+
+.lottery_image {
+  width: 100%;
+  height: 410rpx;
+  background: rgb(255, 255, 255);
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  display: block;
+}
+
+.view_close_image {
+  width: 100rpx;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.close_image {
+  width: 51rpx;
+  height: 51rpx;
+  margin-top: 3rpx;
+  vertical-align: top;
+}
+.view_sponsor {
+  margin: 40rpx 30rpx 10rpx 30rpx;
+  
+}
+.lottery_text {
+  font-size: 28rpx;
+  font-weight: bold;
+  color:#DD403C;
+  vertical-align: middle;
+}
+.image_addv {
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 5rpx;
+  margin-right: 10rpx;
+}
+
+.sponsor_text {
+  font-size: 28rpx;
+  color: #999999;
+}
+.view_prize {
+  padding: 10rpx 0rpx 0 30rpx;
+  font-size: 34rpx;
+  color: #000;
+}
+.prize-title{display: inline-block;vertical-align: top;width: 136rpx;position: relative;}
+.prize-name{display: inline-block;vertical-align: top;width: 534rpx;position: relative;}
+.shenlue{display: -webkit-box;
+overflow: hidden;
+text-overflow: ellipsis;
+word-wrap: break-word;
+white-space: normal !important;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+line-height: 60rpx;
+}
+.prize-num{position:absolute;top:0;right: -50rpx;font-size: 34rpx;}
+
+.view_lottery2 {
+ font-size: 26rpx;
+  color: #777;
+  margin: 15rpx 30rpx 30rpx 30rpx;
+}
+.image_check {
+  width: 28rpx;
+  height: 28rpx;
+  margin-right: 6rpx;
+  vertical-align: middle;
+}
+
+.common_text {
+  font-size: 26rpx;
+  text-align: center;
+  color: #f00;
+  margin-right: 6rpx;
+}
+.lottery_time {
+  display: inline-block;
+  vertical-align: middle;
+}
+.view_recommend {
+  margin:0 30rpx 30rpx 30rpx;
+ 
+}
+
+.recommend_text {
+  font-size: 26rpx;
+  color: #777;
+  vertical-align: middle;
+  display: inline-block;
+}
+.recommend_g{display: inline-block;padding:0 18rpx;height: 36rpx;line-height: 36rpx;background: #999;color: #fff;text-align: center;vertical-align: middle;border-radius: 6rpx;font-size: 24rpx;margin: 0 20rpx 0 0;}
+.gray{background: rgb(153,153,153) !important;border: 1rpx solid rgb(153,153,153) !important;}
+.view_line {
+  width: 100%;
+  height: 1rpx;
+  margin-top: 30rpx;
+  background: #f9f9f9;
+}
+.submit_text {
+ font-size: 26rpx;
+  color: #DD403C;
+  vertical-align: middle;
+}
+
+
+.view_over{
+  margin: 20rpx 20rpx 0 20rpx;
+  background: #ffffff;
+  text-align: left;
+  position: relative;
+  box-shadow:0 0 5rpx 0rpx rgba(0,0,0,0.1);
+  height:240rpx;
+}
+.left_image_p{
+  display: inline-block;
+  width: 240rpx;
+  height: 240rpx;
+}
+.left_image{
+  
+ width: 240rpx;
+  height: 240rpx;
+  background: #f6f6f6;
+}
+
+.over_right_view{
+  width: calc(100% - 240rpx);
+ padding:0 0 0 20rpx;
+  vertical-align: top;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+
+.over_prize_text{
+  display: -webkit-box;       
+  word-break: break-all;
+  text-overflow: ellipsis;  
+  margin: 25rpx 0rpx 0 0;
+  overflow: hidden;            
+  -webkit-box-orient: vertical;    
+  -webkit-line-clamp: 2; 
+  font-size: 30rpx;    
+  
+}
+
+.view_over2{
+ position: absolute;
+ bottom: 70rpx;
+
+}
+
+.recommend_text2{
+  font-size: 23rpx; 
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  margin-right: 10rpx;
+  text-align: center;
+  color: rgb(255, 255,  255);
+  background: #26d6f5;
+  border:1rpx solid #26d6f5;
+  border-radius:30rpx;
+}
+
+.view_over3{
+ position: absolute;
+ bottom: 20rpx;
+ 
+}
+
+.image_over{
+  width: 29rpx;
+  height: 30rpx;
+  margin-right: 6rpx;
+  vertical-align: middle;
+}
+
+.over_text{
+  font-size: 26rpx; 
+  text-align: center;
+  color: #DD403C;
+  margin-right: 6rpx;
+
+}
+
+.lottery_time{
+  font-size: 26rpx; 
+  text-align: center;
+  color: rgb(153, 153,  153);
+ 
+}
+
+.to-start{position: fixed;bottom: 10rpx;right: 20rpx;
+}
+.fuli-img{height: 48rpx;width: 48rpx;margin: 15rpx 0 0 0;}
+
+
+
+
+.popup_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.2);
+
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+/*对话框 */
+.popup_window {
+ 
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+
+}
+.title_text{
+  height: 80rpx;
+  display: inline-block;
+  font-size: 40rpx;
+  color: rgb(60, 161, 225);
+  letter-spacing: 6rpx;
+  vertical-align: middle;
+  margin: 0rpx 16rpx 30rpx 16rpx;
+  box-sizing: border-box;
+  
+}
+.view_li{
+  border-top: 1rpx solid rgb(240, 240, 240);
+ 
+  margin:0rpx 20rpx 0 20rpx;
+
+}
+.popup_buy_text{
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 30rpx;
+  margin: 20rpx 0 10rpx 70rpx;
+  color: rgb(119, 119, 119);
+}
+.popup_middle_view{
+  margin: 35rpx 0 0 70rpx;
+  text-align: left;
+
+}
+.service_text{
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+}
+
+.tips_text2{
+ 
+  width: 100%;
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: rgb(119, 119, 119);
+  position: fixed;
+  bottom: 160rpx;
+  
+}
+.popup_right_now_btn{
+  width: 80%;
+  padding: 20rpx 0; 
+  text-align: center;
+
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin: 0rpx auto 30rpx auto;
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+}
+.image_1{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 16rpx; 
+}
+.close-modal{position:absolute; width:26rpx; height:26rpx; top:0rpx;right:10rpx;padding:30rpx;}
+ .blue_arr{display: inline-block;vertical-align: middle;margin: 0rpx 0 0 10rpx;}
+.top-tip{font-size: 26rpx;padding: 22rpx 30rpx;background: #fff; border-top: 2rpx solid #f0f0f0;}
+.copy-gz{color: #576B95;float: right;}
+.close-top-tip{float: right;font-size: 35rpx;color: #777;padding:0 0 0 36rpx;position: relative;top:-8rpx;}
+.tuan-zi{display: inline-block;width: 37rpx;height: 37rpx;vertical-align: middle;margin: 0 0 0 10rpx;}
+
+
+.round-press{
+   opacity: 0.8;
+ }
+
+ 
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+.view_null{margin: 50% 0 0 0;text-align: center;}
+.view_null_image{width: 247rpx;height: 158rpx;}
+.release_text {
+  color: #2BA245;
+  font-size: 26rpx;
+}
+.view_null_text{color: #999;}
+.no-pass-img{width: 33rpx;height: 32rpx;vertical-align: middle;}
+.shenhe-info{padding: 30rpx 0;margin:0 30rpx;border-top: 1rpx solid #E5E5E5;}
+
+.html-con{background: #fff;text-align: center;padding: 1rpx 0;}
+.html-con image{}
+.html-con-text{text-align: left;margin: 30rpx 30rpx 30rpx 30rpx;}
+.html-con-img{width: 100%;padding: 0rpx 30rpx 0rpx 30rpx;box-sizing: border-box;display: block;}

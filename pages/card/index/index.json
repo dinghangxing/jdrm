@@ -1,0 +1,21 @@
+{
+  "navigationBarTitleText": "口袋名片",
+
+  "enablePullDownRefresh": false,
+  "usingComponents":{
+    "case-card":"/components/caseCard/caseCard",
+    "boss-com":"/components/bossCom/bossCom",
+    "part-com":"/components/partCom/partCom",
+
+    "card-welfare": "/components/cardWelfare/cardWelfare",
+    "link-man": "/components/linkMan/linkMan",
+    "card-info": "/components/cardInfo/cardInfo",
+    "company-info": "/components/companyInfo/companyInfo",
+    "prod-bus":"/components/prodBus/prodBus",
+  	"navigationBar": "/components/navigationBar/index",
+   "tabbar": "/components/tabbar/tabbar",
+   "canvasdrawer": "/components/canvasdrawer/canvasdrawer",
+   "legal":"/components/legal/legal"
+  } 
+}
+

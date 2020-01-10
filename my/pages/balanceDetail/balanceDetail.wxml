@@ -1,0 +1,37 @@
+<!--my/pages/balanceDetail/balanceDetail.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+  <view class='data-list'>
+
+    <block wx:if="{{dataList!=null && dataList.length>0}}">
+      <view wx:for='{{dataList}}' class='item_balance_view'>
+
+        <view wx:if="{{item.order_type == 1}}" class='right_balance_value' style='color:rgb(3, 136, 59)'>+{{item.total_fee/100}}</view>
+
+        <view wx:elif='{{item.order_type == 2}}' class='right_balance_value' style='color:rgb(0, 0, 0);'>-{{item.total_fee/100}}</view>
+
+        <view class='left_item_view'>
+          <view class='detail_type_text'>{{item.order_name}}</view>
+          <view class='detail_time'>{{item.update_time}}</view>
+        </view>
+
+        <view class='line'></view>
+
+      </view>
+    </block>
+
+    <view wx:if="{{pointMallList.length > 0}}" class="data_tip" >
+      <view wx:if="{{hasMore}}">正在加载</view>
+      <view wx:if="{{!hasMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+    </view>
+
+    <block wx:elif="{{dataList==null || dataList.length==0}}">
+      <view class='view_null'>
+        <text class="view_null_text">没有更多了</text>
+      </view>
+
+    </block>
+
+  </view>
+</view>

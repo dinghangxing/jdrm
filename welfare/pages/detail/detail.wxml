@@ -1,0 +1,109 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+<!-- <view style='position:absolute;z-index:100;right:0;'>{{invite_user_id}}--{{active_id}}</view> -->
+<view style='height:{{listHeight}}px;' >
+
+  <view class="x-view" id="mainView">
+  <swiper
+    class="x-swiper"
+    vertical="{{true}}"
+    circular="{{true}}"
+
+    bindchange="swiperChange"
+    height="100%"
+  >
+    <block wx:for="{{list}}" wx:key="{{index}}">
+      <swiper-item class="{{index}}"  catchtouchmove="{{catchTouchMoveEvent}}" >
+        <scroll-view 
+        scroll-top="0"
+            scroll-y
+            class="x-scroll-view"
+            lower-threshold="100px"
+            bindscrolltolower="lower"         
+            data-id="{{index}}"
+            scroll-with-animation="{{true}}"
+            style="height: 100%"
+            bindscrolltoupper="upper"
+           
+          >
+            <active-detail 
+              id="active_{{item.active.active_id}}" 
+              active="{{item.active}}" 
+              invite_user_id="{{item.invite_user_id}}" 
+              is_more="{{item.is_more}}" 
+              bindswitchAction="switchAction" 
+              bindpushActive="pushActive" 
+              bindopenKl="openKl" 
+              bindshowShi="showShi" 
+              bindsetWishData="setWishData" 
+              bindsetInviteUserId="setInviteUserId"
+              isSeries="{{isSeries}}"></active-detail>
+          </scroll-view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+  
+  
+</view>
+
+
+  <view hidden="{{actionHidden}}" class='action-mask' catchtouchmove='true'>
+    <view  class='action-p {{isShowAct ? "show" : ""}}'>
+      <button open-type='share' class='action-item '>
+        指定分享 - 微信好友
+      </button>
+      <button bindtap='toShare' class='action-item'>公开分享 - 生成分享图</button>
+      <button bindtap='switchAction' class='action-cancel'>取消</button>
+    </view>
+    
+  </view>
+
+
+
+
+
+
+  <view hidden="{{hiddenKl}}" class='modal-mask' catchtouchmove="ture">
+    <view class='modal-view'>
+       <view class='modal-title' style='color:#080808; font-size:30rpx;font-weight:400;'>该抽奖需要输入口令才可参加</view>
+       <view class='modal-body' >
+         <input bindinput='koulinInput' type='text' placeholder="请输入口令" />  
+       </view>
+       <view class='modal-foot'>
+          <view bindtap='openKl' class='modal-cancel' style='color:#000000;font-weight:500;font-size:36rpx'>取消</view>
+          <view bindtap='confirmkL' class='modal-comfirm'style='color:##576B95;font-weight:500;font-size:36rpx'>确定</view>
+       </view>
+    </view>
+   
+  </view>
+
+<view hidden="{{!showShi}}" class='shi-mask' catchtouchmove='false'>
+  <view class='shi-view'  animation="{{shiAniData}}">
+
+    <view bindtap='hideShi' class='shi-close'>×</view>
+    <view class='shi-title'>简单人脉送给 {{nickname}}：</view>
+    <view class='shi-p'>
+      <image  class='yindao' src='/img/yinghao.png'></image>
+      <view class='shi'>在天愿作比翼鸟，在地愿为连理枝。</view>
+      <view class='shi'>天长地久有时尽，此恨绵绵无绝期。</view>
+
+      <view class='shi-name'>《长恨歌》</view>
+    </view>
+    <image bindtap='toLiao' class='shi-btn' src='/img/liao-btn.png'></image>
+  </view>
+</view>
+
+
+<wish 
+isWin="{{isWin}}" 
+win_lev="{{win_lev}}" 
+active="{{active}}"
+ref_id="{{ref_id}}"
+winPrizeList="{{winPrizeList}}"
+bindchooseAddress="chooseAddress"
+bindflaunt="flaunt"
+bindshowShi="showShi"
+bindtoNameList="toNameList"
+></wish>
+
+<canvasdrawer painting="{{painting}}"  bind:getImage="eventGetImage"/>

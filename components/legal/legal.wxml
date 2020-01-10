@@ -1,0 +1,84 @@
+<!--components/legal/legal.wxml-->
+<view  class='cover-img-p'>
+
+  <image wx:if="{{card.tpl_list != null}}" class='cover-img' src='{{card.tpl_list}}' mode='aspectFit'></image>
+  <image wx:else class='cover-img' src='{{card.banner_img}}'  mode='aspectFit'></image>
+</view>
+<view class='legal-info'>
+  <image src='/img/legal-log.png' class='legal-log'></image>
+  <view class='legal-detail'>
+    <view class='name-p'>
+      <image src='/img/legal-man.png' class='legal-man'></image>
+      <view class='legal-name'>
+        <view bindtap='copy' data-title="姓名" data-cp="{{card.name}}" style='font-family:f{{item.code}}' wx:for="{{nameArr}}" wx:key="*this" class='legal-peo-name'>{{item.str}}</view>
+        <view class='peo-zw'>
+
+          <block wx:if="{{card.job != ''}}">
+            <view bindtap='copy' data-title="职位" data-cp="{{card.job}}" wx:for="{{card.jobArr}}" wx:key="*this" class='legal-peo-zw' style='{{card.jobArr.length > 1 ? "font-size:26rpx;" : ""}}  {{index == 0 && card.jobArr.length == 1 ? "top:-6rpx" : ""}} {{index == 1 ? "top:-6rpx" : ""}}'>
+              {{item}}
+            </view>
+          </block>
+          <view wx:if="{{card.job == '' && isMy}}" class='legal-peo-zw' style='position:relative;top:-8rpx'>职位/职业</view>
+          <view wx:if="{{card.job == '' && !isMy}}" class='legal-peo-zw' style='position:relative;top:-8rpx'>职位/职业</view>
+        </view>
+      </view> 
+    </view>
+    <view class='legal-row'>
+      <image src='/img/legal-house.png' class='legal-house'></image>
+      <view class='legal-desc'>
+        <text bindtap='copy' data-title="公司" data-cp="{{card.full_name}}" >福建法制报</text>
+        
+      </view>
+    </view>
+
+
+     <view class='legal-row'>
+      <image src='/img/legal-phone.png' class='legal-house'></image>
+      <view class='legal-desc'>
+        <block wx:if="{{(!isShare) && card.public_card == 0 && (!status) && (!isMy) && step != 5}}">
+          <text>交换名片可见</text>
+        </block>
+        <block wx:else>
+          <text bindtap='copy' data-cp="{{card.phone}}" data-title="手机号码">{{card.phone}}</text>
+        </block>
+      </view>
+    </view>
+
+
+    <view class='legal-row'>
+      <image src='/img/legal-email.png' class='legal-house'></image>
+      <view class='legal-desc'>
+        <block wx:if="{{(!isShare) && card.public_card == 0 && (!status) && (!isMy) && step != 5}}">
+          <text>交换名片可见</text>
+        </block>
+        <block wx:else>
+          <text bindtap='copy' data-title="邮箱" data-cp="{{card.email}}" wx:if="{{card.email != ''}}">{{card.email}}</text>
+          <text wx:if="{{card.email == '' && isMy}}">邮箱</text>
+          <text wx:if="{{card.email == '' && !isMy}}">邮箱</text>
+        </block>
+      </view>
+    </view>
+
+
+    <view class='legal-row'>
+      <image src='/img/legal-location.png' class='legal-house'></image>
+      <view class='legal-desc'>
+        <block wx:if="{{(!isShare) && card.public_card == 0 && (!status) && (!isMy) && step != 5}}">
+          <text>交换名片可见</text>
+        </block>
+        <block wx:else>
+          <text bindtap='copy' data-title="地址" data-cp="{{card.address}}" wx:if="{{card.address != ''}}">{{card.address}}</text>
+          <text wx:if="{{card.address == '' && isMy}}">单位/公司地址</text>
+          <text wx:if="{{card.address == '' && !isMy}}">单位/公司地址</text>
+        </block>
+      </view>
+    </view>
+
+
+  </view>
+
+
+ 
+    <image  wx:if="{{isMy}}" bindtap='toUpdateCard' class='bianji-btn' src='/img/bianji.png' style='top:330rpx;'></image>
+  
+</view>

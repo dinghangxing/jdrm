@@ -1,0 +1,7 @@
+@import "/welfare/pages/start/start.wxss";
+.spread-p{padding:20rpx 0 0 0;transition: 0.3s;overflow: hidden;height:370rpx;clear: both;}
+.spread-tr{padding:20rpx 0;border-bottom: 1rpx solid #f0f0f0;}
+.spread-name{display: inline-block;vertical-align: middle;width:250rpx;}
+.spread-val{display: inline-block;vertical-align: middle;width:440rpx;}
+
+

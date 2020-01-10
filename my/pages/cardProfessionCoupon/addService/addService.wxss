@@ -1,0 +1,150 @@
+/* my/pages/cardProfessionCoupon/addService/addService.wxss */
+page {
+ background-color: #fff;
+
+}
+
+.view_background{
+  margin-top: 1rpx;
+}
+
+.title_text{
+  width: 100%;
+  display: block;
+  font-size: 36rpx;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  text-align: left;
+  margin-left: 20rpx;
+  padding-top: 30rpx;
+  
+}
+
+.use_text_view{
+  margin-top: 16rpx;
+  text-align: left;
+}
+
+.use_text{
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+
+.use_tips_text{
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  color: rgb(119, 119, 119);
+}
+
+.popup_middle_view{
+  margin: 25rpx;
+  text-align: left;
+}
+
+.image_1{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 16rpx; 
+}
+
+.service_text{
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+}
+
+.popup_buy_text_count{
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 30rpx;
+  margin: 60rpx 0 30rpx 20rpx;
+  color: rgb(119, 119, 119);
+  padding-bottom: 30rpx;
+}
+
+.popup_buy_view{ 
+  
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: inline-block;
+}
+
+.top_welcome_sign{
+  
+  width: 170rpx;
+  height: 46rpx;
+  font-size: 26rpx;
+  color: #fff;
+  background-color: rgb(119, 119, 119);
+  border-radius: 16em;
+  padding-top: 8rpx; 
+  text-align: center;
+  margin-left: 16rpx;
+  position: absolute;
+  top:-30rpx;
+}
+
+.item_view{
+  position: relative;
+  width: 200rpx;
+  height: 220rpx;
+  background: #f0f0f0;
+  display: inline-block;
+  text-align: center;
+  padding-top: 80rpx;
+  margin-bottom: 60rpx;
+
+}
+
+.buy_coupon_view{
+  display: block
+}
+
+.buy_coupon_type{
+  color: rgb(51, 51, 51);
+  font-size: 48rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  display: inline-block
+}
+
+.buy_coupon_price{
+
+  color: rgb(51, 51, 51);
+  font-size: 36rpx;
+  display: block
+}
+
+.buy_coupon_save_price{
+  /* text-decoration: line-through; */
+  color: rgb(119,119,119);
+  font-size: 30rpx;
+}
+
+.view_line{
+  width: 95%;
+  border-top: 1rpx solid rgb(240, 240, 240);
+  padding: 0rpx 0 10rpx 0;
+  margin: 0 0 0 20rpx;
+  position: fixed;
+  bottom: 140rpx;
+
+}
+
+
+.popup_right_now_btn{
+  width: 80%;
+  padding: 20rpx 0; 
+  text-align: center;
+  position: fixed;
+  bottom: 30rpx;
+  z-index: 100;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 80rpx;
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+}

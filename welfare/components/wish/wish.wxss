@@ -1,0 +1,2 @@
+/* welfare/components/wish/wish.wxss */
+@import "/welfare/pages/detail/detail.wxss"

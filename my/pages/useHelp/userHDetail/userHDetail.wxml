@@ -1,0 +1,63 @@
+<!--my/pages/useHelp/userHDetail/userHDetail.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_text'>
+  <view class='text text_user_help'>
+    <view class='common_title'>智能名片</view>
+    <view class='common_text'>一、如何创建用户名片</view>
+    <view style='color:rgb(119,119,119)'>在
+      <text style='color:rgb(51,51,51);font-weight: 400;'>【名片】</text> 中填写姓名、公司、联系方式等基本信息后，即可创建您的智能名片。精美实用、易传播、易维系，只需30秒，便可轻松触达百万人脉。 </view>
+    <view class='common_text'>二、发名片</view>
+    <view style='color:rgb(119,119,119)'>将名片发送到微信好友或微信群中，可快速递送自己的名片。 </view>
+    <view class='common_text'>三、如何获取人脉</view>
+    <view style='color:rgb(119,119,119)'>您保存的名片都存在
+      <text style='color:rgb(51,51,51);font-weight: 400;'>【人脉】</text>中，您可向TA回递名片、建立有效人脉。 </view>
+    <view class='common_text'>四、创建拍摄版名片（收纳纸质名片）</view>
+    <view style='color:rgb(119,119,119)'>您可使用
+      <text style='color:rgb(51,51,51);font-weight: 400;'>【人脉】</text>中的
+      <text style='color:rgb(51,51,51);font-weight: 400;'>【拍名片】</text>功能，将以往收到的纸质名片通通收纳到
+      <text style='color:rgb(51,51,51);font-weight: 400;'>【人脉】</text>中，再也不用担心找不到名片了。 </view>
+    <view class='common_text'>五、人脉福利</view>
+    <view style='color:rgb(119,119,119)'>您可在名片上添加红包福利或抽奖福利，提高名片打开率。添加福利、更新福利，可有效地促进人脉互动。 </view>
+
+    <view class='line'> </view>
+
+    <view class='common_title'>红包福利 </view>
+    <view class='common_text'>一、什么是红包福利</view>
+    <view style='color:rgb(119,119,119)'>红包福利为现金红包，可在名片上展示，供人脉好友领取。可选择普通红包或拼手气红包，发出后不可撤回，有效期7天，若未被领完，剩余金额将退回至余额。</view>
+    <view style='color:rgb(119,119,119)'>领取红包福利所得金额直接进入余额，余额可直接用于小程序内的支付，也可提现至微信零钱。</view>
+
+    <view class='line'> </view>
+
+    <view class='common_title'>抽奖福利</view>
+    <view class='common_text'>一、什么是抽奖福利 </view>
+    <view style='color:rgb(119,119,119)'>发起人可以选用福利商城的商品作为奖品，也可自定义奖品。发起后，用户可报名参与抽奖。开奖后，中奖者填写收货地址，发起人需将奖品发送给中奖者，如奖品为商城的商品则由官方进行发送。</view>
+    <view class='common_text'>二、3种抽奖方式</view>
+    <view style='color:rgb(119,119,119)'>按时间自动开奖：到达设置时间会自动开奖，可设置的时间范围在7天内。</view>
+    <view style='color:rgb(119,119,119)'>按人数自动开奖：参与人数达到指定人数会自动开奖，有效期3天。如3天内未到达指定人数，则会在3天后自动开奖。</view>
+    <view style='color:rgb(119,119,119)'> 手动开奖：由发起者手动点击进行开奖，有效期3天。如3天内未进行手动开奖，则会在3天后自动开奖。</view>
+    <view class='common_text'>三、分享方式</view>
+    <view style='color:rgb(119,119,119)'>1．发起后点击发送抽奖邀请，选择生成分享图并保存，即可分享到微信朋友圈或其他媒体。图片可被二次转发。</view>
+    <view style='color:rgb(119,119,119)'>2．固定参与者，可在发送抽奖邀请里，选择邀请微信好友，选择对话框或微信群。此形式不可被二次转发。</view>
+    <view class='common_text'>四、如何上福利首页</view>
+    <view style='color:rgb(119,119,119)'>“上福利首页”是针对发起者希望获得更多曝光和展示的服务，通过购买、发起、审核，抽奖福利可以出现在福利首页上，以固定天数进行展示，进行有效推广。 </view>
+    <view style='color:rgb(119,119,119)'>如需使用，请去福利首页点击“我要上首页”，自助提交。</view>
+    <view class='common_text'>五、多奖项／一键复制／口令抽奖</view>
+    <view style='color:rgb(119,119,119)'>均为专业版支持的功能，需使用福利专业版使用券才可发起。可在发起界面下方，点击「使用专业版」，根据引导进行使用。</view>
+    <view class='common_text'>六、什么是组队抽奖</view>
+    <view style='color:rgb(119,119,119)'>组队抽奖可鼓励参与者多分享，吸引更多人加入抽奖活动。一人中奖，全队中奖，队伍成员每人都可得到一份奖品。发起者如使用了专业版中的「开启组队」功能，则需准备的奖品份数为奖品数目*组队人数。</view>
+    <view class='common_text'>七、设置参与限制条件</view>
+    <view style='color:rgb(119,119,119)'>发起者提前在抽奖界面说明后，可在中奖后与中奖者核实是否符合条件，若不满足，发起人有权利不发放奖品。由于微信暂不提供对人员的身份行为识别功能，需发起者手动核实，敬请谅解。</view>
+    <view class='common_text'>八、我经常参与抽奖，为什么从来没有中奖过？ </view>
+    <view style='color:rgb(119,119,119)'>抽奖福利作为第三方抽奖工具，所有抽奖均由程序随机抽取，我们不会指定中奖、黑箱操作。如果经常参与抽奖没有中奖，不如试试发起一个抽奖，邀请朋友们参与，也很有乐趣。</view>
+    <view class='common_text'>九、未收到奖品 </view>
+    <view style='padding-bottom:100rpx'>奖品是由抽奖发起人提供的，直接寄送到您提供的地址，简单人脉暂不进行物流跟踪，通常到货时间在两周内。请确保地址在有效期内已填写，并满足发起者在奖品界面填写的要求说明。如遇虚假抽奖福利，请联系客服进行投诉，我们会酌情对发起者处罚。</view>
+
+    <button class="contact_service_view" open-type='contact' session-from='weapp' style='color:rgb(87, 107, 149); font-size:30rpx;'>仍有问题？联系客服 >
+    </button>
+
+    <view style='height:80rpx;'></view>
+
+  </view>
+
+</view>

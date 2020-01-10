@@ -1,0 +1,36 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+ 
+   <view class='ser-desc'>可选择 3 个人脉展示在名片上</view>
+   <view class='item-view'>
+    <view wx:for="{{selectedCardList}}" wx:key="*this" class='renmai-item'>
+
+      <image bindtap='deleteMan' data-id="{{item.card_id}}" class='shanchu' src='/img/biani-shanchu.png'></image>
+
+      
+      <image wx:if="{{item.head_img != ''}}" class='renmai-head'  src='{{item.head_img}}'></image>
+      <view  wx:if="{{item.head_img == ''}}" class='first-char'>{{item.firstChar}}</view>
+      <view class='renmai-info'>
+        <view class=''>
+          <text class='renmai-name'>{{item.name}}</text>
+          <text class='renmai-job'>{{item.job}}</text>
+        </view>
+        <view class='renmai-company'>{{item.full_name ? item.full_name : "公司未知"}}</view>
+      </view>
+    </view>
+   
+    
+    
+    <view class='bot-p'>
+      <navigator url="/card/selectMan/selectMan" class='add-ser' hover-class='none'>
+        <view class='jia-zi'>+</view>选择展示的人脉
+      </navigator>
+    
+    </view>
+   </view>
+
+ 
+  <view class='bottom-space'></view>
+<view class='save-v'>
+    <view bindtap='save' class='save-btn' hover-class='btn-press'>确定</view>
+  </view>

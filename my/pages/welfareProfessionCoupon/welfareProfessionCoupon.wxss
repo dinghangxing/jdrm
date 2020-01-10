@@ -1,0 +1,437 @@
+/* my/pages/welfareProfessionCoupon/welfareProfessionCoupon.wxss */
+
+page {
+  background: #f0f0f0;
+}
+
+.tips_text{
+  display: block;
+  text-align: left;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+  margin-left: 20rpx;
+  
+}
+
+.view_menue_item {
+  height: 200rpx;
+  background: #fff;
+  margin: 16rpx 0 20rpx 0;
+  border: 1px solid #e3e3e3;
+  text-align: left;
+  
+}
+
+.top_text{
+
+  font-size: 34rpx;
+  text-align: left;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  display: inline-block
+ 
+}
+
+.welfare_count_text{
+  float: right;
+  margin-right: 20rpx;
+  font-size: 34rpx;
+  text-align: left;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  
+ 
+}
+
+.middle_view{
+  border-top: 1rpx solid rgb(240, 240, 240);
+  padding: 20rpx 0;
+  margin:16rpx 20rpx;
+  float: right;
+}
+
+.use_right_now{
+  width: 200rpx;
+  padding:18rpx;
+  text-align: center;
+  
+  font-size: 30rpx;
+  margin-right: 16rpx;
+ 
+  color: #fff;
+  background-color: rgb(60, 161, 225); 
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.give_to_friend{
+  
+  width: 200rpx;
+  padding:18rpx;
+  text-align: center;
+  margin-right: 16rpx;
+  font-size: 30rpx;
+  color: rgb(60, 161, 225);
+  background-color: #fff; 
+  border: 1px solid rgb(60, 161, 225);
+  border-radius: 10rpx;
+  display: inline-block;
+}
+
+.again_buy_btn-p{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  z-index: 100;
+  background: #fff;
+  /*box-shadow: 0 0 15rpx 0 rgba(0,0,0,0.3); */
+}
+
+.again_buy_btn {  
+  width: 690rpx;
+  margin-bottom: 20rpx;
+  padding: 25rpx 0; 
+  display: inline-block;
+  font-size: 36rpx;
+  color: rgb(255, 255, 255);
+  border-radius: 10rpx;
+  background-color: rgb(60,161,225);
+  
+}
+
+/*=================底部弹窗使屏幕变暗 begin ================ */
+.popup_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框 */
+.popup_window {
+  height: 73%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+
+}
+/*=================底部弹窗使屏幕变暗 end ================ */
+
+/*=================再次购买弹窗 begin ================ */
+.title_text{
+  height: 80rpx;
+  display: inline-block;
+  font-size: 40rpx;
+  font-weight: 400;
+  color: rgb(60, 161, 225);
+  letter-spacing: 6rpx;
+  vertical-align: middle;
+  margin: 0rpx 16rpx 30rpx 16rpx;
+  box-sizing: border-box;
+  
+}
+
+.view_line{
+  border-top: 1rpx solid rgb(240, 240, 240);
+  padding: 0rpx 0 10rpx 0;
+  margin:0rpx 20rpx 0 20rpx;
+
+}
+
+.popup_buy_text{
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 28rpx;
+  margin: 30rpx 0 30rpx 20rpx;
+  color: rgb(119, 119, 119);
+}
+
+.popup_middle_view{
+  margin: 30rpx 25rpx;
+  text-align: left;
+
+}
+
+.image_1{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 16rpx; 
+}
+
+.service_text{
+  font-size: 28rpx;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
+}
+
+.tips_text2{
+ 
+  width: 100%;
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: rgb(119, 119, 119);
+  position: fixed;
+  bottom: 140rpx;
+  
+}
+
+.popup_right_now_btn{
+  width: 690rpx;
+  padding: 25rpx 0; 
+  text-align: center;
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 100;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 30rpx;
+  border-radius: 10rpx;
+  background-color: rgb(60,161,225);
+}
+/*=================再次购买弹窗 end ================ */
+
+/*=================转赠好友弹窗 begin ================ */
+.give_friend_view{
+  margin-top: 70rpx;
+  width: 100%;
+  height: 220rpx;
+  text-align: center;
+  display: block;
+}
+.center_image{
+  width: 410rpx;
+  height: 200rpx;
+  
+}
+
+.use_times{
+  font-size: 40rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  margin:30rpx 0 50rpx 0; 
+  
+}
+
+.choose_view{
+  width: 100%;
+  margin-top: 50rpx;
+  background-color: #fff; 
+  display: inline-block
+}
+
+.choose_give_count{
+  margin-top: 10rpx;
+  text-align: left;
+  margin-left: 20rpx;
+  font-size: 34rpx;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  
+}
+
+.choose_number_view{
+  float: right;
+  background-color: #fff;
+  margin-right: 20rpx;
+ 
+}
+
+.less_text{
+  float: right;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  font-size: 40rpx;
+  color: rgb(60, 161, 225);
+  background-color: #fff; 
+  border: 1px solid rgb(60, 161, 225);
+}
+
+.number_text{
+  float: right;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  font-size: 40rpx;
+  color: rgb(51, 51, 51);
+  background-color: #fff; 
+  border-top: 1px solid rgb(60, 161, 225);
+  border-bottom: 1px solid rgb(60, 161, 225);
+}
+
+.add_text{
+  float: right;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  
+  font-size: 40rpx;
+  color: rgb(60, 161, 225);
+  background-color: #fff; 
+  border: 1px solid rgb(60, 161, 225);
+}
+
+.give_to_friend_btn{
+  width: 690rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 100;
+  font-size: 36rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 30rpx;
+  padding:25rpx 0;
+  border-radius: 10rpx;
+  background-color: rgb(60,161,225);
+}
+
+/*=================转赠好友弹窗 end ================ */
+
+/**=====弹出中间对话框开始=======*/
+
+/*对话框 */
+.popup_dialog_window {
+  height: 73%;
+  width: 90%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  top:300rpx;
+  left: 20rpx;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+
+.dialog_mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.dialog_mask::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.open_dialog_view {
+  height: 400rpx;
+  width: 90%;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin-left:0 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+
+/* .dialog_image {
+  position: absolute;
+  left: 75rpx;
+  width: 600rpx;
+  height: 970rpx;
+  border-radius: 16rpx;
+} */
+
+.text_tips {
+  margin-top: 40rpx;
+  font-size: 36rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+ 
+}
+
+.share_description {
+  margin-top: 50rpx;
+  margin-left:30rpx;
+  margin-right:30rpx;
+  font-size: 30rpx;
+  color:rgb(119, 119, 119);
+
+}
+
+.share_btn {
+  
+  font-size: 36rpx;
+  position: absolute;
+  bottom: 20rpx;
+  left: 20rpx;
+  color:rgb(60,161,225);
+  margin-right: 20rpx;
+  background: rgb(255, 255, 255);
+  padding:16rpx 0;
+  width: 95%;
+}
+
+
+/**=====弹出中间对话框结束========*/
+
+
+/*空頁面展示 begin*/
+.view_null {
+  text-align: center;
+}
+
+.view_null_image {
+  height: 178rpx;
+  width: 223rpx;
+  margin-top: 80rpx;
+  margin-bottom: 30rpx;
+
+}
+
+.view_null_text {
+  font-size: 26rpx;
+  text-align: center;
+  color: rgb(153, 153, 153);
+}
+
+.view_null_btn {
+  width: 70%;
+  margin-top: 30rpx;
+  background-color: rgb(5, 144, 242);
+  color: white;
+  font-size: 36rpx;
+  border-radius: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/*============空页面end=================*/
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+
+/**栏目 点击态*/
+.border-press-item {
+  background-color: #f9f9f9;
+  border: 1rpx solid #3796d2;
+}

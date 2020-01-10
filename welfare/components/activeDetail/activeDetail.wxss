@@ -1,0 +1,3 @@
+@import "/app.wxss";
+@import "../../pages/detail/detail.wxss";
+@import "/wxss/modal.wxss";

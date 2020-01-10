@@ -1,0 +1,108 @@
+<view class='the-item'>
+    <view class='the-title'>
+       <image class='title-img' src='/img/part_im.png'></image>
+      <button data-id="{{2}}" wx:if="{{isMy  && user_list.length > 0}}" open-type="share" class='invite-btn' hover-class="image-press">
+        <image class='invite-icon' src='/img/invite.png'></image>
+      </button>  
+    </view>
+    <view bindtap='showPartCom' class='xiaoguo' hover-class='image-press'>
+      <view class='xiaoguo-img-p'>
+        <image class='xiaoguo-img' src='/img/xunzhang-red.png'></image>
+       
+
+        <view wx:if="{{maxCount.total_count > 0}}" class='xiaoguo-desc'>{{maxCount.content}}</view>
+        <view wx:if="{{maxCount.total_count == 0}}" class='xiaoguo-desc'>点击评价</view>
+      </view>
+ 
+
+       <view wx:if="{{maxCount.total_count > 0}}" class='xiaoguo-num red'>×{{maxCount.total_count}}</view>
+      <view wx:if="{{maxCount.total_count == 0}}" class='xiaoguo-num red'>暂无评价</view>
+    </view>
+
+    <view wx:if="{{user_list.length > 0}}" class='say-list'>
+      <view wx:for="{{user_list}}" wx:key="*this" class='say-item'>
+        <image class='say-head' src="{{item.head_img}}"></image>
+        <view class='say-info'>
+          <view class='name-job-p'>
+            <view class='say-name'>{{item.name}}</view>
+            <view class='say-job'>{{item.job}}</view>
+          </view>
+           <text class='ypjia'>已评价</text>
+          <view class='say-company-p'>
+            <text class='say-company'>{{item.full_name == null ? "单位/公司未知" : item.full_name}}</text>
+           
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <button wx:if="{{isMy && user_list.length == 0}}" class='invite-p' hover-class="image-press" data-id="{{2}}"open-type='share' >
+          <image class='invite-icon middle' style='margin-top:20rpx;' src='/img/invite.png'></image>
+        <view class='invite-text'style='margin-top:20rpx;'>邀请好友点评，提升个人魅力</view>
+         
+       
+    </button>
+
+    <view wx:if="{{!isMy && user_list.length == 0}}" class='invite-p'>
+        <view class='invite-text'>还没人给TA点评哦，快来抢沙发吧~</view>
+       
+    </view>
+
+  </view>
+
+  
+  <view wx:if="{{isShowPartCom}}" class='modal-mask'>
+    <view class='modal'>
+      <view class='modal-title'>
+        评价TA的伙伴印象
+        <image bindtap='closePartCom' mode='widthFix' class='close-btn' src='/img/close_img.png'></image>
+      </view>
+      <view class='modal-body'>
+        <view bindtap='selectPartCom' data-id="{{item.id}}"  wx:for="{{countList}}" wx:key="*this" class='com-item {{item.id == selectedPartCom.id ? "active" : ""}}'>
+           {{item.content}}
+          <view wx:if="{{item.total_count > 0}}" class="com-item-count">{{item.total_count}}</view>
+        </view>
+       
+      </view>
+      <view class='modal-foot red'>
+        <view class='yqpj' bindtap='submitPartCom' hover-class='btn-press-item'> OK</view>
+       
+      </view>
+    </view>
+  </view>
+
+
+  <view wx:if="{{isShowCount}}" class='modal-mask'>
+    <view class='modal'>
+      <view class='modal-title'>
+        他人评价我的伙伴印象
+        <image bindtap='closePartCom' mode='widthFix' class='close-btn' src='/img/close_img.png'></image>
+      </view>
+      <view class='modal-body'>
+      
+        <view  wx:for="{{countList}}" wx:key="*this" class='com-item}}'>
+          {{item.content}}
+          <view wx:if="{{item.total_count > 0}}"  class="com-item-count">{{item.total_count}}</view>
+        </view>
+       
+      </view>
+      <view class='modal-foot red'>
+        
+        <button data-id="{{2}}" open-type='share' class='yqpj'>邀请朋友来评价</button>
+      </view>
+    </view>
+  </view>
+
+
+   <!-- <view wx:if="{{isOpenNoCard}}" class='modal-mask'>
+    <view class='modal'>
+      <view class='modal-body'>
+        <view class='no-card-tip'>您还未创建名片，无法评价</view> 
+        <view class='no-card-btn-p'>
+          <view bindtap='closeNoCard' class='no-card-btn'>取消</view>
+          <view bindtap='createCard' class='no-card-btn blue'>立即创建</view>
+        </view>
+      </view>
+      
+    </view>
+  </view> -->

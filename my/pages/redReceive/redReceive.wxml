@@ -1,0 +1,70 @@
+<!--my/pages/redReceive/redReceive.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+
+  <view class='receive_red' bindtap='clickSendDetail'>发出的红包</view>
+
+  <view class='receive_red_view'>
+
+    <image class='user_img' src='{{userAvatarUrl}}'></image>
+
+    <view class='total_receive'>{{userNickName}}共收到</view>
+    
+    <view style='display: inline-block;margin-top:80rpx;'>
+      <text class='receive_count'>{{receiveTotal.total_amount/100}}</text>
+      <text class='price_unit'> 元</text>
+    </view>
+
+  </view>
+
+  <view class='send_red_view'>
+    <view class='left_receive_view'>
+      <view class='red_receive_count'>{{receiveTotal.total_num==null?0:receiveTotal.total_num}}</view>
+      <view class='red_receive_text'>收到红包</view>
+    </view>
+
+    <view class='right_good_view'>
+      <view class='red_best_count'>{{receiveTotal.total_best==null?0:receiveTotal.total_best}}</view>
+      <view class='red_best_text'>手气最佳</view>
+    </view>
+  </view>
+
+  <!-- <scroll-view style='height:100%;' scroll-x="false" scroll-y="true" bindscroll="scroll" bindscrolltolower="getReceiveRedList"> -->
+  <block wx:if="{{receiveRedList!=null && receiveRedList.length>0}}">
+    <view wx:for='{{receiveRedList}}' class='receive_list_view'>
+      <view class='line'></view>
+
+      <view class='left_view'>
+        <view class='red_type_text'>{{item.name}}</view>
+        <view class='red_time'>{{item.create_time}}</view>
+      </view>
+
+      <view class='right_view'>
+        <view class='red_balance'>{{item.amounts/100}}元</view>
+
+        <view wx:if='{{item.is_best == 1}}'>
+          <image class='img_huangguang' src='/img/huangguang.png'></image>
+          <view class='red_status'>手气最佳</view>
+        </view>
+        <view wx:else>
+          <image class='img_huangguang' src='/img/huangguang.png' style='display:none'></image>
+          <view wx:if='{{item.is_best == 0}}' class='red_status' style='display:none'></view>
+        </view>
+
+      </view>
+
+    </view>
+
+  </block>
+
+  <view wx:if="{{receiveRedList.length > 0}}" class="data_tip">
+    <view wx:if="{{hasMore}}">正在加载</view>
+    <view wx:if="{{!hasMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+  </view>
+
+  <!-- </scroll-view> -->
+
+
+
+</view>

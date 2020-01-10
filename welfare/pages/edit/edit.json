@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "w-editor": "/welfare/components/editor-new/editor",
+    "navigationBar": "/components/navigationBar/index"
+  },
+  "navigationBarTitleText": "编辑图文详情",
+  "enablePullDownRefresh": false
+}

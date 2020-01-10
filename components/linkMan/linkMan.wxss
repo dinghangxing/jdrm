@@ -1,0 +1,4 @@
+/* components/linkMan/linkMan.wxss */
+@import "/pages/card/index/index.wxss";
+@import "/wxss/cardDetail.wxss";
+@import "/wxss/pressStatus.wxss";

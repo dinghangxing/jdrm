@@ -1,0 +1,8 @@
+.modal-mask{position: fixed;z-index: 100;top:0;left: 0;right: 0;bottom: 0;background: rgba(0,0,0,0.5);text-align: center;}
+.modal-mask::before{content: "";display: inline-block;height: 100%;vertical-align: middle;}
+.modal-view{display: inline-block;background: #fff;border-radius: 10rpx;vertical-align: middle;}
+.modal-title{font-size: 30rpx;text-align: center;padding: 50rpx 0 0 0;}
+.modal-body{padding: 46rpx 0 0 0;text-align: center;}
+.modal-foot{margin: 40rpx 0 0 0;border-top: 1rpx solid #D2D3D5;}
+.modal-cancel{display: inline-block;vertical-align: middle;height: 100rpx;line-height: 100rpx;width: 280rpx;font-size: 36rpx;border-right: 1rpx solid #D2D3D5;}
+.modal-comfirm{display: inline-block;vertical-align: middle;height: 100rpx;line-height: 100rpx;width: 280rpx;color: #576B95;font-size: 36rpx;}

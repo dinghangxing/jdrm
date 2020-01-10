@@ -1,0 +1,20 @@
+@import "/pages/card/index/index.wxss";
+.legal-info{width: 730rpx;height: 410rpx;box-sizing: border-box;background: #fff;box-shadow:0 0 5rpx 0 #ccc;
+border-radius:0 0 15rpx 15rpx;position: relative;
+}
+.legal-log{width: 225rpx;height: 85rpx;display: inline-block;vertical-align: middle;margin: 0 30rpx;}
+.legal-detail{display: inline-block;vertical-align: middle;height: 410rpx;box-sizing: border-box;}
+.legal-man{width: 29rpx;height: 110rpx;display: inline-block;vertical-align: bottom;}
+.legal-name{display: inline-block;vertical-align: bottom;margin: 0 0 0 14rpx;border-bottom: 1rpx #595757 solid;width: 390rpx;}
+.legal-peo-name{display:inline-block;
+vertical-align:bottom;
+font-size:40rpx;
+margin:0 8rpx 0 0;
+}
+.legal-peo-zw{text-align:left;font-size: 26rpx;
+margin:0 0 0rpx 10rpx;
+position:relative;
+}
+.legal-row{margin: 20rpx 0 0 0;}
+.legal-house{width: 29rpx;height: 31rpx;display: inline-block;vertical-align: middle;}
+.legal-desc{display: inline-block;vertical-align: middle;color: #000;font-size: 26rpx;padding: 0 0 0 15rpx;width: 380rpx;}

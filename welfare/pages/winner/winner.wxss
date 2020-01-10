@@ -1,0 +1,17 @@
+
+.winner-item{background:#fff;margin: 20rpx 0 0 0;box-shadow:0 0 15rpx 0 #ccc;}
+.head{padding:20rpx 30rpx;border-bottom: 1rpx solid #dedede;}
+.prize-num{display: inline-block;width: 150rpx;vertical-align: top;}
+.prize-name{display: inline-block;width: 500rpx;vertical-align: top;}
+.body{padding:20rpx 30rpx;position: relative;}
+.winner-p{position: absolute;right: 20rpx;top: 10rpx;}
+.icon{width: 66rpx;border-radius: 50%;vertical-align: middle;display: inline-block;margin: 0 10rpx 0 0;}
+.nickname{vertical-align: middle;}
+.ref-num{color: #d81e06;padding: 0 0 30rpx 0;}
+.info-p{padding: 0 0 15rpx 0;}
+.phone{padding: 0 0 15rpx 0;}
+.info-content{color: #999999;padding: 0 0 20rpx 0;}
+.middle{display: inline-block;vertical-align: middle;}
+.left-mar{margin: 0 20rpx 0 0;}
+
+

@@ -1,0 +1,251 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view   class="show-main" style='overflow-x:hidden;'>
+<set-fun  wx:if="{{type == 2}}" bindsetFunImg="setFunImg"></set-fun>
+<block wx:else>
+  <!--封面图 -->
+  <!-- 设置奖品-->
+    <set-prize id="setPrizeCom" type="{{type}}" bindsetFunCoverImg="setFunCoverImg"  isTeam="{{isTeam}}" teamNum="{{teamNum}}"></set-prize>
+  <!-- 设置奖品 end-->
+</block>
+ 
+<!--封面图 end-->
+<!-- <view class='m-title'>
+  <text> 选择推广方式</text>
+</view> -->
+<!-- 推广方式 -->
+<!-- <spread-type bindtypeChange="typeChange" test-text="{{testText}}"></spread-type> -->
+<!-- 推广方式 end-->
+ 
+ 
+
+<!--一句广告 -->
+<view class='m-title'>
+  <text class='m-title-desc'>非必填</text>
+  福利说明
+  </view>
+  <view class='one-advert' >
+  <textarea wx:if='{{!showModal}}' bindinput='advertInput' class='one-advert-text' placeholder="填写此次抽奖福利的说明" placeholder-class="input-placeholder"></textarea>
+  <block wx:if='{{showModal}}'>
+  <view wx:if="{{one_ad == ''}}" class='one-advert-text' style='color:#ccc;'>填写此次抽奖福利的说明</view>
+  <view wx:if="{{one_ad != ''}}" class='one-advert-text'>{{one_ad}}</view>
+  </block>
+</view>
+<!--一句广告 end-->
+
+<!--图文详情 -->
+  <view wx:if="{{ type >= 3}}" class='m-title'>
+    <text class='m-title-desc'>非必填</text>
+    图文详情
+  </view>
+  <view wx:if="{{ type >= 3}}" bindtap='toEditor' class='html-con'>
+  <!--  <template is="wxParse" data="{{wxParseData:content.nodes}}"/>-->
+    <block wx:for="{{nodeList}}" wx:for-item="node" wx:for-index="index" wx:key="{{index}}">
+      <view class='html-con-text' wx:if="{{node.name === 'p'}}">{{node.children[0].text}}</view>
+      <image class='html-con-img' wx:if="{{node.name === 'img'}}" src='{{node.attrs.src}}' mode='widthFix' ></image>
+      <block wx:if="{{node.name === 'copy'}}">
+        <view class='copy-v'>
+
+          <view class='copy-desc'>{{node.desc ? node.desc : "点击【一键复制】按钮可复制下方文字"}}</view>
+            <view class='copy-content'>{{node.content}}</view>
+            <view  bindtap='copy' data-content="{{node.content}}" class='copy-btn'>
+             <image src='/img/hand_1.png' class='copy-hand'></image>
+              一键复制
+            </view>
+        </view>
+       
+      </block>
+      <block wx:if="{{node.name === 'app'}}">
+        <view  class='add-app-p'>
+          <view class='add-app-ty'>
+            <text  class='middle'>点击体验</text>
+            <image class='middle' style="width:12rpx;height:20rpx;margin:0 0 0 10rpx;" src="/img/into_blue.png"></image>
+          </view>
+          <image class='add-app-logo'  src='/img/applets_image.png' ></image>
+          <text class='add-app-name'>{{node.desc}}</text>
+        </view>
+      </block>
+    </block>
+  </view>
+  <view wx:if="{{ type >= 3 && nodeList.length == 0}}" class='tw-parent'>
+    <view class='tw-line'></view>
+    <view class='tw-line'></view>
+    <view class='tw-line'></view>
+    <view class='tw-line'></view>
+    <view class='tw-line'></view>
+    <view class='tw-line'></view>
+    <view class='add-btn-p'>
+      <view bindtap='toEditor' class='add-btn' hover-class='btn-press2'>
+        <text class='add-logo'>+</text> 
+        <text>添加图文介绍/一键复制</text> 
+      </view>
+    </view>
+  </view>
+  <!--图文详情 end-->
+
+
+<!-- 开奖方式-->
+<award-way type="{{type}}" bindopenTypeChange="openTypeChange"></award-way>
+<!-- 开奖方式 end-->
+<!--发布时间 -->
+<over-time  class="{{type >= 4 ? 'show-main' : 'hidden-main'}}" title="发布时间" ></over-time>
+
+<!--发布时间 end-->
+<!-- 开奖时间-->
+<block wx:if="{{type < 4}}">
+  <over-time  class="{{open_type == 1 ? 'show-main' : 'hidden-main'}}" curOffset="1"   title="开奖时间"></over-time>
+</block>
+<!-- 开奖时间 end-->
+
+<!-- 填写开奖人数 -->
+<view  wx:if="{{open_type == 2}}" class='cj-item'>
+  <image wx:if="{{openNumNull}}"  class='prize_num_tip' src='/welfare/img/open_num.png'></image>
+  <view bindtap='openSelectKjTime' class='cj-item-val' style='margin:12rpx 10rpx 0 0;'>
+    <input bindinput='renShuInput' type='number' class='renshu-input' placeholder='人数'></input>
+    <text  class='middle'>人</text>  
+   
+  </view>
+  <view class="cj-item-title">开奖人数</view>
+</view>
+<!-- 填写开奖人数 end-->
+
+<!-- 手动开奖-->
+<view  wx:if="{{open_type == 3}}" class='cj-item'>
+  <view class="title-gray">由发起人手动开奖</view>
+</view>
+<!-- 手动开奖 end-->
+
+<view style='height:20rpx;'></view>
+
+
+<!--小程序推广
+<app-spread wx:if="{{ type >= 4 }}"></app-spread>
+小程序推广 end-->
+<!--口令 -->
+<kou-lin wx:if="{{ type >= 3 }}"></kou-lin>  
+<!--口令 end-->
+  
+<!--组队 -->
+ <team wx:if="{{ type >= 3 }}" bindteamChange="teamChange"></team>
+<!--组队 end-->
+<!-- 性别-->
+<!-- 
+ <gender wx:if="{{type >= 4}}"></gender>
+ -->
+<!-- 性别 end-->
+<!--参与者分享 -->
+<!-- 
+ <view wx:if="{{ type >= 3 }}" class="cj-item cj-item-top ">
+    <view  class='cj-item-val'> 
+      <switch bindchange="shareChange" color="#39bee1" checked="{{is_share}}" />
+    </view>
+    <view class='cj-title'>参与者分享</view>
+   
+  </view>
+  -->
+<!--参与者分享 end-->
+<!-- 是否同步到名片 -->
+ <view wx:if="{{type >= 3}}" class="cj-item cj-item-top ">
+    <view wx:if="{{card_id == 0}}" style='color:#777;position:absolute;right:10rpx;top:26rpx;font-size:25rpx;'>您还未创建名片，无法进行同步</view>
+    <view wx:if="{{card_id != 0}}" class='cj-item-val' style='position: relative;top:-5rpx;'> 
+      <switch  bindchange="syncChange" color="#3ca1e1" checked="{{is_sync}}" />
+    </view>
+    <view class='cj-title' bindtap='tip'>
+       <text class='middle'>同步展示在名片上</text>
+      <image class='tip-img' style='width:36rpx; height:36rpx;' src='/img/infuli-icon.png'></image>
+    </view> 
+  </view>
+<!-- 是否同步到名片end -->
+<!--专业版是否现在在首页 -->
+ <view wx:if="{{type == 3}}" class="cj-item cj-item-top ">
+    <view class='cj-item-val' style='position: relative;top:-5rpx;'> 
+      <switch  bindchange="isTopChange" color="#3ca1e1" checked="{{is_top}}" />
+    </view>
+    <view class='cj-title' bindtap='tipIsTop'>
+      <text class='middle'>上首页</text>
+      <image class='tip-img' style='width:36rpx; height:36rpx;' src='/img/infuli-icon.png'></image>
+    </view> 
+  </view>
+<!--专业版是否现在在首页end -->
+
+  <view wx:if="{{type == 1}}" class='profess-p'>
+    <view bindtap='toProType' class='profess-btn' hover-class='btn-press2'>
+      使用专业版
+      <text wx:if="{{pro_ticket_num > 0}}">({{pro_ticket_num}})</text>  
+    </view>
+
+    <view wx:if="{{type == 1}}" bindtap='toFunType' class='to-quwei' hover-class='piyixia'>
+      <image class='liaoyixia-img' src='/img/liaoyixia.png'></image>
+     
+    </view>
+  </view>
+
+  <view  class='bottom-view'>
+     <form bindsubmit="submit" report-submit='true' >      
+       <button  wx:if="{{type != 2}}" form-type="submit" class='bottom-operate' hover-class='btn-press'>发起福利</button>
+       <button  wx:if="{{type == 2}}" form-type="submit" class='liao-btn-p' hover-class='piyixia'>
+        <image class='liao-btn' src='/img/liao-btn.png'></image>
+       
+       </button>
+    </form>
+  </view>
+
+
+  <view style='height:400rpx;'></view>
+</view>
+
+
+
+<view   wx:if="{{showModal}}" class='popup_screen' catchtouchmove="ture">
+  <view animation="{{animationData}}" wx:if="{{showModal}}" class="popup_window" >
+    <image bindtap='hideModal' src='/img/close_img.png' class='close-modal'  ></image>
+
+    <view style='margin-top:30rpx;text-align:center;'>
+      <image src='/img/left_maisui.png' class='inline-block' style='width:31rpx; height:80rpx;'></image>
+
+      <view wx:if="{{isShowViewInIos}}" class='title_text'>高级功能</view>
+      <view wx:else class='title_text'>福利专业版</view>
+      <image src='/img/right_maisui.png' class='inline-block' style='width:31rpx; height:80rpx;'></image>
+    </view>
+
+    <view class='view_li'></view>
+
+    <view  wx:if="{{isShowViewInIos}}" class='popup_buy_text'>专业版含有以下功能</view>
+    <view  wx:else class='popup_buy_text'>
+      <text class='middle'>支付</text><view class='middle' style='color:#ff0000;margin:0 0 0 10rpx;'>9.9元</view><text class='middle'>，使用以下功能</text></view>
+
+    <view style='margin-bottom:50rpx;'>
+      <view  class='popup_middle_view'>
+        <image class='image_1 middle' src='/img/selected_image.png'></image>
+        <view class='service_text middle'>无广告</view>
+      </view>
+       <view  class='popup_middle_view'>
+        <image class='image_1 middle' src='/img/selected_image.png'></image>
+        <view class='service_text middle'>开启口令抽奖功能</view>
+      </view>
+       <view  class='popup_middle_view'>
+        <image class='image_1 middle' src='/img/selected_image.png'></image>
+        <view class='service_text middle'>可发起一、二、三等奖</view>
+      </view>
+       <view  class='popup_middle_view'>
+        <image class='image_1 middle' src='/img/selected_image.png'></image>
+        <view class='service_text middle'>奖品数量可提升至1000</view>
+      </view>
+      <view  class='popup_middle_view'>
+        <image class='image_1 middle' src='/img/selected_image.png'></image>
+        <view class='service_text middle'>用户可以一键复制发起人的微信号、公众号</view>
+      </view>
+    </view>
+
+    <view wx:if="{{isShowViewInIos}}" class='popup_right_now_btn' style='font-size:30rpx;color:rgb(119, 119, 119); ;border-radius: 0;background-color: #fff;text-align: left;'>iPhone 用户不能在小程序中继续 </view>
+
+
+    <view wx:if="{{!isShowViewInIos}}" class='pro-shaoyo' style=''>购买后可转赠给好友</view>
+    <view wx:if="{{!isShowViewInIos}}" class='popup_right_now_btn' bindtap='toBuyPro' hover-class='btn-press'>前往购买 </view>
+  </view>
+</view>
+
+
+<modal id="myModal"></modal>
+
+

@@ -1,0 +1,54 @@
+/* my/pages/useHelp/userHDetail/userHDetail.wxss */
+
+page{
+  background-color: #fff;
+}
+
+.view_text{
+ margin: 20rpx 30rpx;
+}
+
+.text{
+  text-align: justify;
+
+}
+
+.text::text_user_help{
+ 
+  font-size: 30rpx;
+  color: rgb(119, 119, 119);
+  letter-spacing: 5rpx;
+  width: 100%;
+  display: inline-block;
+  content: '';  
+  
+}
+
+.common_title{
+  font-size:32rpx; 
+  color:rgb(0,0,0);
+  font-weight: bold
+}
+
+.common_text{
+  font-weight: bold; 
+  font-size:32rpx;
+  padding-top:40rpx;
+  padding-bottom:40rpx;
+  color:rgb(0,0,0);
+}
+
+.line{
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+  border: 1rpx solid #f0f0f0;
+}
+
+.contact_service_view{
+  width: 310rpx;
+  height: 43rpx;
+  text-align: center;
+  vertical-align: middle; 
+
+
+}

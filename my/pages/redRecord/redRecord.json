@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "发出的红包",
+  
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

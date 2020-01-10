@@ -1,0 +1,70 @@
+<!--pages/my/myInitiate/myInitiate.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+
+<view class="viewbackgroud">
+
+  <view class="swiper-tab">
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">已提交</view>
+
+    <!-- <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">待发布</view> -->
+
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">待开奖</view>
+
+    <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">已结束</view>
+
+  </view>
+
+
+  <swiper class='order-list' current="{{currentTab}}" duration="300" bindchange="swiperTab">
+
+  <block wx:if="{{isLoadFinish}}">
+
+    <!--已提交页面-->
+    <swiper-item>
+      <scroll-view style='height:100%;' scroll-x="false" scroll-y="true" bindscrolltolower="getSubmitActiveList">
+        <lottery_view class='view_lottery' list="{{submitActiveList}}"  showUI="submit" binddeleteLottery="deleteLottery"></lottery_view>
+        <view wx:if="{{submitActiveList.length > 0}}" class="data-tip">
+          <view wx:if="{{submitMore}}">正在加载</view>
+          <view wx:if="{{!submitMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+         </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!--待发布页面-->
+    <!-- <swiper-item>
+      <scroll-view style='height:100%;' scroll-x="false" scroll-y="true"bindscrolltolower="getReleaseActiveList">
+        <lottery_view class='view_lottery' list="{{releaseActiveList}}" showUI="release" binddeleteLottery="deleteLottery"></lottery_view>
+        <view wx:if="{{releaseActiveList.length > 0}}" class="data-tip">
+          <view wx:if="{{releaseMore}}">正在加载</view>
+          <view wx:if="{{!releaseMore}}">没有更多了</view>
+        </view>
+      </scroll-view>
+    </swiper-item> -->
+
+
+    <!--待开奖页面-->
+    <swiper-item>
+      <scroll-view style='height:100%;' scroll-x="false" scroll-y="true" bindscrolltolower="getLotteryActiveList">
+        <lottery_view class='view_lottery' list="{{lotteryActiveList}}" showUI="lottery"></lottery_view>
+        <view wx:if="{{lotteryActiveList.length > 0}}" class="data-tip">
+          <view wx:if="{{lotteryMore}}">正在加载</view>
+          <view wx:if="{{!lotteryMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <!--已结束页面-->
+    <swiper-item>
+      <scroll-view style='height:100%; margin-top:20rpx;' scroll-x="false" scroll-y="true" bindscroll="scroll" bindscrolltolower="getHadOverActiveList">
+        <hadOver_view class='view_over' list="{{hadOverActiveList}}" ></hadOver_view>
+        <view wx:if="{{hadOverActiveList.length > 0}}" class="data-tip">
+         <view wx:if="{{hadOverMore}}">正在加载</view>
+          <view wx:if="{{!hadOverMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    </block>
+  </swiper>
+</view>

@@ -1,0 +1,32 @@
+<view class="cj-item cj-item-top">
+    <view  class='cj-item-val'> 
+      <switch bindchange="spreadChange" color="#39bee1" />
+    </view>
+    <view class='cj-title'>小程序推广</view>
+    <view  style="{{isSpread ? '' :  'height:0px;padding:0;'}}" class='spread-p'>
+      <view class='spread-tr f-top-line'>
+        <view class='spread-name'>APP ID</view>
+        <view class='spread-val'>
+          <input bindinput="inputAppId" placeholder='请填写APP ID'></input>
+        </view>
+      </view>
+      <view class='spread-tr'>
+        <view class='spread-name'>名称</view>
+        <view class='spread-val'>
+          <input bindinput='inputAppName' placeholder='请填写小程序名称'></input>
+        </view>
+      </view>
+      <view class='spread-tr'>
+        <view class='spread-name'>路径（选填）</view>
+        <view class='spread-val'>
+          <input bindinput='inputAppUrl' placeholder='请填写小程序的路径'></input>
+        </view>
+      </view>
+      <view class='spread-tr'>
+        <view class='spread-name'>参数（选填）</view>
+        <view class='spread-val'>
+          <input bindinput='inputAppData' placeholder='请填写小程序的参数'></input>
+        </view>
+      </view>
+    </view>
+  </view>

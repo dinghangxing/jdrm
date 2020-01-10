@@ -1,0 +1,57 @@
+/* my/pages/reCharge/reCharge.wxss */
+page{
+  background-color: #f0f0f0;
+}
+
+.recharge_view{
+  width: 718rpx;
+  height: 300rpx;
+  margin: 20rpx 16rpx;
+  padding-top: 20rpx;
+  position: relative;
+  background-color: #fff;
+}
+
+.recharge_text{
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+ 
+}
+
+.price_input {
+  
+  float: right;
+  margin: 30rpx 20rpx 0 20rpx;
+  font-size: 80rpx;
+  vertical-align: middle;
+  color:rgb(0,0,0);
+  font-weight: bold;
+  width: 88%;
+  height: 70rpx;
+}
+
+.line{
+  height:116rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.recharge_value{
+  width: 95%;
+  position: absolute;
+  bottom:30rpx;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: rgb(255, 255, 255);
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+  background-color: rgb(60, 161, 225);
+}
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}

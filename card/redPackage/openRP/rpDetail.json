@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "红包福利",
+  
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

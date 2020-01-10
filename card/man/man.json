@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "人脉展示",
+  
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

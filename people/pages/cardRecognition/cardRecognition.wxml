@@ -1,0 +1,58 @@
+<!--people/pages/cardRecognition/cardRecognition.wxml-->
+
+<view class='view_background'>
+  <image mode='widthFix' class='cr_top_image' src='/img/demo_image.png'></image>
+  <!--卡片用户信息布局 begin -->
+  <view class='view_card'>
+    <view>
+      <image class='cr_identity_image' src='/img/com_image.png'></image>
+      <view class='cr_cover_btn'>更换</view>
+    </view>
+    <view class='cr_name'>历经</view>
+    <view class='cr_position_view'>
+      <view class='cr_position'>运营总监</view>
+      <view class='cr_position_identity'>联合创始人</view>
+    </view>
+
+    <view style='margin-top:20rpx; margin-bottom:20rpx;'>
+      <view class='company_name'>数字驱动（福州）科技有限责任公司</view>
+    
+    </view>
+
+    <view>
+      <image style='width:28rpx; height:25rpx; margin-left:20rpx;' src='/img/com-danwei.png'></image>
+      <text class='company_address'>福建省福州市鼓楼区湖东路288号水调歌头8F</text>
+    </view>
+
+    <view>
+      <image style='width:28rpx; height:25rpx; margin-left:20rpx;' src='/img/com-shouji.png'></image>
+      <text class='user_phone'>13960869338</text>
+    </view>
+
+    <view>
+      <image style='width:28rpx; height:25rpx; margin-left:20rpx;' src='/img/com-weixin.png'></image>
+      <text class='user_wx_account'>300499924</text>
+    </view>
+
+  </view>
+  <!--卡片用户信息布局 end -->
+
+  <!--卡片编辑基本信息布局 begin -->
+
+
+  <!--卡片编辑基本信息布局 end -->
+</view>
+
+
+<view class='view_bottom'>
+  <button class='renew_identify'>
+    <image class='left_image' src='/img/send_card_image.png'></image>
+    <view>重新识别</view>
+  </button>
+
+  <button class='save_card'>
+    <image class='left_image' src='/img/send_card_image.png'></image>
+    <view>保存名片</view>
+  </button>
+
+</view>

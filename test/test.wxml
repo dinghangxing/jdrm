@@ -1,0 +1,5 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+
+<view>{{ 2 == 2 && (1 == 2 || 3 == 4) ? "aaa" : "bbb"}}</view>
+ 

@@ -1,0 +1,13 @@
+<cover-view wx:if="{{show}}" class='modal-mask'>
+  <cover-view class='modal-v'>
+    <cover-view class='modal-title'>{{title}}</cover-view>
+    <cover-view class='modal-content'>{{content}}</cover-view>
+    <cover-view class='modal-foot'>
+      <cover-view wx:if="{{isCancel}}" bindtap='cancel' class='modal-btn cancel'>取消</cover-view>
+      <cover-view bindtap='confirm' class='modal-btn'>确定</cover-view>
+      
+    </cover-view>
+  </cover-view>
+</cover-view>
+
+

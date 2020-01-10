@@ -1,0 +1,141 @@
+/* people/pages/search/search.wxss */
+
+/* 搜索框样式 */
+.search{
+  height:60rpx;
+  margin: 20rpx 10rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  border:1rpx solid #e3e3e3;
+  background-color: #fff;
+  border-radius: 16rpx;
+
+}
+
+/* 搜索框小图标 */
+.image_search{ 
+  width:28rpx;
+  height:28rpx;
+  padding:0 20rpx;
+}
+
+/* 搜索框提示文字样式 */
+.keyword_input{
+  float: left;
+  font-size:26rpx;
+  color: rgb(51, 51, 51);
+  font-weight: 400;
+}
+
+/* 搜索框小图标 */
+.image_del{ 
+  width:20rpx;
+  height:20rpx;
+  position: absolute;
+  float: right;
+  right:20rpx;
+
+}
+
+/*===内容展示begin===*/
+.background_view {
+  border: 1px solid #f0f0f0; 
+  background: #fff;
+}
+
+.msg-item {
+  /* position: relative; */
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+
+}
+
+.msg-item:active{
+   background: #f9f9f9;
+}
+
+
+.header-img {
+  width: 100rpx;
+  height: 100rpx;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 100rpx;
+ 
+  border-radius: 16em;
+  display: inline-block;
+}
+
+/* .text_header_view {
+
+  width: 80rpx;
+  height: 80rpx;
+  margin: 22rpx 0 0 20rpx;
+  border-radius: 16em;
+  background-color: #f0f0f0;
+  text-align: center;
+}
+
+.text_header {
+  width: 80rpx;
+  height: 80rpx;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.text_header::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+} */
+
+.right_background_view{
+  /* position: absolute; */
+  /* top:10rpx; */
+ vertical-align: middle;
+  display: inline-block; 
+  padding-left:30rpx
+}
+
+.right_view{
+  display: block;
+}
+
+.user-name {
+  font-size: 34rpx;
+  letter-spacing: 3rpx;
+  color: #000000;
+  font-weight: 400;
+  
+}
+
+.position_text {
+  margin-left: 16rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+.company_text {
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+
+}
+
+/*===内容展示end=====*/
+
+.divide-line {
+  height: 1px;
+  margin-top: 20rpx;
+  background-color:#f0f0f0;
+}
+
+.data_tip {
+  text-align: center;
+  padding: 20rpx 0;
+  background-color: #f0f0f0;
+}

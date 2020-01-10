@@ -1,0 +1,232 @@
+<!--pages/my/index/index.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{false}}" background="{{barBg}}"></navigationBar>
+
+<view wx:if="{{isYindao}}" class='add-my-tip'>
+  <view bindtap='closeYindao' class='close-tip'>×</view>
+  <image animation="{{showAnimation}}" class='gonggao-icon' src='/img/gonggao.png'></image>
+
+  <view class='middle'>天天都有好福利，就添加到我的小程序</view>
+  <image animation="{{showAnimation}}" class='yindao-icon' src='/img/yindao.png'></image>
+</view>
+<view class='view_background' style='background-color:#f0f0f0'></view>
+<!-- 用户头像，名称，地址 -->
+<view style='text-align: left; padding-top: 40rpx; padding-bottom:40rpx;background:rgb(255, 255, 255);'>
+  <image class="user_icon" src="{{userImage}}"></image>
+  <view class='left_view'>
+    <text class="user_name">{{nickName}}</text>
+    <!-- <text class="people_text">专业版将于2019-12-31过期</text> -->
+  </view>
+  <view style='float: right; margin-top:30rpx; margin-right:30rpx' bindtap='getAddress'>
+    <text class='right_text'>收货地址</text>
+    <image class='right_text_image' src='/img/into_arrow_img.png'></image>
+  </view>
+</view>
+
+<!-- 每日签到 -->
+<!-- <view class="daily_sign_view"> -->
+
+<!-- 签到布局-->
+<!-- <view class="continuous_sign_view">
+    <view class="sign_view1">
+      <view class='continuoused_sign_text'>已经连续签到</view>
+      <view class='continuoused_sign_text_count'>{{signDayCount}}天</view>
+    </view>
+
+    <view class='view_line'></view> -->
+
+<!-- 签到布局 1-->
+<!-- <view class='view_point'>
+      <block wx:for="{{arrSignTime}}" wx:key="{{item}}">
+        <view class='sign_view2' bindtap='signBtn' data-index="{{index}}">
+
+          <view class='data_view'>
+            <view class='date_text'>{{item.dateStr}}</view> -->
+<!-- 签到显示图片 -->
+<!-- <image wx:if="{{item.signed==true}}" class='sign_image' src='/img/icon-qiandao.png'></image>
+          <image wx:elif="{{item.signed==false}}" class='sign_image' style='display:none'></image> -->
+
+<!-- 积分 -->
+<!-- 还没签到的积分布局，排除已经显示的今日可签到项 -->
+<!-- <text wx:if="{{item.signed==false && index!=0 && item.dateStr!='今日'}}" class='sign_points' style='border-radius: 16em; background-color:#e3e3e3;'>{{item.point}}</text> -->
+<!-- 积分布局第一项 -->
+<!-- <text wx:elif="{{item.signed==false && index==0}}" class='sign_points' style='border-radius: 16em; background-color:#e3e3e3;'>{{item.point}}</text> -->
+<!-- 今日可签到的积分布局 -->
+<!-- <text wx:elif="{{item.signed==false && item.dateStr=='今日'}}" class='sign_points' style='border-radius: 16em; background-color:#e3e3e3;'>{{item.point}}</text> -->
+
+<!-- 中间横杠 -->
+<!-- <view wx:if="{{index!=6 && item.signed}}" class='vertical_line' style='border:#3ca1e1 4rpx solid !important;'></view>
+          <view wx:elif="{{index<6}}" class='vertical_line' style='border:#e7e7e7 4rpx solid;'></view>
+          </view> -->
+<!-- </view>
+      </block>
+    </view>
+  </view>
+</view> -->
+
+<!-- 我参与的， 发起的， 中奖纪录 -->
+<view class="my_count_view">
+  <view class="welfare_view">
+    <!-- <image class='welfare_image' src='/img/icon-libao.png'></image>
+    <text class='welfare_text'>福利</text> -->
+  </view>
+  <view class="my_view" bindtap='myJoinView' hover-class="btn-press-item">
+    <view class='count'>{{myJoinCount}}</view>
+    <view class='text'>全部福利</view>
+  </view>
+
+  <view class='view_line2'></view>
+
+  <view class="my_view" bindtap='myInitiateView' hover-class="btn-press-item">
+    <view class='count'>{{myInitiateCount}}</view>
+    <view class='text'>发起福利</view>
+  </view>
+
+  <view class='view_line2'></view>
+
+  <view class="my_view" bindtap='myWinRecordView' hover-class="btn-press-item">
+    <view class='count'>{{myWinRecord}}</view>
+    <view class='text'>中奖记录</view>
+
+  </view>
+
+</view>
+
+<view class='view_line' style='margin-left:0rpx;border-top: #f0f0f0 20rpx solid;'></view>
+
+<view style='background-color: #fff;'>
+  <!--余额布局-->
+  <view class="view_menue_item" bindtap='balanceView'>
+    <image class='menue_item_image' style='width: 40rpx;height: 40rpx;' src='/img/money_image.png'></image>
+    <text class='menue_item_text'>余额</text>
+
+    <view class='right_view'>
+      <text class='count_text'>{{money/100}}</text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view>
+
+  <view class='view_line'></view>
+
+  <!--积分布局-->
+  <view class="view_menue_item" bindtap='pointMallView'>
+    <image class='menue_item_image' style='width: 40rpx;height: 42rpx;' src='/img/point_image.png'></image>
+    <text class='menue_item_text'>积分</text>
+
+    <view class='right_view'>
+      <text wx:if="{{isSigned}}" class='count_text'>{{pointCount}}</text>
+      <text wx:else class='count_text'>签到领积分 {{pointCount}}</text>
+
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+
+    <text wx:if="{{isSigned}}" style='display:none' class='quan_quan'></text>
+    <text wx:else class='quan_quan' style='display: inline-block;'></text>
+
+  </view>
+
+  <view class='view_line'></view>
+
+  <!--福利版使用券布局-->
+  <view class="view_menue_item" bindtap='welfareProfessionCouponView'>
+    <image class='menue_item_image' style='width:40rpx;height:34rpx' src='/img/profes_verson_image.png'></image>
+    <text class='menue_item_text' style='bottom: 32rpx;'>福利专业版使用券</text>
+
+    <view class='right_view'>
+      <text class='count_text'>{{ticketCount}} 张</text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view>
+
+  <view class='view_line' style='margin-top:6rpx;'></view>
+
+  <!--红包纪录布局-->
+  <view class="view_menue_item" bindtap='redPackageRecordView'>
+    <image class='menue_item_image' style='width:34rpx;height:42rpx' src='/img/hongbao_img.png'></image>
+    <text class='menue_item_text'>红包记录</text>
+
+    <view class='right_view'>
+      <text class='count_text' style='display:none'></text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view>
+
+  <view class='view_line' style='margin-left:0rpx;border-top: #f0f0f0 20rpx solid;'></view>
+
+  <!--隐私设置布局-->
+  <view class="view_menue_item" bindtap='privaceSetView'>
+    <image class='menue_item_image' style='width:40rpx;height:38rpx' src='/img/icon-yinsi.png'></image>
+    <text class='menue_item_text'>设置</text>
+
+    <view class='right_view'>
+      <text class='count_text' style='display: none;'></text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view>
+
+  <view class='view_line'></view>
+
+  <!--企业定制布局-->
+  <view class="view_menue_item">
+    <image class='menue_item_image' style='width:40rpx;height:40rpx' src='/img/qiyedingzhi.png'></image>
+    <!-- <text class='menue_item_text'>企业定制</text> -->
+
+    <button class="menue_item_text" open-type='contact' hover-class="none" session-from='weapp' style='margin-left:40rpx;width:630rpx; text-align: left;'>企业定制</button>
+
+    <view class='right_view'>
+      <text class='count_text' style='display: none;'></text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view>
+
+  <view class='view_line'></view>
+
+  <!--使用帮助布局-->
+  <view class="view_menue_item" bindtap='useHelpView'>
+    <image class='menue_item_image' style='width: 40rpx;height: 40rpx;' src='/img/icon-bangzhu.png'></image>
+    <text class='menue_item_text'>帮助与反馈</text>
+
+    <view class='right_view'>
+      <text class='count_text' style='display: none;'></text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view>
+
+  <!-- <view class='view_line'></view> -->
+
+  <!--联系客服布局-->
+  <!-- <view class="view_menue_item">
+    <contact-button type="default-dark" size="20" session-from="weapp">
+    </contact-button>
+
+    <image class='menue_item_image' style='width: 40rpx;height: 40rpx;' src='/img/icon-bangzhu.png'></image>
+    <text class='menue_item_text'>联系客服</text>
+
+    <view class='right_view'>
+      <text class='count_text' style='display: none;'></text>
+      <image class='goto_image' src='/img/into_arrow_img.png'></image>
+    </view>
+  </view> -->
+
+  <!--管理员布局-->
+  <block wx:if="{{isSuperAdmin}}">
+    <view class='view_line'></view>
+    <view class="view_menue_item" style='' bindtap='superAdminiBtn'>
+      <image class='menue_item_image' style='width: 40rpx;height: 40rpx;' src='/img/admin_img.png'></image>
+      <text class='menue_item_text'>管理员</text>
+
+      <view class='right_view'>
+        <text class='count_text' style='display: none;'></text>
+        <image class='goto_image' src='/img/into_arrow_img.png'></image>
+      </view>
+    </view>
+  </block>
+
+
+
+</view>
+<!-- <tabbar index="3"></tabbar> -->
+
+<!-- <view class='view_line' style='margin-left:0rpx;border: #f0f0f0 120rpx solid;'></view> -->
+
+
+<!-- <image class='contact_image' src='/img/ddg.png'></image> -->

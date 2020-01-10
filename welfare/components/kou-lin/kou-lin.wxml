@@ -1,0 +1,15 @@
+<view class="cj-item cj-item-top" style="{{isKoulin ? 'height:200rpx;' :  ''}}">
+    <view  class='cj-item-val' style='position: relative;top:-5rpx;'> 
+      <switch bindchange="koulinChange" checked='{{isKoulin}}' color="#3ca1e1" />
+    </view>
+    <view class='cj-title' bindtap='tip'>
+      <text class='middle'>口令</text>
+      <image class='tip-img' style='width:36rpx; height:36rpx;' src='/img/infuli-icon.png'></image>
+    </view>
+    <view   class='kl-input-p'>
+      <view class='cut-line'  ></view>
+      <input bindinput='input' placeholder='请输入口令' placeholder-style="text-align:left;"></input>
+    </view>
+  </view>
+
+  <modal id="myModal"></modal>

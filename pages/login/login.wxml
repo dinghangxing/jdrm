@@ -1,0 +1,77 @@
+<!-- <view style='height:120rpx;'></view> -->
+
+<!-- <view class='title'>Hi，这是一张带福利的名片~</view>
+<view class='desc'>授权后，即可领取好友福利</view>
+<view style='text-align: center'> -->
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<block wx:if="{{deviceMode == 'iphone x'}}">
+  <image class='image' mode='widthFix' src='/img/auth_img_iphonex.png'></image>
+</block>
+
+<block wx:else>
+  <image class='image' mode='widthFix' src='/img/auth_img.png'></image>
+</block>
+
+<button class='com-btn1' bindtap='clickAuthBtn' type="primary" open-type="getUserInfo" bindgetuserinfo="getUserInfo" hover-class='none' style='background:rgba(0,0,0,0);'>
+
+</button>
+<!-- </view> -->
+
+
+<!-- 注释 -->
+<!-- <image class='image' mode='widthFix' src='/img/auth_img.png' style=''></image> -->
+
+<!-- <block wx:if="{{deviceMode == 'iphone x'}}">
+  <image style='width:188rpx; height:188rpx; position: absolute; top:880rpx;left:274rpx;' src='/img/login_auth.png'></image>
+</block>
+
+<block wx:elif="{{deviceMode == 'iphone'}}">
+  <image style='width:188rpx; height:188rpx; position: absolute; top:824rpx;left:274rpx;' src='/img/login_auth.png'></image>
+</block>
+
+
+<block wx:elif="{{deviceMode == 'redmi'}}">
+  <image style='width:188rpx; height:188rpx; position: absolute; top:848rpx;left:280rpx;' src='/img/login_auth.png'></image>
+</block>
+
+<block wx:else>
+  <image style='width:188rpx; height:188rpx; position: absolute; top:850rpx; left:272rpx;' src='/img/login_auth.png'></image>
+</block>
+
+
+
+
+<block wx:if="{{deviceMode == 'iphone x'}}">
+  <button animation="{{animationData}}" bindtap='clickAuthBtn' class='com-btn' type="primary" open-type="getUserInfo" style='top:875rpx; left:242rpx; background-color:rgba(0,0,0,0)' bindgetuserinfo="getUserInfo">
+
+    <image style='width:200rpx; height:200rpx' src='/img/login_auth_bg.png'></image>
+
+
+  </button>
+</block>
+
+<block wx:elif="{{deviceMode == 'iphone'}}">
+  <button animation="{{animationData}}" bindtap='clickAuthBtn' class='com-btn' type="primary" open-type="getUserInfo" style='top:818rpx; left:245rpx; background-color:rgba(0,0,0,0)' bindgetuserinfo="getUserInfo">
+
+    <image style='width:200rpx; height:200rpx' src='/img/login_auth_bg.png'></image>
+
+  </button>
+</block>
+
+<block wx:elif="{{deviceMode == 'redmi'}}">
+  <button animation="{{animationData}}" bindtap='clickAuthBtn' class='com-btn' type="primary" open-type="getUserInfo" style='top:842rpx; left:246rpx; background-color:rgba(0,0,0,0)' bindgetuserinfo="getUserInfo">
+
+    <image style='width:200rpx; height:200rpx' src='/img/login_auth_bg.png'></image>
+
+  </button>
+</block>
+
+
+<block wx:else>
+  <button animation="{{animationData}}" bindtap='clickAuthBtn' class='com-btn' type="primary" open-type="getUserInfo" style='top:846rpx; left:242rpx; background-color:rgba(0,0,0,0)' bindgetuserinfo="getUserInfo">
+    <image style='width:200rpx; height:200rpx' src='/img/login_auth_bg.png'></image>
+
+  </button>
+</block> -->

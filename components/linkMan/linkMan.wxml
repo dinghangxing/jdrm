@@ -1,0 +1,34 @@
+<view  class='the-item'>
+    <view class='the-title'>
+      <image wx:if="{{!isMy}}" class='tdrm-img' src='/img/tdrm.png'></image>
+      <image wx:if="{{isMy}}" class='title-img' src='/img/wdrm.png'></image>
+      <navigator wx:if="{{isMy && selectedCardList.length > 0}}" url='/card/man/man' hover-class="image-press">
+        <image class='add-user-btn' src='/img/invite.png' style='top:-30rpx;right:-20rpx;'></image>
+      </navigator>
+    </view>
+
+    <!-- navigator url="/card/detail/detail?card_id={{item.card_id}}" -->
+    <view wx:if="{{selectedCardList.length > 0}}" wx:for="{{selectedCardList}}" wx:key="*this" class='renmai-item' hover-class="none">
+      <image wx:if="{{item.head_img != ''}}" class='renmai-head' src='{{item.head_img}}'></image>
+      <view wx:if="{{item.head_img == ''}}" class='first-char'>{{item.firstChar}}</view>
+      <view class='renmai-info'>
+        <view class=''>
+          <text class='renmai-name'>{{item.name}}</text>
+          <text class='renmai-job'>{{item.job}}</text>
+        </view>
+        <view class='renmai-company'>{{item.full_name == null ? "公司未知" : item.full_name}}</view>
+      </view>
+
+    </view> 
+
+    <navigator wx:if="{{isMy && selectedCardList.length == 0 }}" class='renmai-p' hover-class="image-press" url='/card/man/man'>
+       <image class='invite-icon middle' src='/img/invite.png'></image>
+      <view class='invite-text'>展示人脉，拓展更多合作机会</view>
+     
+    </navigator>
+
+    <view wx:if="{{!isMy && selectedCardList.length == 0}}" class='renmai-p'>
+      <view class='invite-text'>TA未添加展示的人脉</view>
+
+    </view>
+  </view>

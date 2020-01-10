@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "全部抽奖",
+ 
+  "enablePullDownRefresh": false,
+
+
+  "usingComponents": {
+    "lottery_view": "/components/lottery/lottery",
+    "hadOver_view": "/components/hadOver/hadOver",
+    "navigationBar": "/components/navigationBar/index"
+  }
+
+   
+}
+

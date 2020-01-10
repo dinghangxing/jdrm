@@ -1,0 +1,24 @@
+ <view class="cj-item cj-item-top" style="{{openGender ? 'height:200rpx;' :  ''}}">
+    <view  class='cj-item-val'> 
+      <switch bindchange="genderSwitch" color="#39bee1" />
+    </view>
+    <view class='cj-title' bindtap='tip'>
+      <text class='middle'>参与条件</text>
+      <image class='tip-img' src='/img/daily_sign_image.png'></image>
+    </view>
+    <view   class='team-num-p'>
+      <view class='cut-line'></view>
+      <radio-group class="radio-group" bindchange="genderChange">
+        <label class="radio">
+          <radio value="1" color="#39bee1" class='middle' /><text class='middle'>男</text>
+        </label>
+         <label class="radio">
+          <radio value="2" color="#39bee1" class='middle' /><text class='middle'>女</text>
+        </label>
+         <label class="radio">
+          <radio value="0" checked="true" class='middle' color="#39bee1"/><text class='middle'>不限</text>
+        </label>
+      </radio-group>
+      
+    </view>
+  </view>

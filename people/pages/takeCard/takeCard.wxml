@@ -1,0 +1,9 @@
+<!--people/takeCard/takeCard.wxml-->
+<view class='screen_view'>
+
+  <view class='data-list'>
+  </view>
+
+    <view  class='find_welfare_text'>去找福利</view>
+
+</view>

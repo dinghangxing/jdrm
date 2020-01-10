@@ -1,0 +1,21 @@
+ <view class="cj-item cj-item-top" style="{{isTeam ? 'height:200rpx;' :  ''}}">
+    <view  class='cj-item-val' style='position: relative;top:-5rpx;'> 
+      <switch bindchange="teamChange" checked="{{isTeam}}" color="#3ca1e1" />
+    </view>
+    <view class='cj-title' bindtap='tip'>
+    
+      <text class='middle'>组队</text>
+      <image class='tip-img' style='width:36rpx; height:36rpx;' src='/img/infuli-icon.png'></image>
+      <text wx:if="{{isTeam}}" class='team-f-n'>允许{{teamNumList[teamNumIndex]}}人组队参与</text>
+    </view>
+    <view   class='team-num-p'>
+      <view class='cut-line'></view>
+      <view class='team-num'>
+        <view bindtap='changeTeamNum' data-index="{{index}}" wx:for="{{teamNumList}}" class='team-num-item {{teamNumIndex == index ? "active" : ""}}'>{{item}}</view>
+        
+      </view>
+      <text>队内人数</text>
+    </view>
+  </view>
+
+  <modal id="myModal"></modal>

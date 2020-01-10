@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "新建名片",
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  },
+  "enablePullDownRefresh": false
+}

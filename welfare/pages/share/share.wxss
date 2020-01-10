@@ -1,0 +1,23 @@
+.share-container{
+   width: 750rpx;
+  height: 940rpx;
+}
+.share-image {
+  width: 708rpx;
+  height: 100%;
+  display: block;
+  margin:  0rpx auto 0 auto;
+ 
+}
+
+button {
+  margin-top: 20rpx;
+}
+.save-btn{background: #3CA1E1;color: #fff;text-align: center;margin: 20rpx auto 0 auto;width: 690rpx;height: 88rpx;line-height: 88rpx;border-radius: 10rpx;}
+
+.share-bottom-space{height: 300rpx;}
+.share-bottom{position: fixed;bottom: 0;width: 750rpx;background: #fff;padding: 40rpx 0 20rpx 0;}
+.bt-con{display: flex;justify-content:space-around;}
+.bg-thum-p{position: relative;display: inline-block;width: 88rpx;height: 88rpx;border-radius: 50%;}
+.bg-thum{width: 88rpx;height: 88rpx;}
+.bg-gou{width: 35rpx;height: 35rpx;position: absolute;top: 0rpx;right: 0rpx;}

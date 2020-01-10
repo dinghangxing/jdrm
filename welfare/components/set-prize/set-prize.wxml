@@ -1,0 +1,65 @@
+<view id="pi{{index}}" wx:for="{{prizeList}}" wx:key="*this">
+  <view class='m-title'>
+    设置奖品<text wx:if="{{prizeList.length > 1}}">
+      <block wx:if="{{index == 0}}">一</block>    
+      <block wx:if="{{index == 1}}">二</block>
+      <block wx:if="{{index == 2}}">三</block>
+    
+    </text>
+    <image wx:if="{{prizeList.length > 1}}" bindtap='delPrize' data-index="{{index}}" src='/img/close_image.png' class='close-btn' style="width:38rpx;height:38rpx;"></image>
+  </view>
+
+  <view class='cover-p'>
+    <view data-index="{{index}}" hover-class='btn-press3' bindtap='toCrop' class='change-cover-btn'>更换图片</view>
+    <image class='cover-img' src='{{item.prize_img}}'></image>    
+  </view>
+
+  <view class='cj-item'>
+    <image hidden='{{!item.nameNull}}' class='prize_name_tip' src='/welfare/img/prize_name_tip.png'></image>
+    <text class='prize-item-key' decode="{{true}}">奖品名称</text>
+    <view class='prize-item-val'>
+      <input bindinput='prizeNameInput' value='{{item.prize_name}}' data-index="{{index}}" placeholder="请输入奖品的名称" placeholder-class="input-placeholder" class='prize-name-input'></input>
+      <view wx:if="{{type == 2}}" bindtap="changeOneName" class='hyg' hover-class='btn-press2'>换一个</view>
+    </view>
+
+  </view>
+  <view wx:if="{{isTeam}}" class='cj-item'>
+     <image hidden='{{!item.teamNull}}' class='prize_name_tip' src='/welfare/img/team_tip.png'></image>
+    <view class='prize-item-key'>抽取队数</view>
+    <view class='prize-item-val'>
+      <input bindinput='teamNumInput' value='{{item.team_num}}' data-index="{{index}}" type='number' placeholder='队数' class='cj-num middle' placeholder-class="input-placeholder"></input>
+      <text class='danwei'>队</text>
+    </view>
+
+
+  </view>
+  <view class='cj-item'>
+     <image wx:if='{{item.numNull && !isTeam}}' class='prize_num_tip' src='/welfare/img/prize_num_tip.png'></image>
+     <image wx:if='{{item.numOver && !isTeam && type < 3}}' class='prize_num_tip' src='/welfare/img/prize_num_over.png'></image>
+     <image wx:if='{{item.numOver && !isTeam && type > 2}}' class='prize_num_tip' src='/welfare/img/prize_num_over1.png'></image>
+    <view class='prize-item-key' bindtap='tipNum'>
+      奖品份数
+      <image wx:if="{{isTeam}}" class='tip-img' src='/img/infuli-icon.png' style='position:absolute;right:-20rpx;top:0rpx;'></image>
+    </view>
+    <view wx:if="{{isTeam}}" class='prize-item-val team-f-c'>
+     
+      <view wx:if="{{item.prize_num == 0}}">= 队数 × 单个队伍人数上限</view>
+      <view wx:else>共需准备{{item.prize_num}}份</view>
+    </view>
+    <view wx:else class='prize-item-val'>
+      <input bindinput='prizeNumInput' value='{{item.prize_num}}' data-index="{{index}}" type='number' placeholder='份数' class='cj-num middle' placeholder-class="input-placeholder" style='width:450rpx;'></input>
+      <text class="danwei">个</text>
+    </view>
+
+  </view>
+</view>
+
+<view wx:if="{{type >= 3 && prizeList.length < 3}}" class='add-prize-p'>
+  <view bindtap='addPrize' class='add-prize' hover-class='border-press-item'>
+    <text class='add-logo'>+</text>
+    <text>添加新奖项</text>
+  </view>
+</view>
+
+
+<modal id="myModal"></modal>

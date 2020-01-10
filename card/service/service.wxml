@@ -1,0 +1,34 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}">
+</navigationBar>
+
+<view class='ser-desc'>编辑您提供的产品业务，最多可添加6条</view>
+<view class='item-view'>
+    <view class='ser-list'>
+        <block wx:for="{{serviceList}}" wx:key="*this">
+          <view  class='ser-item'>
+              <view class='ser-key'>产品业务{{index + 1}}：</view>
+              <input bindinput='onInpunt' value='{{item.content}}' data-index='{{index}}' class='ser-value' maxlength="8" placeholder='最多8个字(如：简单人脉)'></input>
+              <image hidden="{{serviceList.length == 1 && item.content == ''}}" bindtap='del' data-index='{{index}}' class='shanchu' src='/img/biani-shanchu.png'></image >
+          </view>
+          <view class='bot-p-t'>
+              <image  wx:if="{{item.img}}" src='{{item.img}}' class='img-t' mode='aspectFill'></image>
+              <image wx:if="{{!item.img}}" bindtap="selectImg" data-index='{{index}}' src='/img/zdy-theme.png' class='img-t' mode='aspectFill'></image>
+              <image wx:if="{{item.img}}"  class='shanchu-t' src='/img/biani-shanchu.png' bindtap='delImg' data-index='{{index}}'></image >
+          </view>
+        </block>
+    </view> 
+    <view wx:if="{{serviceList.length < 6}}" class='bot-p'>
+        <view bindtap='add' class='add-ser' hover-class='border-press-item'>
+            <view class='jia-zi'>+</view> 添加产品业务</view>
+    </view>
+
+    <view wx:if="{{serviceList.length == 6}}" class='bot-p'>
+        <view class='add-ser gray'>
+            <view class='jia-zi'>+</view>添加产品业务</view>
+    </view>
+</view>
+
+<view class='bottom-space'></view>
+<view class='save-v'>
+    <view bindtap='submit' class='save-btn' hover-class='btn-press'>确定</view>
+</view>

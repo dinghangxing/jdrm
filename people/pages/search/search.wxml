@@ -1,0 +1,44 @@
+<!--people/pages/search/search.wxml-->
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+
+<!--  搜索框  -->
+<view class='search'>
+  <image class="image_search" src='/img/search_img.png'></image>
+  <input class='keyword_input' type='text' placeholder='{{defauleHintKeyWord}}' confirm-type='search' value="{{keyValue}}" bindinput='inputBind' bindblur='confirm'></input>
+  <image class="image_del" src='/img/delete_img.png' bindtap='deleteKeyWord'></image>
+</view>
+
+<view class='background_view'>
+
+    <block wx:if="{{dataList!=null && dataList.length>0}}">
+      <view data-id='{{item.id}}' wx:for='{{dataList}}' class='msg-item' bindtap='clickSearchItem'>
+
+        <image wx:if="{{item.head_img != null && item.head_img.length > 0}}" class='header-img' src='{{item.head_img}}'></image>
+
+        <view wx:else class='header-img' style='background-color: #a0a0a0;border-radius: 100%; color: #fff;font-size: 46rpx;'>{{item.firstChar}}</view>
+        
+
+        <view class='right_background_view'>
+
+          <view class='right_view'>
+            <text class="user-name">{{item.name}}</text>
+            <text class="position_text">{{item.job}}</text>
+          </view>
+          <view class="company_text">{{item.full_name}}</view>
+
+        </view>
+
+        <view wx:if='{{index == (dataList.length-1)}}' class='divide-line' style='background-color:#fff;'></view>
+        <view wx:else class='divide-line' style='background-color:#f0f0f0;'></view>
+
+      </view>
+    </block>
+
+    <view wx:if="{{dataList.length > 0}}" class="data_tip">
+      <view wx:if="{{hasMore}}">正在加载</view>
+      <view wx:if="{{!hasMore}}">没有更多了</view>
+    </view>
+
+</view>

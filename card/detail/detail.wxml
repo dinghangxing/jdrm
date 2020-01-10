@@ -1,0 +1,153 @@
+<!--pages/card/index/index.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view wx:if="{{!pageHidden}}">
+
+    <!-- <view style='font-family:ww;'>骆</view> -->
+    <view class='main-con'>
+
+
+        <card-info card="{{card}}" status="{{status}}" step="{{step}}" isMy="{{isMy}}" isShare="{{isShare}}"></card-info>
+
+         <!-- <legal card="{{card}}" status="{{status}}" step="{{step}}" isMy="{{isMy}}" isShare="{{isShare}}"></legal> -->
+
+        <company-info wx:if="{{card.user_id}}" card="{{card}}" card_id="{{card.id}}" isMy="{{isMy}}"></company-info>
+
+        <prod-bus wx:if="{{card.user_id}}" card_id="{{card.id}}" isMy="{{isMy}}"></prod-bus>
+ 
+        <!-- <view wx:if="{{card.user_id}}" class='the-item'>
+            <navigator wx:if="{{isMy}}" url="/card/service/service?card_id={{card_id}}">
+                <image class='bianji-btn' src='/img/bianji.png' style='top:-10rpx;'></image>
+            </navigator>
+
+
+            <image class='the-title inline title-img' src='/img/product_im.png'></image>
+            <view class='cp-list inline'>
+
+                <view wx:for="{{products}}" wx:key="*this" class='cp-item inline'>{{item}}</view>
+
+
+                <view wx:if="{{products.length == 0 && !isMy}}" class='no-product-text'>TA还未添加产品业务</view>
+                <view wx:if="{{products.length == 0  && isMy}}" class='no-product-text'>您还未添加产品业务</view>
+            </view>
+            <view class='the-item-line'></view>
+        </view> -->
+
+        <boss-com wx:if="{{card.user_id}}" iHave="{{iHave}}" card_id="{{card_id}}" isMy="{{isMy}}"></boss-com>
+
+
+        <part-com iHave="{{iHave}}" wx:if="{{card.user_id}}" card_id="{{card_id}}" isMy="{{isMy}}"></part-com>
+
+
+        <card-welfare wx:if="{{card.user_id}}" card="{{card}}" card_id="{{card_id}}" isMy="{{isMy}}"></card-welfare>
+
+        <link-man wx:if="{{card.user_id}}" card_id="{{card_id}}" isMy="{{isMy}}"></link-man>
+
+
+
+       
+    </view>
+    
+    <view class='bottom-view'>
+        <!-- <view >status:{{status}}----step:{{step}}----public:{{card.public_card}}</view> -->
+
+        <button data-id="{{3}}" wx:if="{{isMy}}" open-type="share" class='bottom-operate'>
+            <image src='/img/fasong-bai.png' style='width:49rpx;height:40rpx;margin:0 20rpx 0 0;' class='middle'></image>
+            <text class='middle'>发名片</text>
+        </button>
+
+
+        <block wx:if="{{!isMy}}">
+
+            <view bindtap='addPhone' class='save-contact' hover-class='btn-press2'>
+                <image src='/img/book.png' style='width:38rpx;height:42rpx;'></image>
+                <view>存入通讯录</view>
+            </view>
+            <button wx:if="{{isShare || card.public_card == 1 ||  status }}"
+            open-type="share" data-id="3" class='detail-btn-1 {{status == 2 || (!card.user_id) ? "long-btn" : ""}}'  hover-class='btn-press-item'>
+                <image src='/img/fengxiang.png' class='detail-btn-img' style='width:44rpx;height:44rpx;'></image>
+                <text class='middle' style='margin-bottom:5rpx;'>分享名片</text>
+            </button>
+
+
+
+            <block wx:if="{{card.user_id}}">
+                <block wx:if="{{iHave}}">
+                    <block wx:if="{{card.public_card == 0}}">
+                        <form wx:if="{{(!status) && (!step)}}" bindsubmit="exchangeCard" report-submit="true">
+                          <button  form-type='submit' class='detail-btn-2 long-btn' hover-class='btn-press'>
+                              <image src='/img/jiaohuan.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                              <text class='middle' style='margin-bottom:5rpx;'>交换名片</text>
+                          </button>
+                        </form>
+                    </block>
+                    <block wx:else>
+                        <view wx:if="{{!status}}" bindtap='saveCard' class='detail-btn-2' hover-class='btn-press'>
+                            <image src='/img/star_w.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                            <text class='middle' style='margin-bottom:5rpx;'>保存名片</text>
+                        </view>
+                    </block>
+                    
+                    <view wx:if="{{status == 1 && (!step)}}" bindtap='sendCard' class='detail-btn-2' hover-class='btn-press'>
+                        <image src='/img/jiaohuan.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                        <text class='middle' style='margin-bottom:5rpx;'>回递名片</text>
+                    </view>
+                    <view wx:if="{{status == 1 && step == 3}}" class='detail-btn-2 trans'>
+                          <image src='/img/jiaohuan.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                          <text class='middle' style='opacity:0.4;margin-bottom:5rpx;'>等待接受</text>
+                      </view>
+
+                    <view wx:if="{{step == 5  && status != 2}}" bindtap='saveCard' class='detail-btn-2 {{(!isShare) && (!card.public_card) && (!status) ? "long-btn" : ""}}' hover-class='btn-press'>
+                        <image src='/img/jiaohuan.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                        <text class='middle' style='margin-bottom:5rpx;'>接受回递</text>
+                    </view>
+
+                     <view wx:if="{{step == 2  && status != 2}}" class='detail-btn-2 trans {{(!isShare) && (!card.public_card) && (!status) ? "long-btn" : ""}}'>
+                          <image src='/img/jiaohuan.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                          <text class='middle' style='opacity:0.4;margin-bottom:5rpx;'>等待交换</text>
+                      </view>
+                    <view wx:if="{{step == 4 && status != 2}}" bindtap='agreeExChangeBtn' class='detail-btn-2 {{(!isShare) && (!card.public_card) && (!status) ? "long-btn" : ""}}' hover-class='btn-press'>
+                        <image src='/img/jiaohuan.png' class='detail-btn-img' style='width:48rpx;height:42rpx;'></image>
+                        <text class='middle' style='margin-bottom:5rpx;'>同意交换</text>
+                    </view>
+
+                     
+                </block>
+                <block wx:if="{{!iHave}}">
+                    <navigator url='/card/edit/edit?type=1' class='detail-btn-2 {{(!isShare) && (!card.public_card) && (!status) ? "long-btn" : ""}}' hover-class='btn-press'>
+                        <!-- <image src='/img/send_card_image.png'  class='detail-btn-img' style='width:48rpx;height:42rpx;'></image> -->
+                        <text class='middle' style='margin-bottom:5rpx;'>创建我的名片</text>
+                    </navigator>
+                </block>
+            </block>
+
+
+
+
+        </block>
+    </view>
+
+
+    <!-- <view wx:if="{{!isMy}}" class='delete-btn-p' >
+  <view bindtap='deleteCard' class='delete-btn'>删除名片</view>
+</view> -->
+
+    <view class='bottom-space'></view>
+
+
+
+
+
+
+
+
+    <view style='height:1rpx;'></view>
+
+    <!-- <navigator wx:if="{{isHome}}" open-type='switchTab' url='/pages/card/index/index' hover-class="none" class='to-home-p' style='bottom:150rpx;'>
+  <image src='/img/home.png' style='width:120rpx;height:120rpx;'></image>
+</navigator> -->
+
+    <canvas canvas-id='shareCan' style='position:absolute;left:750rpx;top:-1000rpx;width:500px;height:400px;'></canvas>
+    <!-- <image src='{{shareImg}}' style='position:absolute;left:0;top:400rpx;width:500rpx;height:400rpx;'></image> -->
+
+</view>

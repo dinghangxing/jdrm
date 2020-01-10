@@ -1,0 +1,20 @@
+<!--components/companyInfo/companyInfo.wxml-->
+<view class='fuli-item the-item' wx:if="{{card.full_name}}">
+    <view class='the-title'>
+        <view>{{card.full_name ? card.full_name : isMy ? '您还未填写单位/公司' :'TA还未填写单位/公司'}}</view>
+    </view>
+    <view class='company-scale' wx:if="{{card.scale || card.stered_capital}}">
+        <text>{{card.scale}}</text>
+        <text class='line' wx:if="{{card.scale && card.stered_capital}}">|</text>
+        <text>{{card.stered_capital}}</text>
+    </view>
+    <view class='info-main'>
+        <view class='company-info-1' style="max-height: {{ isOpen? ' 10000rpx' :  '120rpx' }}; padding-bottom:{{card.company_detail ? '0': '83rpx'}}">
+       <rich-text nodes="{{card.company_detail ? card.company_detail : '企业简介：-'}}"></rich-text>
+        </view>
+        <view class='toggle' wx:if="{{card.company_detail}}">
+            <text bindtap="toggle">{{isOpen ? '收起' : '查看更多'}}</text>
+            <image src="{{isOpen ? '/img/top.png' : '/img/bottom.png'}}"></image>
+        </view>
+    </view>
+</view>

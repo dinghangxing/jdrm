@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "口袋福利",
+  
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "lottery_view": "/components/lottery/lottery",
+    "hadOver_view": "/components/hadOver/hadOver",
+    "navbar": "/components/navbar/navbar",
+    "navigationBar": "/components/navigationBar/index",
+    "tabbar": "/components/tabbar/tabbar"
+    
+  }
+}
+

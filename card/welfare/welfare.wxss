@@ -1,0 +1,42 @@
+
+.mome{font-size: 28rpx;padding: 20rpx 30rpx; color:#777;}
+.welfare-list{padding: 0 20rpx;}
+.welfare-item{background: #fff;border-radius: 10rpx;overflow: hidden;box-shadow: 0 0 50rpx 0 #ccc;margin: 0 0 25rpx 0;
+padding:0 0 20rpx 0;
+position: relative;}
+.welfare-item.active{box-shadow: 0 0 10rpx 10rpx #3ca1e1;}
+/* .welfare-item.active{border: 10rpx solid #3ca1e1;} */
+.cover-img{width: 100%;}
+.wel-name{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;padding: 30rpx 10rpx 15rpx 10rpx;font-size: 34rpx; color:#010101;font-weight:400;}
+.wel-time{padding: 0 10rpx;color: #777;font-size: 26rpx;}
+.wel-codi{color: #777;padding: 15rpx 10rpx 0 10rpx;font-size: 26rpx;}
+.codi-item{display: inline-block;vertical-align: middle;background: #999;color: #fff;text-align: center;padding: 5rpx 10rpx;margin: 0 10rpx 0 0;border-radius: 10rpx;font-size: 24rpx;}
+.codi-text{display:inline-block;vertical-align: middle;}
+.fa-wel-p{padding: 20rpx 0;text-align: center;}
+.fa-wel-btn{height:86rpx;width: 328rpx;display: inline-block;color: #3ca1e1;border: 2rpx solid #3ca1e1;border-radius: 10rpx;font-size: 36rpx;}
+.fa-wel-btn::before{content: "";display: inline-block;height: 100%;vertical-align: middle;}
+.fa-wel-btn-1{height:86rpx;width: 328rpx;display: inline-block;color: #fff;background: #3ca1e1 ;border: 2rpx solid #3ca1e1;border-radius: 10rpx;font-size: 36rpx;}
+.fa-wel-btn-1::before{content: "";display: inline-block;height: 100%;vertical-align: middle;}
+.bottom-v{margin: 0rpx 0 0 0;padding: 0rpx 0rpx 0rpx 0;position: fixed;bottom: 0;width: 750rpx;text-align: center;}
+.bottom-space{height: 240rpx;}
+.create-btn{text-align: center;color: #fff;background: #46a8e6;padding: 20rpx 0;border-radius: 40rpx;width: 700rpx;display: inline-block;}
+.red-bag-img{display: inline-block;vertical-align: middle;margin: 0 20rpx 0 0;width: 34rpx;height: 40rpx;}
+.libao-img{display: inline-block;vertical-align: middle;margin: 0 20rpx 0 0;width: 40rpx;height: 40rpx;}
+.red-bag-title{position: absolute;width: 100%;text-align: center;color: #FFE9B9;font-size: 1.1em;top:65rpx;}
+.red-bag-desc{position: absolute;width: 100%;text-align: center;color:#FFE9B9;top:315rpx;}
+.ping-text{color: #fff;background: #faad26;font-size: 28rpx;border-radius: 5rpx;text-align: center;display: inline-block;width: 30rpx;padding:0 3rpx 0 6rpx;
+}
+.no-welfare{text-align: center;color: #777;margin: 0rpx 0 0 0;}
+.no-welfare-desc{font-size: 0.8em;color: #777;padding: 20rpx 0 0 0;}
+.save-p{background: #fff;padding: 20rpx 0;margin: 0rpx 0 0 0;}
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+
+/**栏目 点击态*/
+.border-press-item {
+  background-color: #f9f9f9;
+  border: 1rpx solid #3796d2;
+}

@@ -1,0 +1,166 @@
+/* people/pages/cardRecognition/cardRecognition.wxss */
+
+.view_background {
+  background-color: #f0f0f0;
+}
+
+.cr_top_image {
+  width: 750rpx;
+  vertical-align: middle;
+}
+
+/*卡片用户信息布局 begin */
+
+.view_card {
+  padding: 20rpx 0 20rpx 0;
+  position: relative;
+  background-color: #fff;
+  margin: 0 8rpx 0 8rpx;
+  border-left: 1rpx solid #f9f9f9;
+  border-right: 1rpx solid #f9f9f9;
+  border-bottom: 1rpx solid #f9f9f9;
+  border-bottom-left-radius: 8rpx;
+  border-bottom-right-radius: 8rpx;
+  box-shadow: 0 0 15rpx 0 rgba(0, 0, 0, 0.3);
+}
+
+.cr_name {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 50rpx;
+  font-weight: bold;
+  margin: 0rpx 0 0 20rpx;
+  color: rgb(51, 51, 51);
+  letter-spacing: 8rpx;
+}
+
+.cr_position_view {
+  margin: 0 0 0rpx 16rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cr_position {
+  font-size: 26rpx;
+  color: rgb(119, 119, 119);
+}
+
+.cr_position_identity {
+  font-size: 30rpx;
+  color: rgb(119, 119, 119);
+}
+
+.cr_identity_image {
+  float: right;
+  width: 108rpx;
+  height: 108rpx;
+  margin: 20rpx 20rpx 0 0;
+  border-radius: 0 20rpx 20rpx 20rpx;
+}
+
+.cr_cover_btn {
+  width: 80rpx;
+  position: absolute;
+  top: 102rpx;
+  right: 20rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 28rpx;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5rpx 15rpx;
+  border-radius: 0 0 20rpx 20rpx;
+}
+
+.company_name {
+  margin: 30rpx 0 16rpx 20rpx;
+  font-size: 32rpx;
+  color: rgb(51, 51, 51);
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  /* border-bottom:1rpx solid #000; */
+  text-decoration: underline;
+}
+
+.company_address {
+  margin-bottom: 16rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+
+}
+
+.user_phone {
+  margin-bottom: 16rpx;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+.user_wx_account {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+/*卡片用户信息布局 end */
+
+/*卡片编辑基本信息布局 begin  */
+
+
+/*卡片编辑基本信息布局 end  */
+
+.view_bottom{
+ 
+  width: 100%;
+  height: 150rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  z-index: 99;
+  background: #fff;
+  box-shadow: 0 0 15rpx 0 rgba(0,0,0,0.3);
+
+}
+
+.left_image {
+  margin-right: 10rpx;
+  width: 49rpx;
+  height: 40rpx;
+}
+
+.renew_identify {
+  width: 45%;
+  float: left;
+  margin-top: 30rpx;
+  background-color: rgb(5, 144, 242);
+  color: white;
+  font-size: 36rpx;
+  border-radius: 100rpx;
+  display: flex;
+  position: fixed;
+  bottom: 30rpx;
+  left: 20rpx;
+  z-index: 100;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.save_card {
+  width: 45%;
+  float: left;
+  margin-top: 30rpx;
+  background-color: rgb(5, 144, 242);
+  color: white;
+  font-size: 36rpx;
+  border-radius: 100rpx;
+  display: flex;
+  position: fixed;
+  bottom: 30rpx;
+  right: 20rpx;
+  z-index: 100;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

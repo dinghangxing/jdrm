@@ -1,0 +1,79 @@
+<!--people/myVisitor/myVisitor.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{holderBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='alphabetical-order'>
+
+  <view class='data-list' style='padding-bottom:30rpx;'>
+    <block wx:if="{{isLoadFinish}}">
+      <!--新的人脉列表 begin -->
+      <block wx:if="{{dataSource!=null && dataSource.length>0}}">
+        <block wx:for='{{dataSource}}' wx:key='{{pitem.tag}}' wx:for-item='pitem'>
+          <view id='{{pitem.tag}}' class='letter-tag'>{{pitem.tag}} </view>
+          <view style='background: #fff;'>
+
+            <view wx:for='{{pitem.dataList}}' wx:key wx:for-item='item' wx:for-index='i' class='msg-item'>
+
+              <view data-id='{{item.card_id}}' class='msg' data-item='{{item}}' bindtap='clickMyVisitorItem' hover-class='btn-press-item'>
+
+                <view wx:if="{{item.head_img != null && item.head_img.length > 0}}">
+                  <image class='header-img' src='{{item.head_img}}'></image>
+                </view>
+                <view wx:else class='text_header_view'>
+                  <view class='text_header'>{{pitem.firstChar[i]}}</view>
+                </view>
+
+                <view class='top_text_view'>
+                  <view class="user-name">{{item.nickname}}</view>
+
+                  <view wx:if="{{item.job == null}}" class="position_text"></view>
+                  <view wx:else class="position_text">{{item.job}}</view>
+                </view>
+
+                <text wx:if="{{item.full_name == null}}" class="msg-text">单位/公司名称未知</text>
+                <text wx:else class="msg-text">{{item.full_name}}</text>
+
+              </view>
+
+              <view wx:if="{{i>0 && i != pitem.data.length-1}}" class='divide-line'></view>
+
+            </view>
+          </view>
+        </block>
+
+      </block>
+
+      <view wx:if="{{dataSource.length > 0}}" class="data_tip">
+        <view wx:if="{{hasMore}}">正在加载</view>
+        <view wx:if="{{!hasMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+      </view>
+
+      <!--人脉列表 end-->
+
+      <!--无人脉关系时展示null页面-->
+      <block wx:else>
+        <view class='view_null'>
+          <view class='view_middle'>
+            <image class='view_null_image' src='/img/empty_people_img.png'></image>
+            <view class="view_null_text">主动发送名片，让别人先认识您</view>
+          </view>
+          
+          <view style='width:750rpx;height:135rpx; background:#fff;position: fixed;bottom: 0rpx;'></view>
+          <button wx:if="{{cardId != 0}}" class='view_null_btn'  hover-class='btn-press' open-type="share">
+            <image class='null_image' src='/img/send_card_image.png'></image>
+            <view>发名片</view>
+          </button>
+
+          <button wx:else class='view_null_btn' hover-class='btn-press' bindtap='clickCreateCardBtn'>
+            <image class='null_image' src='/img/send_card_image.png'></image>
+            <view>创建我的名片</view>
+          </button>
+          
+        </view>
+      </block>
+
+    </block>
+
+  </view>
+
+
+</view>

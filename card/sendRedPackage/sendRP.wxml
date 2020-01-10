@@ -1,0 +1,170 @@
+<!--card/sendRedPackage/sendRP.wxml-->
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<!-- <view wx:if="{{showTopToast}}" class='showTopToast_view'>{{showTopText}}</view>
+<view wx:else class='showTopToast_view' style='display:none'></view> -->
+
+<view class='view_backageground'>
+  <!--总金额布局-->
+  <view class="view_menu_item" style='position: relative'>
+
+    <image wx:if="{{type == 2}}" class='menu_item_image middle' src='/img/redpackage_img.png'></image>
+    <text wx:if="{{type == 2}}" class='menu_item_text middle'>总金额</text>
+
+    <image wx:if="{{type == 1}}" class='menu_item_image' src='/img/money_image.png' style='display:none'></image>
+    <text wx:if="{{type == 1}}" class='menu_item_text'>单个金额</text>
+
+    <view class='right_item_view'>
+      <image class='middle' wx:if="{{showMoreThan}}" style='margin-right:10rpx;width:288rpx; height:35rpx;' src='/img/more_than.png'></image>
+      <image wx:elif="{{showLessOne}}" class='middle' style='margin-right:10rpx;width:254rpx; height:35rpx;' src='/img/less_one.png'></image>
+
+      <input wx:if="{{showMoreThan || showLessOne}}" maxlength='6' type='digit' value='{{amount}}' bindinput='inputPriceBind' class='amount_input middle' style='color:#D81010'></input>
+      <input wx:else type='digit' maxlength='6' placeholder='0.00' value='{{amount}}'bindinput='inputPriceBind' class='amount_input middle'></input>
+
+      <text wx:if="{{deviceMode != 'redmi'}}" class="middle" style='font-size: 34rpx; margin-left: 10rpx;color: #000;font-weight: 400;position:relative;top:-2rpx;'>元</text>
+      <text wx:else class="middle" style='font-size: 34rpx; margin-left: 10rpx;color: #000;font-weight: 400;position:relative;top:1rpx;'>元</text>
+
+      
+    </view>
+
+
+
+
+    <!-- <view class='right_item_view'>
+      <view style='display:inline-block;'>
+        <input class='amount_input' type='digit' placeholder='0.00' bindinput='inputPriceBind'></input>
+        <text class='price_unit'>元</text>
+      </view>
+    </view> -->
+  </view>
+
+  <view class='srp_description'>当前为{{currentRPText}}，
+    <text style='color: #576B95; font-size:26rpx;' bindtap='modifyCurrentRPStatus'>改为{{modifyRPText}}</text>
+  </view>
+
+  <!--红包个数布局-->
+  <view class="view_menu_item">
+
+    <text class='menu_item_text'>红包个数</text>
+
+    <view class='right_item_view'>
+      <input type='number' placeholder='填写个数' bindinput='inputRPCountBind' class='amount_input middle' style='width:350rpx;'></input>
+      <text class="middle" style='font-size: 34rpx; margin-left: 10rpx;color: #000;font-weight: 400;'>个</text>
+    </view>
+
+    <!-- <view class='right_item_view'>
+      <view style='display:inline-block;'>
+        <input class='amount_input' type='number' placeholder='填写个数' bindinput='inputRPCountBind'></input>
+        <text class='price_unit'>个</text>
+      </view>
+    </view> -->
+  </view>
+
+  <!--恭喜发财布局-->
+  <view class="view_menu_item" style='padding: 16rpx 0 16rpx 20rpx;'>
+    <input class='amount_input' maxlength='20' type='text' placeholder='万事如意，多福多金' bindinput='inputDefaultTextBind' style='width:700rpx; height:120rpx;text-align:left;'></input>
+
+  </view>
+
+  <!--同步到名片布局-->
+  <view class="view_menu_item">
+    <view class='switch_view'>
+      <switch checked="{{synChecked}}" color="#3a9ddb" bindchange="synToCar" />
+    </view>
+
+    <view class='menu_item_text' style='display: inline-block;'>同步到名片</view>
+    <image class='image_help' src='/img/infuli-icon.png' bindtap='synCarTipsBtn'></image>
+  </view>
+
+  <!--领取限制布局-->
+  <view class="view_menu_item">
+    <!-- <view class='switch_view'>
+      <switch checked="{{receiveLimitCheck}}" bindchange="receiveLimit" />
+    </view> -->
+    <radio-group class="radio-group" style='float:right; display:inline-block' bindchange="radioChange">
+      <label class="radio" style='margin-right:5rpx;'>
+        <radio value="1" color="#3a9ddb" /> 已互存名片
+      </label>
+      <label class="radio" style='margin-right:5rpx;'>
+        <radio value="2" color="#3a9ddb" /> 已存我的名片
+      </label>
+
+      <label class="radio">
+        <radio value="3" checked="true" color="#3a9ddb" /> 不限
+      </label>
+    </radio-group>
+
+    <view>
+      <view class='menu_item_text' style='display: inline-block;'>领取限制</view>
+      <image class='image_help' src='/img/infuli-icon.png' bindtap='receiveLimitTipsBtn'></image>
+      <!-- <text class='select_text'>{{receiveLimitSelect}}</text> -->
+    </view>
+  </view>
+
+  <!-- <view wx:if="{{receiveLimitCheck == true}}" class='view_people_limie'> -->
+  <!-- <view class='view_people_limie'>
+        <view style='margin-top:20rpx;'>
+          <text class='menu_item_text' style='font-size: 24rpx;'>人脉关系限制</text>
+          <radio-group class="radio-group" style='float:right; display:inline-block' bindchange="radioChange">
+            <label class="radio" style='margin-right:5rpx;'>
+              <radio value="1" checked="true" /> 已互存名片
+            </label>
+            <label class="radio" style='margin-right:5rpx;'>
+              <radio value="2" /> 已存我的名片
+            </label>
+
+            <label class="radio">
+              <radio value="3" /> 不限
+            </label>
+          </radio-group>
+        </view>
+      </view>
+    </view> -->
+
+  <!--余额布局-->
+  <view class='send_into_rp-p'>
+
+    <view wx:if="{{totalAmount == 0 || totalAmount == null || totalAmount == 'NaN.00'}}" class='send_rp_amount' style='background:#f0f0f0'><text style='color:#333333; font-size:60rpx;margin-right:16rpx;'>￥</text>0.00 </view>
+    
+    <view wx:else class='send_rp_amount' style='background:#f0f0f0'><text style='color:#333333; font-size:60rpx;margin-right:16rpx;'>￥</text>{{totalAmount}} </view>
+
+    <view class='view_priority_use_balance' style='background:#f0f0f0'>
+      <view class='left_view'>
+
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox" style='font-size: 30rpx;color: #000;font-weight: 400;'>
+            <checkbox value="" checked="true" /> 优先使用账户余额
+          </label>
+        </checkbox-group>
+
+      </view>
+
+      <view class='balance_num'>余额：{{balance/100}}元</view>
+    </view>
+
+    <view class='send_into_rp' bindtap='sendIntoRedPackage'>塞钱进红包</view>
+  </view>
+  <!-- <view class='view_bottom'>
+
+    <view class='send_rp_amount'>￥{{totalAmount}} </view>
+    <view class='view_priority_use_balance'>
+      <view class='left_view'>
+
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+            <checkbox value="" checked="true" /> 优先使用账户余额
+          </label>
+        </checkbox-group>
+
+      </view>
+
+      <view class='balance_num'>余额：{{balance/100}}元</view>
+    </view>
+
+
+    <view style='width:750rpx;height:150rpx; background:#fff;position: fixed;bottom: 0rpx;'></view>
+    <view class='send_into_rp' bindtap='sendIntoRedPackage'>塞钱进红包</view>
+  </view> -->
+
+</view>

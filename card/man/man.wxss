@@ -1,0 +1,7 @@
+
+@import "/pages/card/index/index.wxss";
+@import "/wxss/service.wxss";
+
+@import "/wxss/pressStatus.wxss";
+
+

@@ -1,0 +1,266 @@
+<!-- <view style='font-family:ww;'>亚</view> -->
+
+<view class='main-con'>
+    <!-- <view wx:if="{{!haveCard}}" class='mbsl'>示例名片</view> -->
+    <view class='cover-img-p'>
+
+        <image class='cover-img' src='{{card.tpl_list}}'></image>
+    </view>
+    <view class='peo-info'>
+        <view style='font-family:f{{item.code}}' wx:for="{{nameArr}}" wx:key="*this" class='peo-name'>{{item.str}}</view>
+
+
+        <view class='peo-zw'>
+            <view class='peo-zw-1' style='font-size:26rpx;'>CBO</view>
+            <view class='peo-zw-1' style='font-size:26rpx;top:-6rpx'>联合创始人</view>
+
+
+            <!-- <view class='peo-zw-2'>联合创始人</view> -->
+        </view>
+
+        <image mode='aspectFill' src='{{card.logo}}' class='company-logo'></image>
+
+    </view>
+
+    <view class='company-p'>
+
+        <view class='company-info'>
+            <view class='company-name'>
+
+                <text class='com-text'> {{card.full_name}}</text>
+
+            </view>
+            <view class='company-addr'>
+                <image src='/img/com-danwei.png'></image>
+                <text>{{card.address}}</text>
+
+            </view>
+            <view class='company-addr'>
+                <image src='/img/com-shouji.png'></image>
+                <text>{{card.phone}}</text>
+
+            </view>
+            <view class='company-addr'>
+                <image src='/img/com-email.png'></image>
+                <text>{{card.email}}</text>
+
+            </view>
+        </view>
+    </view>
+    <!--components/companyInfo/companyInfo.wxml-->
+    <view class='fuli-item the-item'>
+        <view class='the-title'>
+            <image class='title-img-1' src="/img/company-info.png"></image>
+        </view>
+        <view class='info-main'>
+            <view class='company-name'>
+                <view>
+                    <image src="/img/com_image.png"></image>
+                </view>
+                <view>
+                    <view>数字驱动(福州)科技有限责任公司</view>
+                    <view>
+                        <text>1-50人</text>
+                        <text class='line'>|</text>
+                        <text>1000万人民币</text>
+                    </view>
+                </view>
+            </view>
+            <view class='company-info-1' style="max-height: {{ isOpen? ' 500rpx' :  '120rpx' }}">
+                <text style="-webkit-line-clamp: {{ isOpen? '0' :  '3' }}">数字驱动(福州)科技有限公司(简称：DDG)，是中国领先的数字整合营销解决方案服务商数字驱动（福州）科技有限责任公司（简称DDG数字驱动），以基于大数据的智能化内容编辑与社群传播传播工具两大产品为业务主体，助力内容创作和社群运营，为企业和新媒体从业者提供从内容创作到社群营销的一站式内容营销服务。
+            </text>
+            </view>
+            <view class='toggle'>
+                <text bindtap="toggle">{{isOpen ? '收起' : '查看更多'}}</text>
+                <image src="{{isOpen ? '/img/top.png' : '/img/bottom.png'}}"></image>
+            </view>
+        </view>
+    </view>
+    <view class='the-item'>
+        <image class='the-title inline title-img' src='/img/product_im.png'></image>
+        <view class='cp-list inline'>
+            <view class='cp-item inline'>超级短信</view>
+            <view class='cp-item inline'>新闻分发</view>
+            <view class='cp-item inline'>信息流广告</view>
+            <view class='cp-item inline'>点睛号编辑器</view>
+            <view class='cp-item inline'>简单人脉小程序</view>
+
+        </view>
+    </view>
+
+    <view class='the-item'>
+        <view class='the-title'>
+            <image class='title-img' src='/img/service-com.png'></image>
+        </view>
+        <view class='xiaoguo'>
+            <view class='xiaoguo-img-p'>
+                <image class='xiaoguo-img' src='/img/xunzhang-blue.png'></image>
+                <view class='xiaoguo-desc'>效果超好</view>
+            </view>
+            <view class='xiaoguo-num'>×999</view>
+        </view>
+
+        <view class='say-list'>
+
+            <view class='say-item'>
+                <image src='/img/txiang1.png' class='say-head'></image>
+                <view class='say-info'>
+                    <view class='name-job-p'>
+                        <view class='say-name'>李云凤</view>
+                        <view class='say-job'>董事长</view>
+                    </view>
+                    <text class='ypjia'>已评价</text>
+                    <view class='say-company-p'>
+                        <text class='say-company'>珠海市格致电器股份有限责任公司</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class='say-item'>
+                <image src='/img/txiang2.png' class='say-head'></image>
+                <view class='say-info'>
+                    <view class='name-job-p'>
+                        <view class='say-name'>王小霞</view>
+                        <view class='say-job'>创始人</view>
+                    </view>
+                    <text class='ypjia'>已评价</text>
+                    <view class='say-company-p'>
+                        <text class='say-company'>宁波市鼎立传媒股份有限责任公司</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class='say-item'>
+                <image src='/img/txiang3.png' class='say-head'></image>
+                <view class='say-info'>
+                    <view class='name-job-p'>
+                        <view class='say-name'>魏丹丹</view>
+                        <view class='say-job'>董事长</view>
+                    </view>
+                    <text class='ypjia'>已评价</text>
+                    <view class='say-company-p'>
+                        <text class='say-company'>上海市丹丹传媒股份有限责任公司</text>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+
+
+    <view class='the-item'>
+        <view class='the-title'>
+            <image class='title-img' src='/img/part_im.png'></image>
+        </view>
+        <view class='xiaoguo'>
+            <view class='xiaoguo-img-p'>
+                <image class='xiaoguo-img' src='/img/xunzhang-red.png'></image>
+                <view class='xiaoguo-desc'>开朗大方</view>
+            </view>
+            <view class='xiaoguo-num red'>×999</view>
+        </view>
+
+        <view class='say-list'>
+
+            <view class='say-item'>
+                <image src='/img/txiang1.png' class='say-head'></image>
+                <view class='say-info'>
+                    <view class='name-job-p'>
+                        <view class='say-name'>李云凤</view>
+                        <view class='say-job'>创始人</view>
+                    </view>
+                    <text class='ypjia'>已评价</text>
+                    <view class='say-company-p'>
+                        <text class='say-company'>珠海市格致电器股份有限责任公司</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class='say-item'>
+                <image src='/img/txiang2.png' class='say-head'></image>
+                <view class='say-info'>
+                    <view class='name-job-p'>
+                        <view class='say-name'>王小霞</view>
+                        <view class='say-job'>董事长</view>
+                    </view>
+                    <text class='ypjia'>已评价</text>
+                    <view class='say-company-p'>
+                        <text class='say-company'>宁波市鼎立传媒股份有限责任公司</text>
+                    </view>
+                </view>
+            </view>
+
+            <view class='say-item'>
+                <image src='/img/txiang3.png' class='say-head'></image>
+                <view class='say-info'>
+                    <view class='name-job-p'>
+                        <view class='say-name'>魏丹丹</view>
+                        <view class='say-job'>CEO</view>
+                    </view>
+                    <text class='ypjia'>已评价</text>
+                    <view class='say-company-p'>
+                        <text class='say-company'>上海市丹丹传媒股份有限责任公司</text>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+    </view>
+
+    <view class='fuli-item'>
+        <view class='red-bag-title'>
+            <text>阿丽塔给您的红包</text>
+        </view>
+        <view class='red-bag-desc'>万事如意，多福多金</view>
+        <image class='cover-img' src='/img/red-bag.png'></image>
+    </view>
+
+    <view class='the-item'>
+        <view class='the-title'>
+            <image class='tdrm-img' src='/img/tdrm.png'></image>
+        </view>
+        <view class='renmai-item'>
+            <image src='/img/head1.png' class='renmai-head'></image>
+            <view class='renmai-info'>
+                <view class=''>
+                    <text class='renmai-name'>董大伟</text>
+                    <text class='renmai-job'>创始人</text>
+                </view>
+                <view class='renmai-company'>奥米皮具股份有限责任公司</view>
+            </view>
+        </view>
+
+        <view class='renmai-item'>
+            <image src='/img/head2.png' class='renmai-head'></image>
+            <view class='renmai-info'>
+                <view class=''>
+                    <text class='renmai-name'>安启航</text>
+                    <text class='renmai-job'>董事长</text>
+                </view>
+                <view class='renmai-company'>阿里郎集团</view>
+            </view>
+        </view>
+
+        <view class='renmai-item'>
+            <image src='/img/head3.png' class='renmai-head'></image>
+            <view class='renmai-info'>
+                <view class=''>
+                    <text class='renmai-name'>马泽名</text>
+                    <text class='renmai-job'>CEO</text>
+                </view>
+                <view class='renmai-company'> 泉州万福茶叶股份有限责任公司</view>
+            </view>
+        </view>
+    </view>
+    <view style='height:1rpx;'></view>
+</view>
+<view class='bottom-view-no-background'>
+    <navigator url='/card/edit/edit?type=1' class='bottom-operate o-radius' hover-class='none'>立即创建</navigator>
+
+    <image bindtap='toggleStep' src='/img/wenhao_blue.png' class='yindao-w' style='right:30rpx;'></image>
+</view>
+<view class='bottom-space'></view>
+
+
+

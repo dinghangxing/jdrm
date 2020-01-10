@@ -1,0 +1,64 @@
+/* my/pages/useHelp/useHelp.wxss */
+
+.view_background{
+  background-color: #f0f0f0;
+}
+
+.view_menu_item {
+ 
+  background: #ffffff;
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  padding-top: 36rpx; 
+  padding-bottom: 36rpx; 
+}
+
+.menue_item_text{
+  height: 30rpx;
+  font-size: 34rpx;
+  padding-left: 10rpx;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+
+}
+
+.arrow_image{
+  width: 14rpx;
+  height: 20rpx;
+  
+}
+
+.help_detail{
+  height: 200rpx;
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  background-color: #f0f0f0;
+  color: rgb(119, 119, 119);
+  font-size: 30rpx;
+}
+
+.view_phone_image{
+  text-align: center;
+}
+
+.phone_image{
+  width:200rpx; 
+  height:65rpx; 
+  margin-top:36rpx; 
+
+}
+
+.contact_service_view{
+
+  position: fixed;
+  bottom: 50rpx;
+  left:280rpx;
+  vertical-align: middle
+
+}
+
+/**栏目 点击态*/
+.btn-press-item {
+  background-color: #f9f9f9;
+  border: 1rpx solid #f9f9f9;
+}

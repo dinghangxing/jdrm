@@ -1,0 +1,54 @@
+<radio-group class="radio-group" bindchange="change" checked="{{}}">
+  <label class="radio" >
+    <text class="ban-title">强推版：{{testText}}</text>
+    <text class='ban-text'>首页公共福利频道更多转换</text>
+    <radio class='ban-radio' value="3" color="#39bee1"  />
+     <text class='ban-price'>￥88<text class='old-price'>500</text>元/天</text>
+     <view style="{{versionType === 3 ? '' : 'height:0;'}}" class='price-item-list'>
+      <view wx:for="{{bestList}}" wx:key="*this" class='price-item {{index == bestIndex ? "active" : ""}}' data-index="{{index}}" bindtap='changeBest'>
+          <view class='price-item-top'><text>{{item.name}}</text></view>
+          <view class='price-item-bottom'>
+            <view class='price-p'>
+              <view class="new-price"> <text> ￥{{item.newPrice}}</text></view>
+              <view class='old-price'> <text> ￥{{item.oldPrice}}</text></view>
+            </view>
+          </view>
+      </view>
+      
+      
+    </view>
+  </label>
+  <label class="radio">
+    <text class="ban-title">专业版：</text>
+    <text class='ban-text'>绑定公众号一键复制功能</text>
+     <radio  class='ban-radio' value="2" color="#39bee1"  />
+    <text class='ban-price'>￥9.9元/次</text>
+    <view class='price-item-list' style="{{versionType == 2 ? '' : 'height:0;'}}">
+      <view wx:for="{{proList}}" data-index="{{index}}" class='price-item {{proIndex == index ? "active" : ""}}' bindtap='changePro'>
+          <view class='price-item-top'><text class='middle'>{{item.name}}</text></view>
+          <view class='price-item-bottom'>
+            <view class='price-p'>
+              <view class="new-price"> <text> ￥{{item.priceDesc}}</text></view>
+                <view class="desc-price"> <text> {{item.desc}}</text></view>
+            </view>
+          </view>
+      </view>
+     
+      
+    </view>
+  </label>
+  <label class="radio">
+    <text class="ban-title">趣味版：</text>
+    <text class='ban-text'>压力太大，逗TA一笑</text>
+    <radio  class='ban-radio' value="1" color="#39bee1"  />
+     <!-- <text  class='ban-price'>￥88/元</text> -->
+    
+  </label>
+  <label class="radio">
+    <text class="ban-title">免费版：</text>
+    <text class='ban-text'>简洁自助，好运常在</text>
+    <radio  class='ban-radio' value="0" color="#39bee1" checked="true" />
+     <!-- <text class='ban-price'>￥88/元</text> -->
+    
+  </label>
+</radio-group>

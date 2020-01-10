@@ -1,0 +1,43 @@
+<wxs module="filter" src="../../util/filter.wxs"></wxs>
+<block wx:if="{{list!=null && list.length>0}}">
+<navigator wx:for="{{list}}" wx:key="item" url="/welfare/pages/detail/detail?active_id={{item.active_id}}" class='view_over' hover-class='btn-press-item'>
+  
+    <image mode='aspectFill' class='left_image' src='{{item.prize_img1}}'></image>
+    <view class='over_right_view '>
+      <view class="over_prize_text">
+       <text>{{item.prize_name1}} ×{{item.prize_num1}}</text>
+       <text wx:if="{{item.prize_num2 > 0}}">、{{item.prize_name2}} ×{{item.prize_num2}}</text>
+       <text wx:if="{{item.prize_num3 > 0}}">、{{item.prize_name3}} ×{{item.prize_num3}}</text>
+      </view>
+    
+
+      <view hidden='{{item.is_gender == 0 && item.active_key == "" && item.group_user_limit == 0}}' class='view_over2'>
+        <text class="recommend_text">参与条件：</text>
+        <text wx:if="{{item.is_gender == 1}}" class="recommend_g">男</text>
+        <text wx:if="{{item.is_gender == 2}}" class="recommend_g">女</text>
+
+        <text wx:if="{{item.active_key != ''}}" class="recommend_g">口令</text>
+
+        <text wx:if="{{item.group_user_limit > 0}}" class="recommend_g">可组队</text>
+      </view>
+
+
+      
+
+      <view class='view_over3'>
+        <image class='image_over' src='/img/image.png'></image>
+        <text class="over_text">已结束 |</text>
+        <text wx:if="{{item.open_type == 1}}" class="lottery_time">{{filter.date(item.open_date) }} 自动开奖</text>
+        <text wx:if="{{item.open_type == 2}}" class="lottery_time">达到{{item.open_users}}人，自动开奖</text>
+        <text wx:if="{{item.open_type == 3}}" class="lottery_time">手动开奖</text>
+      </view>
+    </view>
+  </navigator>
+</block>
+
+<block wx:else> 
+  <view  class='view_null'>
+      <image class='view_null_image' src='/img/empty_image.png'></image>
+      <view class="view_null_text">没有更多了</view>
+  </view>
+</block>

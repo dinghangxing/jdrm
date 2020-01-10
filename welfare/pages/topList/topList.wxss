@@ -1,0 +1,42 @@
+
+@import "../../../pages/welfare/index/index";
+page{height: 100%;}
+
+.viewbackgroud{
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.swiper-tab{
+    width: 100%;
+    border-bottom: 2rpx solid #ccc;
+    text-align: center;
+    height: 88rpx;
+    line-height: 88rpx;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    background: rgb(255, 255, 255)
+}
+
+.swiper-tab-item{
+    width: 30%; 
+    font-size: 30rpx; 
+    color: rgb(219, 219, 219);
+}
+
+.active{
+    color:rgb(51, 51, 51);
+    /* border-bottom: 4rpx solid #F65959; */
+}
+
+swiper{
+  text-align: center;
+}
+
+.order-list{
+    height:100%;
+}
+
+.tip{padding: 20rpx 0;text-align: center;margin: 20rpx 0 0 0;color:#777;}
+.start-time{padding: 10rpx 0  ;color: red;}

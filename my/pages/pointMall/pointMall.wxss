@@ -1,0 +1,274 @@
+/* my/pages/pointMall/pointMall.wxss */
+@import "/wxss/modal.wxss"
+
+
+page {
+  background: #f0f0f0;
+}
+
+/*积分签到开始**/
+.daily_sign_view {
+  padding-bottom: 16rpx;
+  background: rgb(255, 255, 255);
+}
+
+.continuous_sign_view {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  background: rgb(255, 255, 255);
+  display: inline-block;
+}
+
+.sign_view1 {
+  margin-left: 20rpx;
+
+}
+
+.daily_sign_text {
+  height: 30rpx;
+  font-size: 34rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+.continuoused_sign_text {
+  font-size: 26rpx;
+  margin-left: 20rpx;
+  color: rgb(51, 51, 51);
+}
+
+.daily_sign_image {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-right: 30rpx;
+}
+
+.view_line {
+  height: 100rpx;
+  display: inline-block;
+  margin: 8rpx 0 0 10rpx;
+  vertical-align: middle;
+  border-left: #f0f0f0 1rpx solid;
+}
+
+.view_point {
+  display: block;
+  margin: 40rpx 0 8rpx 0;
+}
+
+.sign_view2 {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.data_view {
+
+  vertical-align: middle;
+  width: 106rpx;
+  position: relative;
+}
+
+.date_text {
+  font-size: 18rpx;
+  margin-bottom: 6rpx;
+  color: rgb(119, 119, 119);
+}
+
+.sign_image_view{
+   display: inline-block;
+}
+
+.sign_image {
+  width: 45rpx;
+  height: 45rpx;
+  font-size: 20rpx;
+  color: rgb(51, 51, 51);
+  vertical-align: middle;
+  background-color: #e3e3e3;
+  border-radius: 16em;
+}
+
+.sign_points {
+  width: 40rpx;
+  height: 40rpx;
+  margin:0 0 0 3rpx;
+  color: rgb(51, 51, 51);
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 16em;
+  
+}
+
+.sign_points::before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.vertical_line {
+  display: inline-block;
+  position: absolute;
+  top: 50rpx;
+  width: 60rpx;
+  border: #e7e7e7 4rpx solid;
+}
+
+.sign_text{
+  margin-top: 6rpx;
+  font-size: 18rpx;
+  color: rgb(119, 119, 119);
+  display: block;
+}
+
+.sign_btn{
+  width: 50%;
+  padding: 20rpx 0; 
+  text-align: center;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:50rpx;
+  margin-left: 180rpx;
+  border-radius: 16rpx;
+  background-color: #3ca1e1;
+}
+
+/*积分签到结束*/
+
+.data-list {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.point_top_view {
+  height: 50rpx;
+  border-top: 2rpx solid #e7e7e7;
+  border-bottom: 2rpx solid #e7e7e7;
+  padding:20rpx 0;
+  margin: 0 20rpx 0 20rpx;
+  background-color: #f0f0f0;
+  line-height: 50rpx;
+  vertical-align: middle
+  
+}
+
+.point_mall_text {
+  float: left;
+  font-size: 34rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+.point_text {
+  float: right;
+  font-size: 26rpx;
+  color: rgb(51, 51, 51);
+  
+}
+
+.point_count {
+  float: right;
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #F45E4D;
+}
+
+.view_menue_item {
+  /* width: calc(100% - 46rpx); */
+  height: 180rpx;
+  background: #fff;
+  
+  /* padding-bottom: 20rpx; */
+  border-bottom: 1px solid #e3e3e3;
+  /*border-radius: 16rpx; */
+  text-align: left;
+
+}
+
+.view_menue_item:active{
+  background: #f9f9f9;
+}
+
+.left_image {
+  width: 208rpx;
+  height: 102rpx;
+  margin-left: 20rpx;
+  margin-top: 40rpx;
+  float: left;
+}
+
+.pm_view {
+  margin-top: 30rpx;
+  float: left;
+  margin-left: 30rpx;
+  text-align: left;
+}
+
+.top_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  margin-bottom: 16rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+  display: block;
+}
+
+/* .view_middle{
+  margin-top:16rpx;
+  display: block;
+  
+} */
+
+.middle_text1 {
+  font-size: 26rpx;
+  text-decoration: line-through;
+  color: rgb(178, 178, 178);
+  display: block;
+}
+
+.middle_text2 {
+  font-size: 28rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+.view_line{
+  border: 1rpx solid #f0f0f0;
+}
+
+.data_tip {
+  text-align: center;
+  padding: 20rpx 0;
+  margin: 0 20rpx;
+  background-color: #f0f0f0;
+}
+
+.view_null {
+  width: 100%;
+  height: 100%;
+  padding-top: 30rpx;
+  background: #f0f0f0;
+  text-align: center;
+}
+
+.view_null_text {
+  font-size: 26rpx;
+  color: rgb(119, 119, 119);
+}
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+
+/* 
+.right_bottom_btn{
+  font-size: 32rpx;
+  color: rgb(60, 161, 225)
+} */

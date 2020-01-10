@@ -1,0 +1,11 @@
+<view class='nav-p'>
+  <view class='btn-p'>
+    <image wx:if="{{search}}" bindtap='_search' class='nav-search' src='/img/search.png' mode='widthFix'></image>
+    <image wx:if="{{back && isReady}}" bindtap='_navback' class='nav-back' src='/img/back-b.png' mode='widthFix' style='width:20rpx;'></image>
+    <view wx:if="{{home && back && isReady}}" class='nav-line'></view>
+    <image wx:if="{{home && isReady}}" bindtap='_backhome' class='nav-home' src='/img/home-b.png' mode='widthFix' style='width:42rpx;'></image>
+
+  </view>
+  <view class='nav-title'>{{title}}</view>
+</view>
+<view class='nav-space'></view>

@@ -1,0 +1,44 @@
+
+
+
+
+module.exports = {
+  date: function (time){
+    
+    time = time.replace("-", ':').replace("-", ':').replace(' ', ':');
+    console.log(time);
+    time = time.split(':');
+  
+    //var time1 = new Date(time[0], (time[1] - 1), time[2], time[3], time[4], time[5]);
+
+
+    return time[1] + "月" + time[2] + "日 " + time[3] + ":" + time[4];
+  },
+
+  calcPrizeName:function(name,num){
+    
+    var maxLength = 34;
+    var str = "";
+    var length = name.length;
+    if (length > maxLength){
+      name = name.substring(0, maxLength - 1);
+      str = name+"..." + "   ×" + num;
+    }else{
+      str = name + "  ×"+num;
+    }
+    return str;
+  },
+
+  setJob:function(job){
+   
+    
+    var reg = getRegExp("[,.?!;，。？！；、]","g");
+   
+   
+    return job.split(reg).join("、");
+  },
+
+  base64Encode:function(str){
+    return base64.decode(str);
+  }
+}

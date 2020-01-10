@@ -1,0 +1,95 @@
+<!--my/pages/cardProfessionCoupon/cardProfessionCoupon.wxml-->
+
+<!-- <view wx:if="{{list != null && list.length > 0}}"> -->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view style='margin-top: 20rpx;'>
+  <text class='tips_text'>自转赠时刻起60分钟内无人领取将会被退还</text>
+
+  <navigator wx:for="{{list}}" wx:key="*this" url="" class='view_menue_item'>
+
+    <text class='top_text'>名片专业版使用券(月卡)</text>
+
+    <text class='welfare_count_text'>999 张</text>
+
+    <view class='middle_view'>
+      <text class='use_right_now' bindtap='clickRightUse'>立即使用</text>
+      <text class='give_to_friend' bindtap='clickGiveToFriends'>转赠给好友</text>
+
+    </view>
+
+  </navigator>
+
+</view>
+
+<view style='height:150rpx;'></view>
+<view class='again_buy_btn-p'>
+  <view class='again_buy_btn' bindtap='clickAgainBuyBtn'>再次购买</view>
+
+  <!--=====点击再次购买，弹出底部弹窗======-->
+  <view data-id="{{AGAIN_BUY}}" class="popup_screen" bindtap="hideModal" wx:if="{{showAgainBuyStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="popup_window" wx:if="{{showAgainBuyStatus}}">
+    <image data-id="{{AGAIN_BUY}}" src='/img/close_img.png' style='float:right; width:26rpx; height:26rpx; margin-right:20rpx' bindtap='clickCloseAgainBuyView'></image>
+
+    <view style='margin-top:30rpx;'>
+      <image src='/img/left_maisui.png' style='width:31rpx; height:80rpx;'></image>
+      <text class='title_text'>专业版功能</text>
+      <image src='/img/right_maisui.png' style='width:31rpx; height:80rpx;'></image>
+    </view>
+
+    <view class='view_line'></view>
+
+    <text class='popup_buy_text'>支付19.9元/月，使用以下功能</text>
+
+    <view style='margin-bottom:50rpx;'>
+      <view wx:for="{{profressionList}}" wx:key="*this" class='popup_middle_view'>
+        <image class='image_1' src='/img/selected_image.png'></image>
+        <text class='service_text'>{{item}}</text>
+      </view>
+    </view>
+
+    <view class='tips_text2'>购买后可转赠给好友</view>
+    <view class='popup_right_now_btn' bindtap='clickBuyRightNow'>立即购买 </view>
+  </view>
+  <!--=====点击再次购买，弹出底部弹窗 end=====-->
+
+  <!--=====点击转赠给好友，弹出底部弹窗 begin=====-->
+  <view data-id="{{GIVE_TO_FRIEND}}" class="popup_screen" bindtap="hideModal" wx:if="{{showGiveToFriendStatus}}"></view>
+  <!--弹出框  -->
+  <view animation="{{animationData}}" class="popup_window" wx:if="{{showGiveToFriendStatus}}" style='height: 45%;'>
+    <image data-id="{{GIVE_TO_FRIEND}}" src='/img/close_img.png' style='float:right; width:26rpx; height:26rpx; margin-right:20rpx' bindtap='clickClockGiveToFriendView'></image>
+    <view class='give_friend_view'>
+      <image class='center_image' src='/img/card_quan.png'></image>
+    </view>
+    <view class='use_times'>名片专业版使用券(月卡)</view>
+
+    <view class='view_line'></view>
+
+    <view class='choose_view'>
+      <view class='choose_number_view'>
+        <view class='add_text' bindtap='addCardBtn'>+</view>
+        <view class='number_text'>{{cardCount <=0 ? 0 : cardCount}}</view>
+        <view class='less_text'bindtap='lessCardBtn'>-</view>
+      </view>
+
+      <view class='choose_give_count'>选择转赠数量</view>
+    </view>
+    
+    <button class='give_to_friend_btn' open-type="share">转赠给好友</button>
+  </view>
+  <!--=====点击转赠给好友，弹出底部弹窗 end=====-->
+
+</view>
+<!-- </view> -->
+
+<!-- <view wx:else >
+  <view class='view_null'>
+      <image class='view_null_image' src='/img/empty_welfare_image.png'></image>
+      <view class="view_null_text">暂无使用券，快去购买</view>
+
+      <button class='view_null_btn'>
+        <view>立即购买</view>
+      </button>
+    </view>
+</view> -->

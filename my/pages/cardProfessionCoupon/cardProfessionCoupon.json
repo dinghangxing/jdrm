@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "名片专业版管理",
+ 
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

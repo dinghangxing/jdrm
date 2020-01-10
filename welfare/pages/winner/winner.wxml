@@ -1,0 +1,68 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view wx:for="{{winnerList}}" wx:for-key="{{item}}" class='winner-item'>
+  <view class='head'>
+    <block wx:if="{{item.win_lev == 1}}">
+      <view class='prize-num'>奖项一：</view>
+      <view class='prize-name'>{{active.prize_name1}}</view>
+    </block>
+    <block wx:if="{{item.win_lev == 2}}">
+      <view class='prize-num'>奖项二：</view>
+      <view class='prize-name'>{{active.prize_name2}}</view>
+    </block>
+    <block wx:if="{{item.win_lev == 3}}">
+      <view class='prize-num'>奖项三：</view>
+      <view class='prize-name'>{{active.prize_name3}}</view>
+    </block>
+  </view>
+  <view class='body'>
+    <view class='winner-p'>
+      <image class='icon' mode='widthFix' src='{{item.icon}}' ></image>
+      <text class='nickname'>{{item.nickname}}</text>
+    </view>
+    <!-- <view class='ref-num'>幸运号码：{{item.ref_id}}</view> -->
+    <view class='info-p'>
+      <image class='middle left-mar' mode='widthFix' src='/img/address_g.png' style='width:23rpx;'></image>
+      <text  class='middle'>收货地址</text>
+    </view>
+    <view class='phone'><text>{{item.name}}   {{item.phone}}</text></view>
+    <view class='info-content'>{{item.address}}</view>
+
+    <view  class='info-p'>
+      <image class='middle left-mar' mode='widthFix' src='/img/liuyan_g.png' style='width:28rpx;'></image>
+      <text class='middle'>留言</text>
+    </view>
+    
+    <view class='info-content'>{{item.info == null ? "无" : item.info}}</view>
+
+  </view>
+</view>
+
+<!-- 
+address
+:
+"广东省广州市海珠区新港中路397号"
+icon
+:
+"https://wx.qlogo.cn/mmopen/vi_32/7H0jIVKP3icq91NvK4yHibtlysLvwIp8XWpB838VMTALBrjp06iaAhpvpiaYwM8b8YPzktfHWsxTXKflEGX4icjWrhw/132"
+info
+:
+"1111"
+name
+:
+"张三"
+nickname
+:
+"路奇"
+phone
+:
+"020-81167888"
+ref_id
+:
+"03818936"
+win_lev
+:
+1
+zip_code
+:
+"510000" -->

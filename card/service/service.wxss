@@ -1,0 +1,2 @@
+@import "/wxss/service.wxss";
+@import "/wxss/pressStatus.wxss";

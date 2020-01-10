@@ -1,0 +1,101 @@
+<wxs module="filter" src="../../../util/filter.wxs"></wxs>
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{false}}" background="{{barBg}}"></navigationBar>
+<view wx:if="{{!pageHidden}}">
+    
+
+    <case-card wx:if="{{!haveCard}}" bind:toggleStep="toggleStep"></case-card>
+
+    <view wx:if="{{haveCard}}" class='main-con'>
+        <card-info card="{{card}}" isMy="{{isMy}}"></card-info>
+        <!-- <legal card="{{card}}" isMy="{{isMy}}"></legal> -->
+
+        <company-info card="{{card}}" card_id="{{card.id}}" isMy="{{true}}"></company-info>
+
+        <prod-bus card_id="{{card.id}}" isMy="{{true}}"></prod-bus>
+
+        <boss-com card_id="{{card.id}}" isMy="{{true}}"></boss-com>
+
+        <part-com card_id="{{card.id}}" isMy="{{true}}"></part-com>
+
+        <card-welfare card="{{card}}" card_id="{{card_id}}" isMy="{{isMy}}"></card-welfare>
+
+        <link-man card_id="{{card_id}}" isMy="{{isMy}}"></link-man>
+
+
+        <view wx:if="{{haveCard}}" class='bottom-view-no-background'>
+            <!-- <image class='wem-img' src='/img/erweima.png' bindtap='createQrcode'></image> -->
+
+            <!-- <view bindtap='toDetail'  class='btn-1 btn'>
+      <image class='middle' src='/img/bianji.png' style='width:41rpx;height:40rpx;margin:0 15rpx 0 0;'></image>
+      <text  class='middle'>编辑</text>
+    </view> -->
+            <!-- <view bindtap='switchAction' class='bottom-operate'>
+        <image class='middle' src='/img/fasong-bai.png' style='width:49r px;height:40rpx;margin:0 15rpx 0 0;'></image>
+        <text class='middle'>发名片</text>
+      </view> -->
+            <view bindtap='switchAction' hover-class='round-press'>
+                <image class='famingpian' src='/img/famingpian.png'></image>
+            </view>
+            <image bindtap='toggleStep' src='/img/wenhao_blue.png' class='yindao-w'></image>
+
+        </view>
+
+        <view style='height:1rpx;'></view>
+    </view>
+
+    <view wx:if="{{haveCard}}" style='height:300rpx;'></view>
+
+
+
+
+    <view wx:if="{{isShowQrcode}}" class='qrcode-mask' bindtap='hideQrcode'>
+        <view class='qrcode-p' catchtap='null'>
+            <image src='{{cardImage}}' style='width:620rpx;height:946rpx;'></image>
+            <view bindtap='eventSave' class='qrcode-save'>保存至本地相册</view>
+        </view>
+        <image   src='/img/close_step.png' class='step-close'></image>
+    </view>
+    
+    <canvas canvas-id='shareCan' style='position:absolute;left:750rpx;top:-1000rpx;width:500px;height:400px;'></canvas>
+    <!-- <image src='{{shareImg}}' style='position:absolute;left:0;top:400rpx;width:620rpx;height:880rpx;'></image> -->
+
+
+</view>
+
+
+
+
+<view hidden="{{actionHidden}}" class='action-mask' catchtouchmove='true'>
+    <view class='action-p {{isShowAct ? "show" : ""}}'>
+        <button open-type='share' data-id="3" class='action-item '> 指定分享 - 微信好友</button>
+        <button bindtap='createQrcode' class='action-item'>公开分享 - 生成分享图</button>
+        <button bindtap='switchAction' class='action-cancel'>取消</button>
+    </view>
+
+</view>
+
+<view wx:if="{{showStep}}" class='step-mask' bindtap='toggleStep'>
+  
+  <swiper class='step-swiper' indicator-dots="true" autoplay="true" circular="true" catchtap='null'>
+    <swiper-item>
+       
+      <image src="/img/step1.png" class="step-img"  />
+    </swiper-item>
+     <swiper-item>
+       
+      <image src="/img/step2.png" class="step-img"  />
+    </swiper-item>
+     <swiper-item>
+       
+      <image src="/img/step3.png" class="step-img"  />
+    </swiper-item>
+    
+</swiper>
+
+  <image src='/img/close_step.png' class='step-close'></image>
+
+
+</view>
+
+
+<canvasdrawer painting="{{cardPainting}}"  bind:getImage="eventGetCardImage"/>

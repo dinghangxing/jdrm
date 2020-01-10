@@ -1,0 +1,14 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+<view wx:for="{{winPrizeList}}" wx:if="{{item.users.length > 0}}" wx:key="*this" class='win-pri-p' style='{{(index + 1) == winPrizeList.length ? "border-bottom: none;" : ""}} '>
+    <view class='win-pri-na'>
+      <text wx:if="{{winPrizeList.length == 1}}">奖品</text>
+      <text wx:if="{{winPrizeList.length > 1}}">奖项{{item.num_text}}</text>：{{item.prize_name}}
+    </view>
+    <view class='win-pri-user-list' >
+      <view wx:for="{{item.users}}"  wx:key="*this" class='win-pri-user'>
+        <image class='win-pri-user-head' src='{{item.icon}}'></image>
+        <view class='win-pri-user-name'>{{item.nickname}}</view>
+      </view>
+    </view>
+  </view>
+

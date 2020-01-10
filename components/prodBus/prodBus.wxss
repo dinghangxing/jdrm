@@ -1,0 +1,37 @@
+/* components/prodBus/prodBus.wxss */
+@import "/pages/card/index/index.wxss";
+@import "/wxss/cardDetail.wxss";
+@import "/wxss/pressStatus.wxss";
+.the-title{
+    padding:0 10px 20rpx 0.5px;
+}
+.cp-item{
+    background: #CCCCCC;
+    font-size: 24rpx;
+    height: 34rpx;
+    border-radius: 6rpx;
+    margin:0 23rpx 24rpx 0;
+}
+.cp-item.active{background: #3CA1E1;}
+.cp-list{
+    padding-left: 0;
+}
+.the-item-s{
+    padding-bottom: 0;
+}
+.img-box{padding: 0 0 24rpx 0;}
+.img-box .img{
+    width:700rpx;
+    height: 395rpx;
+  
+    vertical-align:top;
+}
+.no-img-v{
+  width:700rpx;
+    height: 395rpx;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 395rpx;
+    border:1rpx dotted #AAAAAA;
+    color: #AAAAAA;
+}

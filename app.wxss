@@ -1,0 +1,116 @@
+/**app.wxss**/
+page{
+  overflow-x: hidden;
+  font-family:   webfont 'Microsoft YaHei';
+  font-size:30rpx;
+  background: #f0f0f0;
+}
+
+.page{transition:0.8s;}
+.page.hidden{opacity: 0;}
+.page.show{opacity: 1;display: block !important;}
+.red{color:#E94F4F !important;}
+.trans{opacity: 0.5;}
+button{background: transparent;box-sizing: content-box;border-radius: 0rpx;line-height: normal;}
+button::after{border: none;}
+.middle{display: inline-block;vertical-align: middle;}
+.bottom-view{margin:75rpx 0 0 0;
+padding:30rpx 0;
+background: #fff;
+/* box-shadow: 0 0 20rpx 0 rgba(0,0,0,0.3); */
+border-top:solid 1rpx  #f0f0f0;
+position:fixed;
+width:100%;
+bottom:0rpx;
+z-index: 100;
+text-align: center;
+}
+
+
+
+.bottom-view-no-background{margin:75rpx 0 0 0;
+padding:30rpx 0;
+position:fixed;
+
+bottom:20rpx;
+z-index: 10;
+text-align:center;
+width:100%;
+
+
+}
+
+.bottom-operate{width:690rpx;
+color:#fff;
+background:#3ca1e1;
+border-radius:10rpx;
+height:88rpx;
+line-height:88rpx;
+display: inline-block;
+box-sizing:border-box;
+font-size: 36rpx;
+text-align: center;
+padding: 0;
+}
+.o-radius{border-radius:44rpx;}
+.bottom-space{height: 200rpx;}
+.to-home-p{
+position:fixed;
+bottom:30rpx;
+right:30rpx;
+
+z-index:39;
+}
+.btn{display: inline-block;border: 2rpx solid #3ca1e1;text-align: center;border-radius: 10rpx;width:330rpx;height: 88rpx;line-height:88rpx;font-size: 36rpx;}
+
+.btn-1{background: #fff;color:#3ca1e1;margin: 0 20rpx 0 0;vertical-align: middle;}
+.btn-2{background: #3ca1e1;color:#fff;
+box-sizing:content-box;
+vertical-align:middle;
+}
+.copy-v{background:#fff;margin: 20rpx auto 20rpx auto;padding:10rpx;box-sizing: border-box;width: 690rpx;border:4rpx solid #F0F0F0;text-align: center;}
+.copy-desc{text-align: center;padding:15rpx 0 40rpx 0;color: #000;font-size: 28rpx;font-weight: bold;}
+.copy-content{text-align: center;background:#FFF7E6;width: 610rpx;height: 100rpx;margin: 0 auto;border-radius: 10rpx;font-size: 28rpx;color: #9A8F7D;box-sizing: border-box;line-height: 100rpx;}
+.copy-desc-ph{text-align: center;color:#777777;}
+.copy-hand{width:29rpx;height: 35rpx;display: inline-block;margin:0 20rpx 0 0;vertical-align: middle;}
+.copy-btn{margin: 40rpx auto;background: #3ca1e1;color:#fff;
+display: inline-block;text-align: center;border-radius: 35rpx;width:360rpx;height: 70rpx;line-height:70rpx;font-size: 32rpx;
+}
+
+.bianji-btn {
+position:absolute;
+width:33rpx;
+height:32rpx;
+top:0rpx;
+right:10rpx;
+padding:30rpx;
+z-index:10;
+
+}
+.no-product-text {
+color:#777;
+font-size:0.8em;
+position:relative;
+text-align:center;
+
+}
+.tip-img{display: inline-block;vertical-align: middle;width: 36rpx;height: 36rpx;margin: 0 0 0 10rpx;}
+
+.action-mask{position: fixed;top:0;bottom:0;right:0;left:0;background: rgba(0,0,0,0.5);z-index: 200;}
+.action-p{position: absolute;bottom: -414rpx;background:#e5e5e5;width: 100%;text-align: center;font-size: 1.2em;
+transition: 400ms;
+}
+.action-p.show{bottom: 0rpx;}
+.action-item{background: #fff;padding: 30rpx 0;font-size:36rpx;
+height:40rpx;
+line-height:40rpx;border-bottom:1rpx solid #dcdcdc;
+
+}
+.action-cancel{background: #fff;margin: 10rpx 0 0 0;padding: 30rpx 0;font-size:36rpx;
+height:40rpx;
+line-height:40rpx;
+}
+
+
+
+

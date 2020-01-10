@@ -1,0 +1,18 @@
+<!--my/pages/reCharge/reCharge.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='recharge_view'>
+  <view class='recharge_text'>充值金额</view>
+  <view style='display:block; '>
+
+    <view style='position: relative; '>
+      <text style='position: absolute; top:50rpx;left:20rpx;color:#000; font-size:40rpx; font-weight:bold;'>￥</text>
+      <input class='price_input' type='digit' placeholder='0.00' placeholder-style='color:rgb(204,204,204)' bindinput='inputBind'></input>
+    </view>
+
+    <view class='line'> </view>
+  </view>
+
+  <view class='recharge_value' bindtap='clickRechargeBtn' hover-class="btn-press">下一步</view>
+
+</view>

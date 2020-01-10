@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "口袋人脉",
+ 
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

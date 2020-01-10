@@ -1,0 +1,11 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "活动详情",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index",
+    "active-detail":"/welfare/components/activeDetail/activeDetail",
+    "wish":"/welfare/components/wish/wish",
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
+  }
+}

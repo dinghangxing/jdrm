@@ -1,0 +1,6 @@
+/* components/caseCard/caseCard.wxss */
+@import "/app.wxss";
+@import "/pages/card/index/index.wxss";
+@import "/wxss/cardDetail.wxss";
+@import "/components/companyInfo/companyInfo.wxss";
+

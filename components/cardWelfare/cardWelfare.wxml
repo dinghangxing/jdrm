@@ -1,0 +1,89 @@
+<view class='fuli-item' bindtap='setActive'>
+    <view wx:if="{{joinList == null && isMy}}" class='gai-wel' style='display:none' ></view>
+    <view wx:elif="{{isMy}}" class='gai-wel' hover-class='btn-press3' >更新</view>
+
+    <view wx:if="{{joinList == null && !isMy}}" hover-class='image-press'>
+      <view class='red-bag-title'>
+        <text>TA未添加福利</text>
+
+      </view>
+
+      <image bindtap='heHasNot' class='welfare-img' src='/img/red-bag.png'></image>
+    </view>
+
+
+    <view wx:if="{{joinList == null && isMy}}" hover-class='image-press'>
+      <view class='red-bag-title'>
+        <text class='middle'>添加给朋友的福利</text>
+      </view>
+      <image class='welfare-img' src='/img/red-bag.png'></image>
+      <image class='tinajia-img' src='/img/tinajia.png'></image>
+    </view>
+
+    <view wx:if="{{joinList.active_type == 1}}" hover-class='image-press'>
+      <view class='red-bag-title' >
+        <text class='middle' wx:if="{{isMy}}">我给朋友的红包</text>
+        <text class='middle' wx:else>{{card.name}}给您的红包</text>
+ 
+        <image wx:if="{{joinList.lucky_type == 2}}" class='ping-text' src='/img/redpackage_img.png'></image>
+      </view>
+      <view class='red-bag-desc'>{{joinList.info}}</view>
+      <image class='welfare-img' src='/img/red-bag.png'></image>
+    </view>
+    <view wx:if="{{joinList.active_type == 2}}" hover-class='image-press'>
+      <view class='red-bag-title'>
+        <text wx:if="{{isMy}}">我给朋友的福利</text>
+        <text wx:else>{{card.name}}给您的福利</text>
+      </view>
+
+      <image  class='welfare-img' src='{{joinList.prize_img1}}'></image>
+      <image  class='mask' src='/img/fuli-zhezhao.png'></image>
+    </view>
+    <view wx:if="{{joinList != null }}" catchtap='clickOpenRedPackage' class='real-open'></view>
+</view>
+
+<view class="rp_mask" wx:if="{{showOpenRP}}">
+
+  <view class="rp_open_view">
+    <image class='rp_image' src='/img/hongbao_bg.png'></image>
+    <image class='rp_user_image' src='{{joinList.icon}}'></image>
+    <view class='rp_user_name'>{{joinList.nickname}}</view>
+
+    <block wx:if="{{joinList != null}}">
+      <!--joinList.luck_status ！= 0 可抢 的情况-->
+      <block wx:if="{{joinList.luck_status != 0}}">
+        <view wx:if="{{joinList.info != null}}" class='rp_description'>{{joinList.info}}</view>
+        <view wx:else class='rp_description'>万事如意，多福多金</view>
+
+        <block wx:if="{{joinList.status==0}}">
+          <image animation="{{animationData}}" class='rp_open' src='/img/kai.png' bindtap='clickOpenRP'></image>
+          <view class='rp_check_receive_detail' style='display:none'></view>
+        </block>
+
+        <block wx:else>
+          <image class='rp_open' src='/img/kai.png' style='display:none'></image>
+          <view class='rp_check_receive_detail' bindtap='clickCheckReceiveDetail'>查看领取详情 ></view>
+        </block>
+
+      </block>
+      <!--joinList.luck_status == 0 已经抢完了 的情况-->
+      <block wx:else>
+        <block wx:if="{{joinList.status==1}}">
+          <view wx:if="{{joinList.info != null}}" class='rp_description'>{{joinList.info}}</view>
+          <view wx:else class='rp_description'>万事如意，多福多金</view>
+        </block>
+        <block wx:else>
+          <view class='rp_description'>手慢了，红包派完了</view>
+        </block>
+
+        <image class='rp_open' src='/img/kai.png' style='display:none'></image>
+        <view class='rp_check_receive_detail' bindtap='clickCheckReceiveDetail'>查看领取详情 ></view>
+
+      </block>
+
+    </block>
+
+    <image class='rp_close' src='/img/close_rp_img.png' bindtap='closeRPView'></image>
+  </view>
+
+</view>

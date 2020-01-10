@@ -1,0 +1,183 @@
+/* my/pages/welfareProfessionCoupon/addService/addService.wxss */
+page {
+ background-color: #fff;
+
+}
+
+.view_background{
+  margin-top: 1rpx;
+}
+
+.title_text{
+  
+  display: block;
+  font-size: 36rpx;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  text-align: left;
+  margin-left: 30rpx;
+  padding-top: 10rpx;
+  
+}
+
+.use_text_view{
+  margin-top: 15rpx;
+  text-align: left;
+}
+
+.use_text{
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+  font-weight: bold;
+  margin-left: 30rpx;
+}
+
+.use_tips_text{
+  margin-left: 16rpx;
+  font-size: 26rpx;
+  color: rgb(119, 119, 119);
+}
+
+.popup_middle_view{
+  margin: 50rpx 0 0 30rpx;
+  text-align: left;
+}
+
+.image_1{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 16rpx; 
+}
+
+.service_text{
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+}
+
+.popup_buy_text_count{
+  padding:55rpx 0 50rpx 30rpx;
+  color: rgb(119, 119, 119);
+  
+}
+
+.popup_buy_view{ 
+  
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  display: inline-block;
+}
+
+.top_welcome_sign{
+  
+ 
+  width: 170rpx;
+  height: 46rpx;
+  font-size: 26rpx;
+  color: #fff;
+  background-color: #ccc;
+  border-radius: 16em;
+  padding-top: 8rpx; 
+  text-align: center;
+  margin-left: 16rpx;
+  position: absolute;
+  top:-30rpx;
+  box-shadow: 0 0 10rpx 0 rgba(0,0,0,0.5);
+}
+.active .top_welcome_sign{
+  background-color: #3ca1e1;
+}
+
+.item_view{
+  position: relative;
+  width: 200rpx;
+  height: 220rpx;
+  background: #fff;
+  display: inline-block;
+  text-align: center;
+  padding-top: 80rpx;
+  border: 4rpx #dddddd solid;
+}
+.item_view.active{
+  border: 4rpx #3ca1e1 solid;
+  background: #5bb8f2;
+  color: #fff !important;
+}
+
+.buy_coupon_view{
+  display: block
+}
+
+.buy_coupon_count{
+  
+  font-size: 45rpx;
+  display: inline-block
+}
+
+.buy_coupon_unit{
+  
+  font-size: 30rpx;
+}
+
+.buy_coupon_price{
+
+  
+  font-size: 36rpx;
+  display: block
+}
+
+.buy_coupon_price_yuan{
+  text-decoration: line-through;
+  color: #777;
+  font-size: 30rpx;
+}
+.buy_coupon_price_yuan.active{
+  color: #fff !important;
+}
+
+
+.view_priority_use_balance{
+  padding:30rpx;
+}
+
+.left_view{
+  display: inline-block;
+}
+
+.priority_text{
+  font-size: 28rpx;
+}
+
+.balance_num{
+  float: right;
+  font-size: 28rpx;
+}
+
+.view_line{
+  width: 95%;
+  border-top: 1rpx solid rgb(240, 240, 240);
+  padding: 0rpx 0 10rpx 0;
+  margin: 0 0 0 20rpx;
+ 
+}
+
+.popup_right_now_btn{
+  width: 80%;
+  padding: 20rpx 0; 
+  text-align: center;
+ 
+  z-index: 100;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 80rpx;
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+}
+.boto-view{ position: fixed;width: 100%;background: #fff;
+  bottom: 30rpx;}
+.boto-space{height: 250rpx;}
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}

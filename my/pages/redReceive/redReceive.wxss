@@ -1,0 +1,167 @@
+/* my/pages/redReceive/redReceive.wxss */
+page{
+  
+  background-color: #fff;
+}
+
+.view_background{
+  background-color: #f0f0f0;
+
+}
+
+.receive_red{
+
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  font-size: 34rpx;
+  color: rgb(87, 107, 149);
+  display: block;
+}
+
+.receive_red_view{
+  
+  padding-bottom: 30rpx;
+  text-align: center;
+  display: block;
+  clear:both;
+  
+}
+
+.user_img{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 30rpx;
+  vertical-align: middle;
+  border-radius:16rpx; 
+
+}
+
+.total_receive{
+  margin-top: 60rpx;
+  color: rgb(0, 0, 0);
+  font-size: 36rpx;
+  font-weight: 400;
+}
+
+.receive_count{
+  
+  color: rgb(0, 0, 0);
+  font-size: 90rpx;
+  font-weight: bold;
+
+}
+
+.price_unit{
+ 
+  font-size: 36rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+.send_red_view{
+  width: 100%;
+  display: inline-block
+}
+
+.left_receive_view{
+  margin: 20rpx 0 50rpx 100rpx;
+  display: inline-block;
+  text-align: center
+}
+
+.red_receive_count{
+  font-size: 70rpx;
+  font-weight: 400;
+  color: rgb(119, 119, 119);
+}
+
+.red_receive_text{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+.right_good_view{
+  margin: 20rpx 100rpx 50rpx 0;
+  float: right;
+  vertical-align: middle
+  
+}
+
+.red_best_count{
+  text-align: center;
+  font-size: 70rpx;
+  color: rgb(119, 119, 119);
+  
+}
+
+.red_best_text{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+
+.receive_list_view{
+  width: 100%;
+  background-color: #fff;
+  display: inline-block
+}
+
+.left_view{
+  margin: 20rpx 20rpx;
+  display: inline-block
+}
+
+.red_type_text{
+  font-size: 34rpx;
+  color: rgb(0, 0, 0);
+  font-weight: 400;
+}
+
+.red_time{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(119, 119, 119);
+}
+
+.right_view{
+  margin: 20rpx 20rpx;
+  float: right;
+  
+}
+
+.red_balance{
+  text-align: right;
+  font-size: 34rpx;
+  color: rgb(0, 0, 0);
+  
+}
+
+.view_right_bottom{
+  display: inline-block;
+}
+
+.img_huangguang{
+  width: 28rpx;
+  height: 23rpx;
+  display: inline-block;
+}
+
+.red_status{
+  display: inline-block;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+  color: rgb(255, 160, 90);
+}
+
+.line{
+  border: 1rpx solid #f0f0f0;
+}
+
+.data_tip {
+  text-align: center;
+  padding: 20rpx 0;
+  background-color: #fff;
+}

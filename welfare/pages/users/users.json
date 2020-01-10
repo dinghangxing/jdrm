@@ -1,0 +1,8 @@
+{
+
+  "navigationBarTitleText": "抽奖参与用户",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

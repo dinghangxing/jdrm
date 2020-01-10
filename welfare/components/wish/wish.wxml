@@ -1,0 +1,77 @@
+<view wx:if="{{isJoin}}" class='wish-mask' catchtouchmove='false'>
+  <view class='wish-p'>
+     <image class='zuhaoyun' src='/welfare/img/zuhaoyun.png' style='{{isOpen ? "opacity:0;" : ""}}'></image>
+     <scroll-view scroll-y class='wish-info' style='{{isOpen ? "height:1100rpx;" : "height:0rpx;"}}'>
+        <view bindtap='close' class='wish-close'>×</view>
+        <!--开奖结果中奖 -->
+        <view wx:if="{{isWin}}" class='kjjg'>
+          <view class='gongxi'>恭喜您！中奖啦！</view>
+          <view class='win-prize-name'>奖品：{{active['prize_name' + win_lev]}}</view>
+          <!-- <view class='xyh'>您的幸运号码：{{ref_id}}</view> -->
+          <view wx:if="{{address == ''}}" bindtap='chooseAddress'  class='address-v'>
+            <image class='address-img'  src='/img/address.png'></image>
+            <view class='add-ad-text'>填写收货地址及留言</view>
+          </view>
+          <view wx:if="{{address != ''}}" bindtap='updateAddress'  class='address-v'>
+            <image class='address-img'  src='/img/address.png'></image>
+            <view class='add-ad-text'>{{address.name}}</view>
+          </view>
+          <view bindtap='flaunt' class='xy-v'>
+            <image class='xuanyao-img'  src='/img/xuanyao.png'></image>
+              <view class='xuanyao-text'>炫耀</view>
+          </view>          
+        </view>
+        <!--开奖结果中奖end -->
+        <!--开奖结果未中奖 -->
+        <view  wx:if="{{!isWin}}" class='kjjg'>
+          <!-- <view bindtap='getPoint' class='xy-btn-bg'>
+            <image   src='/img/btn-bg.png' style='width:120rpx;height:120rpx;'></image>
+            <text >领取积分</text>
+          </view> -->
+          <view class='no-reward'>太可惜，您未中奖</view>
+          <!-- <view class='xyh'>您的抽奖号码：{{ref_id}}</view> -->
+          <view class='no-reward-desc'>为您准备了如下福利</view>
+          <view class='rxjl one'>
+            <image class='hb-img' src='/img/hongbao_img.png'></image>
+            <view class='rxjl-t'>德芙巧克力</view>
+            <view class='rxjl-d'>送你105元红包，购情人节专享礼盒</view>
+            <view class='rxjl-btn-1'>点击领取</view>
+          </view>
+          <view class='rxjl two'>
+            <image class='lb-img' src='/img/libao.png'></image>
+            <view class='rxjl-t'>简单人脉送给 {{nickname}}</view>
+            <view class='rxjl-d'>在天愿作比翼鸟，在地愿为连理枝。</view>
+            <view bindtap='showShi' class='rxjl-btn-2'>点击查看</view>
+          </view>
+        </view>
+        <!--开奖结果未中奖end -->
+
+        <!--幸运儿列表 -->
+          <view class='join-p'>
+            <view class='xye'>幸运儿</view>
+            <image class='xy-img' src='/img/xye.png'></image>
+            <view wx:for="{{winPrizeList}}" wx:if="{{item.users.length > 0}}" wx:key="*this" class='win-pri-p' style='{{(index + 1) == winPrizeList.length ? "border-bottom: none;" : ""}} '>
+              <view class='win-pri-na'>
+                <text wx:if="{{winPrizeList.length == 1}}">奖品</text>
+                <text wx:if="{{winPrizeList.length > 1}}">奖项{{item.num_text}}</text>：{{item.prize_name}}
+              </view>
+              <view class='win-pri-user-list' >
+                <view wx:for="{{item.users}}" wx:if="{{index < 6}}" wx:key="*this" class='win-pri-user'>
+                  <image class='win-pri-user-head' src='{{item.icon}}'></image>
+                  <view class='win-pri-user-name'>{{item.nickname}}</view>
+                </view>
+              </view>
+            </view>
+            <view bindtap='toNameList' class='look-all-win'>
+              <text class='middle look-all'>完整名单</text>
+              <image class='middle' src='/img/into_blue.png' style='width:12rpx;height:20rpx;'></image>
+            </view>
+            <view style='clear:both;height:20rpx;'></view>
+            
+          </view>
+          <!--幸运儿列表 end -->
+       
+     </scroll-view>
+  </view>
+ 
+</view>

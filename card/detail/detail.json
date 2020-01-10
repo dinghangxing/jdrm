@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "我的名片",
+  "usingComponents": {
+  
+    "boss-com":"/components/bossCom/bossCom",
+    "part-com": "/components/partCom/partCom",
+    "card-welfare": "/components/cardWelfare/cardWelfare",
+    "link-man":"/components/linkMan/linkMan",
+    "card-info":"/components/cardInfo/cardInfo",
+    "navigationBar": "/components/navigationBar/index",
+    "company-info": "/components/companyInfo/companyInfo",
+    "prod-bus": "/components/prodBus/prodBus",
+    "legal": "/components/legal/legal"
+  },
+  "enablePullDownRefresh": false
+}

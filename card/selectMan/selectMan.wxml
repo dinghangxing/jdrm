@@ -1,0 +1,64 @@
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='top-desc'>
+  <text>可选择3个您已保存的名片展示在名片上</text>
+  <text class='select-num'>{{selectedCardList.length}}/3</text>
+</view>
+<view class='search-p'>
+  <view wx:if="{{showSearch}}" class='place-p'>
+    <image class='search-icon middle' src='/img/search.png'></image>
+    <text class='middle'>搜索</text>
+  </view>
+  <input bindinput="searchInput" bindfocus="searchFocus" bindblur="searchBlur" class='search-input'></input>
+</view>
+<view class='alphabetical-order'>
+
+  <view id='alphabet' hover-stop-propagation="true" class='alphabet'style='line-height: {{letterHeight}}px; background-color: {{startTouchAlphabet?"rgba(0, 0, 0, 0.2)" : "transparent"}};'catchtouchcancel='letterTouchCancelEvent' catchtouchstart='letterTouchStartEvent' catchtouchmove='letterTouchMoveEvent'catchtouchend='letterTouchEndEvent'>
+
+    <block wx:if="{{alphabet != null}}">
+      <view class='letter' wx:for="{{alphabet}}" wx:key>{{item == 'PoundSign' ?         '#' : item}}
+      </view>
+
+    </block>
+  </view>
+
+  <view wx:if='{{startTouchAlphabet}}' class='letter-toast'>{{touchLetter ==        'PoundSign' ? '#' : touchLetter}}
+  </view>
+<scroll-view class='data-list' scroll-y scroll-into-view='{{touchLetter}}' style='padding-bottom:30rpx;'>
+<!--人脉列表 begin  class='tag-item'  bindtap='itemtap'-->
+    <block wx:if="{{dataSource!=null && dataSource.length>0}}">
+      <block wx:for='{{dataSource}}' wx:key='{{pitem.tag}}' wx:for-item='pitem'>
+        <view wx:if='{{pitem.tag == "PoundSign"}}' class='letter-tag' style='             display: none'></view>
+        <view wx:else id='{{pitem.tag}}'class='letter-tag'>{{pitem.tag}}               </view>
+        <view style='border: 1px solid #f0f0f0; border-radius: 16rpx; background: #fff;margin-left: 20rpx; margin-right: 20rpx;'>
+
+          <view wx:for='{{pitem.dataList}}' wx:key="{{item.id}}" wx:for-item='item' wx:for-index='j' class='msg-item' bindtap='selectMan' data-id="{{item.card_id}}">
+
+            <view id='{{item.id}}' class='msg' data-item='{{item}}'>
+              <radio class='middle' color="#46a8e6"  checked="{{item.checked}}"/>
+             
+              <view wx:if="{{item.head_img == ''}}" class='header-img'>{{item.firstChar}}</view>
+               <image  wx:if="{{item.head_img != ''}}" class='header-img' src='{{item.head_img}}'></image>
+
+              <view class='middle'>
+                <view class='top_text_view'>
+                  <text class="user-name">{{item.name}}</text>
+                  <text class="position_text">{{item.job}}</text>
+                </view>
+                <text wx:if="{{item.full_name != null}}" class="msg-text">{{item.full_name}}</text>
+                <text wx:else class="msg-text">单位/公司地址未知</text>
+              </view>
+            </view>
+             <view wx:if="{{j>0 && j != pitem.data.length-1}}" class='divide-line'></view>
+          </view>
+        </view>
+      </block>
+
+    </block>
+    <!--人脉列表 end-->
+</scroll-view>
+</view>
+ <view class='bottom-view' style='marign:45rpx 0 0 0;'>
+    <view bindtap='save' class='create-btn'>确定</view>
+  </view>

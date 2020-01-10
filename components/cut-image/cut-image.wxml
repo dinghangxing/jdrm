@@ -1,0 +1,36 @@
+
+<!-- 隐藏canvas 保存图片用 -->
+  <canvas canvas-id="tempCanvas" disable-scroll="true" style="width:{{tempCanvasWidth}}px; height:{{tempCanvasHeight}}px; position:absolute;left:-99999px;z-index:4;box-shadow:0 0 5rpx 0 red;"></canvas>
+
+  <!-- 主页面 
+  <view class="imageView" style="height:{{imgViewHeight}}px">
+    <view class="noImageBox" wx:if="{{imageNotChoosed}}" bindtap='chooseImage'><text>点击选择图片</text></view>
+    <view class="saveButton" wx:if="{{!imageNotChoosed}}" bindtap='saveImgToPhone'><text class="icon-save"></text></view>
+    <image src="{{tempImageSrc}}" style="width:{{imgWidth}}px;height:{{imgHeight}}px;top:{{imgTop}}px;left:{{imgLeft}}px" disable-scroll="true"></image>
+    </view>
+-->
+ <!-- 裁剪页面 -->
+  <view class="imageView" style="height:{{imgViewHeight}}px">
+    <view class="noImageBox" wx:if="{{imageNotChoosed}}" bindtap='chooseImage'><text>点击选择图片</text></view>
+    <image src="{{tempImageSrc}}" style="width:{{imgWidth}}px;height:{{imgHeight}}px;top:{{imgTop}}px;left:{{imgLeft}}px" disable-scroll="true" ></image>
+    <view  wx:if="{{!imageNotChoosed}}"  bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove" bindtouchend="uploadScaleEnd" class="cropper-wraper">
+      <view class="corpper-view-box" style="width:{{cutW}}px;height:{{cutH}}px;left:{{cutL}}px;top:{{cutT}}px">
+        <view class="cropper-dashed-h"></view>
+        <view class="cropper-dashed-v"></view>
+        <view class="cropper-line-t" data-drag="top"></view>
+        <view class="cropper-line-r" data-drag="right"></view>
+        <view class="cropper-line-b" data-drag="bottom"></view>
+        <view class="cropper-line-l" data-drag="left"></view>
+        <view class="cropper-point point-tr" data-drag="topTight"></view>
+        <view class="cropper-point point-rb" data-drag="rightBottom" ></view>
+        <view class="cropper-point point-bl" data-drag="bottomLeft"></view>
+        <view class="cropper-point point-lt" data-drag="leftTop"></view>
+      </view>
+    </view>
+  </view>
+<!-- 裁剪和添加文字时调出的确认条 -->
+  <!-- <view class="confirm-bar1" >
+    <text class="icon-cross" bindtap="cancelCrop"></text>
+  </view> -->
+  <view wx:if="{{!imageNotChoosed}}" bindtap="competeCrop" class="confirm-bar2">完成</view>
+  <view class='tip-text'>裁剪后图片尺寸为 900*500 px</view>

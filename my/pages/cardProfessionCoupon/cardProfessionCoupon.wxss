@@ -1,0 +1,322 @@
+/* my/pages/cardProfessionCoupon/cardProfessionCoupon.wxss */
+page {
+  background: #f0f0f0;
+}
+
+.tips_text{
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 24rpx;
+  color: rgb(119, 119, 119);
+  margin-left: 20rpx;
+  
+}
+
+.view_menue_item {
+  width: 100%;
+  height: 200rpx;
+  background: #fff;
+  margin: 16rpx 0 20rpx 0;
+  border: 1px solid #e3e3e3;
+  text-align: left;
+  
+}
+
+.top_text{
+
+  font-size: 32rpx;
+  text-align: left;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  color: rgb(51, 51, 51);
+  display: inline-block
+ 
+}
+
+.welfare_count_text{
+  float: right;
+  margin-right: 20rpx;
+  font-size: 32rpx;
+  text-align: left;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  color: rgb(51, 51, 51);
+  
+ 
+}
+
+.middle_view{
+  border-top: 1rpx solid rgb(240, 240, 240);
+  padding: 30rpx 0 30rpx 0;
+  margin:20rpx 20rpx 0 20rpx;
+}
+
+.use_right_now{
+  float: right;
+  padding: 10rpx;
+  font-size: 30rpx;
+  margin-right: 16rpx;
+ 
+  color: #fff;
+  background-color: rgb(60, 161, 225); 
+  border: 1px solid rgb(60, 161, 225);
+}
+
+.give_to_friend{
+  float: right;
+  padding: 10rpx;
+  margin-right: 16rpx;
+  font-size: 30rpx;
+  color: rgb(60, 161, 225);
+  background-color: #fff; 
+  border: 1px solid rgb(60, 161, 225);
+}
+
+.again_buy_btn-p{
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  padding: 20rpx 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 0 15rpx 0 rgba(0,0,0,0.3);
+}
+
+.again_buy_btn {  
+  width: 80%;
+  padding: 20rpx 0; 
+  display: inline-block;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+ 
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+  
+}
+
+/*=================底部弹窗使屏幕变暗 begin ================ */
+.popup_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+/*对话框 */
+.popup_window {
+  height: 60%;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  padding-top: 20rpx;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+
+}
+/*=================底部弹窗使屏幕变暗 end ================ */
+
+/*=================再次购买弹窗 begin ================ */
+.title_text{
+  height: 80rpx;
+  display: inline-block;
+  font-size: 40rpx;
+  color: rgb(60, 161, 225);
+  letter-spacing: 6rpx;
+  vertical-align: middle;
+  margin: 0rpx 16rpx 30rpx 16rpx;
+  box-sizing: border-box;
+  
+}
+
+.view_line{
+  border-top: 1rpx solid rgb(240, 240, 240);
+  padding: 0rpx 0 10rpx 0;
+  margin:0rpx 20rpx 0 20rpx;
+
+}
+
+.popup_buy_text{
+  width: 100%;
+  display: block;
+  text-align: left;
+  font-size: 30rpx;
+  margin: 30rpx 0 30rpx 20rpx;
+  color: rgb(119, 119, 119);
+}
+
+.popup_middle_view{
+  margin: 25rpx;
+  text-align: left;
+
+}
+
+.image_1{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 16rpx; 
+}
+
+.service_text{
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+}
+
+.tips_text2{
+  width: 100%;
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: rgb(119, 119, 119);
+  position: fixed;
+  bottom: 140rpx;
+ 
+  
+}
+
+.popup_right_now_btn{
+  width: 80%;
+  padding: 20rpx 0; 
+  text-align: center;
+  position: fixed;
+  bottom: 30rpx;
+  z-index: 100;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 80rpx;
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+}
+/*=================再次购买弹窗 end ================ */
+
+/*=================转赠好友弹窗 begin ================ */
+.give_friend_view{
+  margin-top: 50rpx;
+  width: 100%;
+  height: 180rpx;
+  text-align: center;
+  display: block;
+}
+.center_image{
+  width: 270rpx;
+  height: 152rpx;
+  
+}
+
+.use_times{
+  font-size: 36rpx;
+  color: rgb(51, 51, 51);
+  margin-bottom: 30rpx;
+}
+
+.choose_view{
+  width: 100%;
+  margin-top: 50rpx;
+  background-color: #fff; 
+  display: inline-block
+}
+
+.choose_give_count{
+  margin-top: 10rpx;
+  text-align: left;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  color: rgb(119, 119, 119);
+  
+}
+
+.choose_number_view{
+  float: right;
+  background-color: #fff;
+  margin-right: 20rpx;
+
+}
+
+.less_text{
+  float: right;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  font-size: 30rpx;
+  color: rgb(60, 161, 225);
+  background-color: #fff; 
+  border: 1px solid rgb(60, 161, 225);
+}
+
+.number_text{
+  float: right;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  font-size: 30rpx;
+  color: rgb(51, 51, 51);
+  background-color: #fff; 
+  border-top: 1px solid rgb(60, 161, 225);
+  border-bottom: 1px solid rgb(60, 161, 225);
+}
+
+.add_text{
+  float: right;
+  padding: 10rpx 30rpx 10rpx 30rpx;
+  
+  font-size: 30rpx;
+  color: rgb(60, 161, 225);
+  background-color: #fff; 
+  border: 1px solid rgb(60, 161, 225);
+}
+
+.give_to_friend_btn{
+  width: 95%;
+  text-align: center;
+  position: fixed;
+  bottom: 30rpx;
+  z-index: 100;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 20rpx;
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+}
+
+/*=================转赠好友弹窗 end ================ */
+
+/*空頁面展示 begin*/
+.view_null {
+  text-align: center;
+}
+
+.view_null_image {
+  height: 178rpx;
+  width: 223rpx;
+  margin-top: 80rpx;
+  margin-bottom: 30rpx;
+
+}
+
+.view_null_text {
+  font-size: 26rpx;
+  text-align: center;
+  color: rgb(153, 153, 153);
+}
+
+.view_null_btn {
+  width: 70%;
+  margin-top: 30rpx;
+  background-color: rgb(5, 144, 242);
+  color: white;
+  font-size: 36rpx;
+  border-radius: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+/*============空页面end=================*/

@@ -1,0 +1,30 @@
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class="ad-div">请在<text class='red'>{{date}}</text>前填写收货地址，超时则无法填写视为放弃本次福利。</view>
+
+<view class="ad-div">
+  <view bindtap='chooseAddress' class='ad-div-t'>
+    <image class='ad-icon' mode='widthFix' style='width:23rpx;' src='/img/address_g.png'></image>
+    <text class='middle'>收货地址</text> 
+    <text class='right-text'>选择 ></text> 
+  </view>
+  <view wx:if="{{show}}" class='line'></view>
+  <view wx:if="{{show}}" class='name-phone'>
+    <text class='name'> {{address.name}}</text> {{address.phone}}
+  </view>
+  <view  wx:if="{{show}}" class='address'>{{address.address}}</view>
+</view>
+
+<view class="ad-div">
+  <view class='ad-div-t'>
+     <image class='ad-icon' mode='widthFix' style='width:28rpx;' src='/img/liuyan_g.png'></image>
+    <text class='middle'>留言</text> 
+    <text class='right-text'>非必填</text> 
+  </view>
+  <textarea bindinput='inputInfo' value='{{address.info}}' placeholder='请填写留言' class='liuyan-input'></textarea>
+</view>
+
+<view class='submit-p'>
+  <view bindtap='submit' class='submit-btn'>提交</view>
+</view>

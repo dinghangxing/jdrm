@@ -1,0 +1,42 @@
+<!--my/pages/useHelp/useHelp.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+
+<view class="view_menu_item" bindtap='menuItemView1' hover-class='btn-press-item'>
+  <text class='menue_item_text'>1. 智能名片</text>
+
+  <view style='width:60rpx; height: 60rpx; float: right;' bindtap='clickArrowBtn1'>
+    <image class='arrow_image' src='/img/into_arrow_img.png'></image>
+  </view>
+</view>
+
+<!-- <view class='help_detail' wx:if="{{isShowDetail1}}">这是使用简单人脉优势的使用说明</view>
+<view wx:else class='help_detail' style='display:none;'></view> -->
+
+
+<view class="view_menu_item" hover-class='btn-press-item' bindtap='menuItemView2' style='margin-top:2rpx;'>
+  <text class='menue_item_text'>2. 红包福利</text>
+
+  <view style='width:60rpx; height: 60rpx; float: right;' bindtap='clickArrowBtn2'>
+    <image class='arrow_image' src='/img/into_arrow_img.png'></image>
+  </view>
+</view>
+
+<view class="view_menu_item" hover-class='btn-press-item' bindtap='menuItemView3' style='margin-top:2rpx;'>
+  <text class='menue_item_text'>3. 抽奖福利</text>
+
+  <view style='width:60rpx; height: 60rpx; float: right;' bindtap='clickArrowBtn3'>
+    <image class='arrow_image' src='/img/into_arrow_img.png'></image>
+  </view>
+</view>
+
+<!-- <view class='view_phone_image'>
+  <image class='phone_image' src='/img/phone.png'></image>
+</view> -->
+
+
+<button class="contact_service_view" open-type='contact' session-from='weapp' style='color:rgb(87, 107, 149); font-size:30rpx;'>联系客服 ></button>
+
+
+<!-- <view class='help_detail' wx:if="{{isShowDetail2}}">这是如何发起抽奖的使用说明</view>
+<view wx:else class='help_detail' style='display:none;'></view> -->

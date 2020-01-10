@@ -1,0 +1,35 @@
+/* people/takeCard/takeCard.wxss */
+page {
+  padding-top: 20rpx;
+  background: #f0f0f0;
+}
+
+.screen_view {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.data-list {
+  width: 100%;
+  height: 85%;
+  
+  background-color: #f0f0f0;
+}
+
+.find_welfare_text {  
+  width: 80%;
+  padding: 20rpx 0; 
+  text-align: center;
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 100;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin-top:20rpx;
+  margin-left: 80rpx;
+  border-radius: 15em;
+  background-color: rgb(5, 144, 242);
+  
+}

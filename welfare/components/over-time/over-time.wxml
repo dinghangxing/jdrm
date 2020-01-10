@@ -1,0 +1,33 @@
+<view class='cj-item'>
+  <view bindtap='openSelectKjTime' class='cj-item-val' style='top:2rpx;'>
+    <text  decode="{{true}}">{{days[kjTime[0]].str}}&nbsp;&nbsp; </text>
+    {{hours[kjTime[1]] < 10 ? '0' + hours[kjTime[1]]:hours[kjTime[1]]}}
+    :
+    {{minutes[kjTime[2]] < 10 ? '0' +minutes[kjTime[2]] :minutes[kjTime[2]]}}
+   
+    <text wx:if="{{kjTime[0] == 0}}">(今天)</text>
+    <text  wx:else>({{kjTime[0]}}天后)</text>  
+    <image mode='widthFix' src='/img/into.png' style='width:14rpx;margin:0 0 0 10rpx'></image>
+  </view>
+  <view class="cj-item-title">{{title}}</view>
+  
+</view>
+
+
+
+<picker-view  style="{{isSelectKjTime ? '' : 'height:0'}}" class="kj-time-picker" indicator-class="kj-time-td" value="{{kjTime}}"  bindchange="kjTimeChange">
+    <picker-view-column>
+      <view wx:for="{{days}}" class="kj-time-td" >{{item.str}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{hours}}" class="kj-time-td" >{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{minutes}}" class="kj-time-td" >{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+
+<view wx:if="{{title == '发布时间'}}" class='cj-item' >
+  <view class='cj-item-val' style='font-size:26rpx;top:0;right:10rpx;color:#777777'>{{kjsj_text}}</view>
+  <view class="cj-item-title">开奖时间</view>
+</view>

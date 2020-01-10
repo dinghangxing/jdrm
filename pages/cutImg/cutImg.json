@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "cut-image": "/components/cut-image/cut-image",
+    "navigationBar": "/components/navigationBar/index"
+  },
+  "navigationBarTitleText": "裁剪封面",
+  "enablePullDownRefresh":false
+}

@@ -1,0 +1,5 @@
+@import "/welfare/pages/start/start.wxss";
+@import "/app.wxss";
+.radio-group{text-align: right;}
+.radio{display: inline-block;margin: 0 0 0 40rpx;}
+.middle{display: inline-block;vertical-align: middle;}

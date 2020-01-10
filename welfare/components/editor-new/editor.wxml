@@ -1,0 +1,63 @@
+<!--components/xing-editor.wxml-->
+<view class='top-line'></view>
+<view class="editor-wrapper" style="" scroll-y enable-back-to-top>
+ 
+  <block wx:for="{{nodeList}}" wx:for-item="node" wx:for-index="index" wx:key="*this">
+    <view class="editor-node-wrapper">
+      <block wx:if="{{node.name === 'p'}}">
+        <textarea class="editor-textarea" value="{{node.children[0].text}}" auto-height maxlength="-1" data-index="{{index}}" bindinput="onTextareaInput" bindblur="onTextareaBlur" placeholder="{{nodeList.length == 1 ? '填写此次抽奖的图文详情' : ''}}" placeholder-style="color:#CCCCCC;" >
+        </textarea>
+      </block>
+      <block wx:if="{{node.name === 'img'}}">
+        <image class="editor-image" src="{{node.attrs.src}}" mode="widthFix" style="width:100%;"></image>
+        <image class="editor-delete" data-index="{{index}}" src='/welfare/img/shanchu.png' bindtap="deleteNode"></image>
+      </block>
+      <block wx:if="{{node.name === 'copy'}}">
+        <view class='copy-v'>
+
+          <input class='copy-desc' placeholder-class='copy-desc-ph' data-index="{{index}}" data-type="desc" bindinput='onDescInput' value="{{node.desc}}" placeholder='点此填写引导文案'></input>
+          <input maxlength="20" class='copy-content' placeholder-class='copy-desc-ph' data-index="{{index}}" data-type="content" bindinput='onContentInput' value="{{node.content}}" placeholder='点此填需要被复制的内容'></input>
+
+          <view class='copy-btn'>
+            <image src='/img/hand_1.png' mode='widthFix' class='copy-hand'></image>
+            一键复制
+          </view>
+        </view>
+        <image class="editor-delete" data-index="{{index}}" src='/welfare/img/shanchu.png' bindtap="deleteNode"></image>
+      </block>
+      <block wx:if="{{node.name === 'app'}}">
+        <view class='add-app-p'>
+          <view class='add-app-ty'>
+            <text class='middle'>点击体验</text>
+            <image mode="widthFix" class='middle' style="width:20rpx;margin:0 0 0 10rpx;" src="/img/into_blue.png"></image>
+          </view>
+          <image class='add-app-logo' mode='widthFix' src='/img/applets_image.png'></image>
+          <text class='add-app-name'>{{node.desc}}</text>
+        </view>
+        <image class="editor-delete" data-index="{{index}}" src='/welfare/img/shanchu.png' bindtap="deleteNode"></image>
+      </block>
+      
+    </view>
+  
+  </block>
+  <view style='height:200rpx;'></view>
+  <cover-view hidden="{{!isOpen}}" bindtap="addImage" data-index="-1" class='charu charu-img' hover-class='image-press'>
+      <cover-image class='insert-img' src='/welfare/img/tupian.png'></cover-image>
+      <cover-view class='insert-text'>插入图片</cover-view>
+      
+    </cover-view>
+    <cover-view hidden="{{!isOpen}}" bindtap="addCopy" data-index="-1" class='charu charu-copy ' hover-class='image-press'>
+      <cover-image class='insert-img' src='/welfare/img/fuzhi.png'></cover-image>
+      <cover-view class='insert-text'>一键复制</cover-view>
+    </cover-view>
+
+   <cover-image hidden='{{isOpen}}' class='jiahao-p' bindtap='openJia' src='/welfare/img/blue-add.png'></cover-image>
+    <cover-image  hidden='{{!isOpen}}' class='jiahao-p' bindtap='openJia' src='/welfare/img/gray-add.png'></cover-image>
+
+
+   <cover-view class='bottom-view' style='left:0;'>
+
+    <cover-view class="bottom-operate"  bindtap="onFinish" >完成</cover-view>
+
+  </cover-view>
+</view>

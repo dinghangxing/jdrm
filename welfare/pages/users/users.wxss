@@ -1,0 +1,52 @@
+
+.userlist{
+  /* padding: 25rpx; */
+  margin-left: 25rpx;
+  width: 700rpx;
+}
+.percent{
+  width: 70rpx;
+  height: 70rpx;
+  display: inline-flex;
+}
+.sm-img{
+  width: 66rpx;
+  height: 66rpx;
+  padding: 2rpx;
+}
+
+.user-title{
+  text-align: center;
+  padding: 20rpx;
+}
+.tl{
+  text-align: left;
+}
+.cover{
+  width: 515rpx;
+  border-radius: 50%;
+}
+.user-more{
+  text-align: center;
+  margin-top: 30rpx;
+  padding: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.lt-img{
+  margin-right: 10rpx;
+  width: 35rpx;
+  height: 35rpx;
+  margin-top: 5rpx;
+}
+
+.mask{position: fixed;top:0;left:0;right:0;bottom:0;z-index: 10;background: rgba(0,0,0,0.5);text-align: center;}
+.mask::before{content:"";display: inline-block;vertical-align: middle;height: 100%;}
+.cur-view{display: inline-block;vertical-align: middle;background: #fff;border-radius: 10rpx;width: 400rpx;text-align: center;padding:50rpx;position: relative;
+}
+.close-btn{position: absolute;top: 0;right: 0;padding: 30rpx;height: 26rpx;width: 26rpx;}
+.cur-icon{height: 400rpx;width: 400rpx;border-radius: 50%;background: #efefef;}
+.cur-nickname{font-size:1.2em;
+padding:20rpx 0 0 0;
+}
+

@@ -1,0 +1,8 @@
+.nav-p{padding: 55rpx 30rpx 30rpx ;width: 690rpx;box-shadow: 0 0 10rpx 0 rgba(0,0,0,0.1);position: fixed;background:#fff;z-index:999;}
+.nav-home{width:42rpx;vertical-align: middle;padding: 0 20rpx;}
+.nav-back{width:20rpx;padding: 0 20rpx;vertical-align: middle;}
+.nav-search{width:26rpx;padding: 0 20rpx;vertical-align: middle;}
+.nav-line{display: inline-block;vertical-align: middle;border-left: 1rpx solid #333333;height: 30rpx;margin: 0 20rpx;}
+.nav-title{text-align: center;color: #333333;font-size: 1.1em;}
+.nav-space{height:126rpx;}
+.btn-p{position: absolute;}

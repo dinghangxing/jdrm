@@ -1,0 +1,95 @@
+<!--card/redPackage/openRP/rpDetail.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+
+  <view class='rp_record' bindtap='clickRPRecord'>红包记录</view>
+
+  <view class='receive_red_view'>
+    <image class='rp_user_img' src='{{joinList.icon}}'></image>
+    <view style='margin-top: 20rpx;'>
+      <view class='rp_nick_name'>{{joinList.nickname}}</view>
+
+      <!--1：普通红包 ； 2：拼手气红包-->
+      <image wx:if="{{joinList.lucky_type == 2}}" class='rp_type_image' src='/img/redpackage_img.png'></image>
+      <image wx:if="{{joinList.lucky_type == 1}}" class='rp_type_image' src='/img/redpackage_img.png' style='display:none'></image>
+
+    </view>
+
+    <view class='rp_description'>{{joinList.info}}</view>
+
+    <!--还可以抢 或者 我抢过了-->
+    <block wx:if="{{joinList.luck_status != 0 || joinList.status == 1}}">
+      <view>
+        <view class='rp_receive_count'>{{amount/100}}</view>
+        <text class='price_unit'>元</text>
+      </view>
+
+      <view class='rp_had_save'>已存入余额，可直接用于小程序内支付</view>
+    </block>
+
+    
+    <block wx:elif="{{checkFlDetail != null}}">
+      <view>
+        <view class='rp_receive_count'>{{amount/100}}</view>
+        <text class='price_unit'>元</text>
+      </view>
+
+      <view class='rp_had_save'>已存入余额，可直接用于小程序内支付</view>
+    </block>
+
+    <!--没有可抢的红包个数了-->
+    <block wx:else>
+      <view>
+        <view class='rp_receive_count' style='display:none'></view>
+        <text class='price_unit' style='display:none'></text>
+      </view>
+
+      <view class='rp_had_save' style='display:none'>已存入余额，可直接用于小程序内支付</view>
+
+    </block>
+
+  </view>
+
+  <view wx:if="{{remainCount <= 0}}" class='rp_situation'>{{totalRPCount}}个红包，已被抢光</view>
+  <view wx:else class='rp_situation'>已领取 {{totalRPCount - remainCount}}/{{totalRPCount}} 个红包</view>
+
+  <view class='rp_line'></view>
+  <!-- <scroll-view scroll-y='true' bindscrolltolower="getGrabRPList"> -->
+  <block wx:if="{{receiveRedList!=null && receiveRedList.length>0}}">
+    <view wx:for='{{receiveRedList}}' class='receive_list_view'>
+      <image class='grp_user_image' src='{{item.icon}}'></image>
+      <view class='left_view'>
+        <view class='red_type_text'>{{item.nickname}}</view>
+        <view class='red_time'>{{item.create_time}}</view>
+      </view>
+
+      <view class='right_view'>
+        <view class='red_balance'>{{item.amounts/100}}元</view>
+
+        <view wx:if='{{item.is_best == 1}}'>
+          <image class='img_huangguang' src='/img/huangguang.png'></image>
+          <view class='red_status'>手气最佳</view>
+        </view>
+        <view wx:else>
+          <image class='img_huangguang' src='/img/huangguang.png' style='display:none'></image>
+          <view wx:if='{{item.is_best == 0}}' class='red_status' style='display:none'></view>
+        </view>
+
+      </view>
+
+      <view class='line'></view>
+    </view>
+
+  </block>
+
+  <view wx:if="{{receiveRedList.length > 0}}" class="data_tip">
+    <view wx:if="{{hasMore}}">正在加载</view>
+    <view wx:if="{{!hasMore && page!= 1}}">没有更多了</view>
+  </view>
+
+  <!-- </scroll-view> -->
+
+
+
+</view>

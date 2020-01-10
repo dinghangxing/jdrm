@@ -1,0 +1,3 @@
+/* component/kou-lin/kou-lin.wxss */
+@import "/app.wxss";
+@import "/welfare/pages/start/start.wxss";

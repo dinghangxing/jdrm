@@ -1,0 +1,19 @@
+<!--my/pages/welfareProfessionCoupon/shareAddService/shareAService.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view>
+
+  <view class='addservice_view'>
+    <view class='title'>{{who}} 赠送您福利专业版使用券 ×{{cardCount}}
+    </view>
+
+    <image class='center_image' src='/img/welfare_quan.png'></image>
+
+    <view wx:if="{{btnChangeText == '立即领取'}}" hover-class='btn-press' class='right_receive_btn' bindtap='rightNowToReceive' style='background-color: rgb(60,161,225);'>{{btnChangeText}}</view>
+    <view wx:else class='right_receive_btn' style='background-color:rgb(60,161,225);opacity:0.4;'>{{btnChangeText}}</view>
+    
+
+    <view class='tips_title'>60分钟内有效，领取有效期至{{time}}</view>
+  </view>
+
+</view>

@@ -1,0 +1,70 @@
+@import "/pages/card/index/index.wxss";
+.main-con{width:730rpx;margin: 0 auto;position: relative;}
+.cover-img-p{background: #fff;}
+.cover-img{width: 100%;border-radius: 10rpx 10rpx 0 0;box-shadow: 0 0 20rpx 0 #ccc;}
+.zdyi{width:160rpx;color: #fff;background:rgba(0,0,0,0.6);text-align: center;position: absolute;top: 10rpx;right: 20rpx;padding: 8rpx 0;border-radius: 10rpx;font-size: 0.8em;}
+
+
+
+
+
+.company-logo-p{position: absolute;right: 20rpx;top: 20rpx;width: 120rpx;height: 120rpx;}
+.company-logo{width: 120rpx;height: 120rpx;border-radius: 0 10rpx 10rpx 10rpx;display: block;position:absolute;
+right:0rpx;
+top:0rpx;
+}
+
+
+.cha-logo{position: absolute;bottom: 0;width: 100%;padding: 10rpx 0;color: #fff;background: rgba(0,0,0,0.6);text-align: center;font-size: 30rpx;border-radius: 0 0rpx 10rpx 10rpx;}
+.the-item{background: #fff;margin: 0rpx 0 0 0;border-radius: 15rpx;padding: 15rpx 15rpx;box-shadow: 0 0 5rpx 0 #ccc;position: relative;}
+.the-title{font-size: 28rpx;color:#777;vertical-align: top;padding:30rpx;}
+.the-desc{color: #777;font-size: 0.6em;display: inline-block;padding: 0 0 0 20rpx;}
+.theme-item{display: inline-block;margin: 10rpx 15rpx 0 10rpx;vertical-align: top;}
+.theme-img{width: 176rpx;height: 99rpx;border-radius: 10rpx;box-shadow: 0 0 20rpx 0 #ccc;}
+.theme-img.active{box-shadow: 0 0 5rpx 5rpx #3ca1e1;}
+.theme-name{text-align: center;font-size: 28rpx;}
+.input-list{padding:20rpx 0 0 0;}
+.input-item{padding:30rpx 20rpx;border-bottom: 2rpx solid #f0f0f0;position: relative;font-size: 34rpx;}
+.input-item:last-child{border-bottom:none !important;}
+.input-key{display: inline-block;vertical-align: middle;}
+.input-value{display: inline-block;vertical-align: middle;width: 550rpx;margin: 4rpx 0 0 0;}
+.company-list{position: absolute;bottom: 100rpx;left:90rpx;width:550rpx;background: #fff;box-shadow: 0 0 10rpx 0 rgba(0,0,0,0.6);z-index: 10}
+.company-item{padding:20rpx;overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;}
+.red-star{position: absolute;top:30rpx;left: 0;color: #bf0101;}
+.phone-input{width: 300rpx !important;}
+.bottom-v{position: fixed;bottom: 0;z-index:101;margin: 0rpx 0 0 0;padding: 30rpx 0rpx;background: #fff;border-top: 1rpx solid #dcdcdc;text-align: center;width: 750rpx;}
+.bottom-space{height: 250rpx;}
+.create-btn{text-align: center;color: #fff;background: #46a8e6;height:88rpx;line-height: 88rpx;border-radius: 10rpx;width: 690rpx;display: inline-block;font-size: 36rpx;}
+.get-phone-num{color: #3ca1e1;position: absolute;right: 0;top:25rpx;padding: 15rpx 30rpx;
+border-radius: 40rpx;font-size: 34rpx;}
+
+.pmp-btn{position: fixed;z-index:101;height: 120rpx;width: 120rpx;right: 30rpx;bottom: 150rpx;border-radius: 50%;}
+.pmp-img{width: 48rpx;height: 42rpx;}
+.map-mark{width: 41rpx;height: 54rpx;position: absolute;top: -10rpx;right: 0rpx;padding:40rpx 40rpx 40rpx 0;z-index: 100;}
+.custom-img{height:410rpx;width: 100%;display: block;}
+.zdy-theme{width: 150rpx;height: 56rpx;line-height: 56rpx;border-radius: 8rpx;
+font-size: 26rpx;text-align: center;color: #fff;background: rgba(0,0,0,0.8);
+position: absolute;right: 16rpx;top: 16rpx;z-index: 10;}
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+
+.btn-press3 {
+  background-color: #a0a0a0;
+}
+
+.image-press {
+  opacity: 0.8;
+}
+
+/* .fly-card{position:fixed;
+top:140rpx;
+width:100%;
+z-index:100;
+box-shadow:0 0 50rpx 0 rgba(0,0,0,0.5);
+}
+.fly-card-space{height: 410rpx;} */

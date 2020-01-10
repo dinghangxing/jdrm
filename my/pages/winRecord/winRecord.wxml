@@ -1,0 +1,15 @@
+<!--pages/my/winRecord/winRecord.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class="viewbackgroud">
+  <block wx:if="{{isLoadFinish}}">
+    <scroll-view style='height:100%;' scroll-x="false" scroll-y="true" bindscroll="scroll" bindscrolltolower="getWinRecordList">
+      <hadOver_view class='view_over' list="{{winRecordList}}"></hadOver_view>
+      <view wx:if="{{winRecordList.length > 0}}" class="data-tip">
+        <view class="center" wx:if="{{more}}">正在加载</view>
+        <view class="center" wx:if="{{!more && page != 1}}">没有更多了</view>
+      </view>
+    </scroll-view>
+
+  </block>
+</view>

@@ -1,0 +1,83 @@
+/* my/pages/balance/balance.wxss */
+@import "/wxss/modal.wxss";
+@import "/wxss/pressStatus.wxss";
+
+page {
+  background-color: #fff;
+}
+
+.view_background {
+  background-color: #fff;
+}
+
+.balance_detail {
+  float: right;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+  font-size: 34rpx;
+  color: rgb(119, 119, 119);
+  display: block;
+}
+
+.my_balance_view {
+  margin-top: 50rpx;
+  background-color: #fff;
+  text-align: center;
+  display: block;
+  clear: both;
+}
+
+.my_balance_img {
+  width: 104rpx;
+  height: 104rpx;
+  vertical-align: middle;
+}
+
+.my_balance_text {
+  margin-top: 20rpx;
+  color: rgb(51, 51, 51);
+  font-size: 34rpx;
+}
+
+.balance_count {
+  color: rgb(51, 51, 51);
+  font-size: 60rpx;
+  font-weight: bold;
+  margin: 30rpx 0 60rpx 0;
+}
+
+.recharge_value {
+  width: 95%;
+  padding: 25rpx 0;
+  text-align: center;
+  font-size: 34rpx;
+  color: rgb(255, 255, 255);
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+  background-color: rgb(60, 161, 225);
+}
+
+.withdraw_value {
+  width: 95%;
+  padding: 25rpx 0;
+
+  color: rgb(60, 161, 225);
+  text-align: center;
+  font-size: 34rpx;
+  margin: 20rpx 20rpx 0 20rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid rgb(60, 161, 225);
+  background-color: rgb(255, 255, 255);
+}
+
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+
+/**栏目 点击态*/
+.border-press-item {
+  background-color: #f9f9f9;
+  border: 1rpx solid #3796d2;
+}
+

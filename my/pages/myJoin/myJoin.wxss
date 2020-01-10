@@ -1,0 +1,49 @@
+page {
+  height: 100%;
+  background: #f0f0f0;
+}
+
+.viewbackgroud {
+  height: calc(100% - 125rpx);
+  padding-top: 1rpx;
+  box-sizing: border-box;
+}
+
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #f0f0f0;
+  border-top: 2rpx solid #f0f0f0;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  background: rgb(255, 255, 255);
+}
+
+.swiper-tab-item {
+  width: 50%;
+  font-size: 34rpx;
+  color: #777;
+}
+
+.active {
+  color: #000;
+  border-bottom: 1rpx solid #000;
+}
+
+swiper {
+  text-align: center;
+}
+
+.order-list {
+  height: calc(100% - 104rpx);
+}
+
+.data-tip {
+  text-align: center;
+  color: rgb(119, 119, 119);
+  background: #f0f0f0;
+  padding: 20rpx 0;
+}

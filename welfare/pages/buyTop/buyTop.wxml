@@ -1,0 +1,65 @@
+<!--my/pages/welfareProfessionCoupon/addService/addService.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+
+  <text class='title_text'>福利强推版</text>
+  <view class='use_text_view'>
+    <text class='use_text'>已有{{total}}人使用了天天福利</text>
+    <text class='use_tips_text'>含以下功能</text>
+  </view>
+
+  <view style='margin-bottom:30rpx;'>
+    <view  class='popup_middle_view'>
+      <image class='image_1' src='/img/selected_image.png'></image>
+      <text class='service_text'>专人审核</text>
+    </view>
+    <view  class='popup_middle_view'>
+      <image class='image_1' src='/img/selected_image.png'></image>
+      <text class='service_text'> 以固定展示天数开奖</text>
+    </view>
+    <view  class='popup_middle_view'>
+      <image class='image_1' src='/img/selected_image.png'></image>
+      <text class='service_text'>福利首页获得曝光，强力引流</text>
+    </view>
+ 
+    
+   
+  </view>
+
+  <view class='popup_buy_text_count'>请选择购买福利强推版展示的天数</view>
+
+ 
+  <view wx:for="{{products}}" wx:key="*this"  class='popup_buy_view '>
+    <view  data-p_id="{{item.p_id}}"  class='item_view {{p_id == item.p_id ? "active" :""}}'  bindtap='change'>
+      <view wx:if="{{index == 1}}" class='top_welcome_sign' >最受欢迎</view>
+      <view wx:if="{{index == 2}}" class='top_welcome_sign' >节省最多</view>
+      <view class='buy_coupon_view'>
+        <text class='buy_coupon_count' >{{item.p_num}}</text>
+        <text  class='buy_coupon_unit'>天</text>
+      </view>
+      <view class='buy_coupon_price'>￥{{item.p_value / 100}}</view>
+      <view  class='buy_coupon_price_yuan {{p_id == item.p_id ? "active" :""}}'>￥{{item.p_info / 100}}</view>
+    </view>
+  </view>
+  
+  <view class='boto-space'></view>
+  <view class='boto-view'>
+    <view class='view_priority_use_balance'>
+      <view class='left_view'>
+
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+            <checkbox value="" checked="{{useBalance}}" /> 优先使用账户余额
+          </label>
+        </checkbox-group>
+      
+      </view>
+
+      <view class='balance_num'>余额：{{balance/100}}元</view>
+    </view>
+
+    <view class='view_line'></view>
+    <view class='popup_right_now_btn' bindtap='buy' hover-class='btn-press'>立即购买</view>
+  </view>
+</view>

@@ -1,0 +1,175 @@
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}">
+</navigationBar>
+
+<view id="j_page" class='main-con'>
+
+
+  <image wx:if="{{type == 3}}" src='{{shootImg}}' class='custom-img' mode='aspectFit'></image>
+  <swiper wx:else bindchange="changeCover" current="{{current}}" circular="true" indicator-dots="true" style='height:410rpx;'>
+    <swiper-item wx:for="{{curTheme.list}}" data-tpl_id="{{item.tpl_id}}">
+      <view wx:if="{{item.tpl_id == 0}}" bindtap='customTheme' class='zdy-theme' hover-class='btn-press3'>更换图片</view>
+      <image src="{{item.tpl_list}}" style='width:100%;height:410rpx;' />
+    </swiper-item>
+    <swiper-item wx:if="{{curTheme.type == '2' && curTheme.list.length == 1}}">
+
+      <image bindtap='customTheme' src="/img/zdy-theme.png" style='width:100%;height:410rpx;' />
+    </swiper-item>
+
+
+  </swiper>
+
+
+
+<view wx:if="{{!showSave}}" class='fly-card-space'></view>
+<view class='{{showSave ? "" : "fly-card"}}'>
+  <view class='peo-info'>
+
+    <view bindtap='focused' data-key="name" style='font-family:f{{item.code}}' wx:for="{{nameArr}}" wx:key="*this" class='peo-name'>{{item.str}}</view>
+
+    <!-- <view bindtap='focused' data-key="name" class='peo-name'>
+      <text wx:if="{{card.name != ''}}">{{card.name}}</text>
+
+      <text wx:if="{{card.name == ''}}">姓名</text>
+    </view> -->
+
+
+    <view bindtap='focused' data-key="job" class='peo-zw'>
+
+      <!-- <text wx:if="{{card.job != ''}}">{{card.job}}</text> -->
+
+      <block wx:if="{{card.job != ''}}">
+        <view wx:for="{{card.jobArr}}" wx:key="*this" class='peo-zw-1' style='position:relative;{{card.jobArr.length > 1 ? "font-size:26rpx;top:0rpx;" : ""}}  {{index == 0 && card.jobArr.length == 1 ? "top:-8rpx" : ""}} {{index == 1 ? "top:-8rpx" : ""}}'>
+          {{item}}
+        </view>
+      </block>
+      <view class='peo-zw-1' wx:if="{{card.job == ''}}" style='position:relative;top:-8rpx'>职位/职业未填写</view>
+
+    </view>
+
+    <view class='company-logo-p'>
+      <image wx:if="{{card.logo == ''}}" mode='aspectFill' src='/img/logo-de.jpg' class='company-logo'></image>
+      <image wx:if="{{card.logo != ''}}" mode='aspectFill' src='{{card.logo}}' class='company-logo'></image>
+      <view bindtap='changeLogo' class='cha-logo' hover-class='btn-press3'>更换</view>
+    </view>
+
+   
+  </view>
+
+  <view class='company-p'>
+
+    <view class='company-info'>
+      <view bindtap='focused' data-key="company" class='company-name'>
+
+        <text wx:if="{{company.full_name != '' && company.full_name != null}}" class='com-text'>{{company.full_name}}</text>
+        <text wx:if="{{company.full_name == '' || company.full_name == null}}" class='com-text'>单位/公司名称未填写</text>
+      </view>
+      <view bindtap='focused' data-key="address" class='company-addr'>
+        <image src='/img/com-danwei.png'></image>
+        <text wx:if="{{card.address != ''}}">{{card.address}}</text>
+        <text wx:if="{{card.address == ''}}">单位/公司地址未填写</text>
+      </view>
+      <view bindtap='focused' data-key="phone" class='company-addr'>
+        <image src='/img/com-shouji.png'></image>
+        <text wx:if="{{card.phone != ''}}">{{card.phone}}</text>
+        <text wx:if="{{card.phone == ''}}">手机号码</text>
+      </view>
+      <view bindtap='focused' data-key="email" class='company-addr'>
+        <image src='/img/com-email.png'></image>
+        <text wx:if="{{card.email != ''}}">{{card.email}}</text>
+        <text wx:if="{{card.email == ''}}">邮箱</text>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view hidden='{{type == 3}}' class='the-title'>主题选择</view>
+  <view hidden='{{type == 3}}' class='the-item'>
+
+    <scroll-view scroll-x style='overflow:hidden;white-space:nowrap;'>
+      <view wx:for="{{themeList}}" wx:key="*this" data-type="{{item.type}}" bindtap='selectTheme' class='theme-item'>
+        <image class='theme-img {{item.type == curTheme.type ? "active" : ""}}' src='{{item.cover}}'></image>
+        <view class='theme-name'>{{item.name}}</view>
+      </view>
+
+      <view class='theme-item'>
+        <!-- <image class='theme-img' src='/img/add-theme.png'></image> -->
+        <button hover-class='image-press' open-type='contact' session-from='weapp' style='padding:0;'>
+          <image class="theme-img" src='/img/zdy-theme.png'></image>
+        </button>
+        <view class='theme-name'>企业定制</view>
+
+      </view>
+
+    </scroll-view>
+
+
+
+
+  </view>
+  <view class='the-title'>基本信息</view>
+  <view class='the-item'>
+
+
+    <view class='input-list'>
+      <view class='input-item'>
+        <view class='red-star'>*</view>
+        <view class='input-key'>姓名：</view>
+        <input id="input-name" bindinput='inputHandle' maxlength="4" data-key="card.name" class='input-value' value='{{card.name}}' focus='{{focus.name}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10px" placeholder='请输入名字'></input>
+      </view>
+      <view class='input-item'>
+        <view class='red-star'>*</view>
+        <view class='input-key'>手机：</view>
+        <input id="input-phone" bindinput='inputHandle' maxlength="11" data-key="card.phone" type='number' class='input-value phone-input' value="{{card.phone}}" focus='{{focus.phone}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10" placeholder='请输入手机号码'></input>
+        <button wx:if="{{type != 3}}" class='get-phone-num' open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" hover-class='none'>
+          获取手机号码
+        </button>
+      </view>
+
+     
+   
+      <view class='input-item'>
+        <view class='input-key'>公司：</view>
+        <input id="input-company" maxlength="64" bindinput='inputCompany' class='input-value' value='{{company.full_name}}' focus='{{focus.company}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10" placeholder='请输入单位或公司名称'></input>
+
+        <view wx:if="{{showCompanyList}}" class='company-list'>
+          <view bindtap='selectCompany' data-id="{{item.id}}" wx:for="{{companyList}}" wx:key="*this" class='company-item'>{{item.full_name}}</view>
+        </view>
+      </view>
+
+      <view class='input-item'>
+        <view class='input-key'>职位：</view>
+        <input id="input-job" maxlength="19" bindinput='inputHandle' data-key="card.job" class='input-value' value='{{card.job}}' focus='{{focus.job}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10" placeholder="两个职位可用，隔开"></input>
+
+      </view>
+
+      <view class='input-item'>
+        <view class='input-key'>地址：</view>
+        <input id="input-address" maxlength="64" bindinput='inputHandle' data-key="card.address" class='input-value' focus='{{focus.address}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10" placeholder='请输入单位或公司地址' value="{{card.address}}" style='width:500rpx;'></input>
+        <image catchtap='chooseLocation' class='map-mark' src='/img/map-mark.png'></image>
+      </view>
+
+       <view class='input-item'>
+        <view class='input-key'>邮箱：</view>
+        <input id="input-email" maxlength="30" bindinput='inputHandle' data-key="card.email" class='input-value' value='{{card.email}}' focus='{{focus.email}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10" placeholder='请输入常用邮箱'></input>
+      </view>
+
+      <view class='input-item'>
+        <view class='input-key'>微信：</view>
+        <input maxlength="20" bindinput='inputHandle' data-key="card.weixin_id" class='input-value' value='{{card.weixin_id}}' bindfocus="inputFocus" bindblur="inputBlur" cursor-spacing="10" placeholder='请输入微信号'></input>
+      </view>
+
+
+
+    </view>
+  </view>
+
+  <view catchtap='chooseImage' hover-class='image-press'>
+    <image src='/img/paimingpian.png'  class='pmp-btn'></image>
+  </view>
+
+
+
+</view>
+<view class='bottom-space'></view>
+<view wx:if="{{showSave}}" class='bottom-view'>
+  <view bindtap='submit' class='bottom-operate' hover-class='btn-press'>保存</view>
+</view>

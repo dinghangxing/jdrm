@@ -1,0 +1,33 @@
+/**蓝色按钮点击态*/
+.btn-press {
+  background-color: #3796d2;
+}
+
+/**蓝色边框 按钮点击态*/
+.btn-press2 {
+  background-color: #f9f9f9;
+  border: 1rpx solid #f9f9f9;
+}
+
+.btn-press3 {
+  background-color: #a0a0a0;
+}
+
+.btn-press4 {
+  background-color: #e7e7e7;
+}
+
+/**栏目 点击态*/
+.btn-press-item {
+  background-color: #f9f9f9;
+}
+
+/**栏目 点击态*/
+.border-press-item {
+  background-color: #f9f9f9;
+  border: 1rpx solid #3796d2;
+}
+
+.image-press{
+  opacity: 0.8;
+}

@@ -1,0 +1,93 @@
+<!--people/peopleWelfare/peopleWelfare.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{holderBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='alphabetical-order'>
+  <block wx:if="{{isLoadFinish}}">
+    <block wx:if="{{dataSource!=null && dataSource.length>0}}">
+      <view class='data-list'>
+
+        <!--新的人脉列表 begin -->
+        <block wx:for='{{dataSource}}' wx:key='{{pitem.tag}}' wx:for-item='pitem'>
+          <view id='{{pitem.tag}}' class='letter-tag'>{{pitem.tag}} </view>
+          <view style='background: #fff;'>
+
+            <view wx:for='{{pitem.dataList}}' wx:key wx:for-item='item' wx:for-index='i' class='msg-item'>
+
+              <view data-id='{{item.card_id}}' class='msg' data-item='{{item}}' hover-class='btn-press-item' bindtap='clickPeopleWelfareItem'>
+
+                <view class='head_view'>
+                  <view wx:if="{{item.head_img != null && item.head_img.length > 0}}">
+                    <image class='header-img' src='{{item.head_img}}'></image>
+                  </view>
+                  <view wx:else class='text_header_view'>
+                    <view class='text_header'>{{pitem.firstChar[i]}}</view>
+                  </view>
+
+                  <image wx:if='{{item.active_type == 1}}' class='head_right_bottom_img' style='width: 22rpx;height: 27rpx;' src='/img/hongbao_biaoshi.png'></image>
+                  <image wx:elif='{{item.active_type == 2}}' class='head_right_bottom_img' style='width: 26rpx;height: 26rpx;' src='/img/fuli_biaoshi.png'></image>
+                  <image wx:else class='head_right_bottom_img' style='display:none'></image>
+
+                </view>
+
+                <view class='top_text_view'>
+                  <view class="user-name">{{item.name}}</view>
+
+                  <view wx:if="{{item.job == null}}" class="position_text"></view>
+                  <view wx:else class="position_text">{{item.job}}</view>
+               
+                </view>
+
+                <text wx:if="{{item.full_name == null}}" class="msg-text">单位/公司名称未知</text>
+                <text wx:else class="msg-text">{{item.full_name}}</text>
+
+                <view class='right_view'>
+                  <text wx:if="{{item.status == 0}}" data-id='{{item.card_id}}' class="receive_text" style='background:rgb(5, 144, 242);' catchtap='receiveBtn'>领取</text>
+                  <text wx:if="{{item.status == 1}}" data-id='{{item.card_id}}' class="receive_text" style='background:#fff; color:rgb(119,119,119);'>已领取</text>
+                  <!-- <view class="right_text">已有22人领取</view> -->
+                </view>
+              </view>
+
+              <view wx:if="{{i>0 && i != pitem.data.length-1}}" class='divide-line'></view>
+
+            </view>
+          </view>
+        </block>
+
+        <view wx:if="{{dataSource.length > 0}}" class="data_tip">
+          <view wx:if="{{hasMore}}">正在加载</view>
+          <view wx:if="{{!hasMore && page != 1}}" style='color:rgb(119,119,119)'>没有更多了</view>
+        </view>
+        <!--人脉列表 end-->
+
+      </view>
+    </block>
+    <!--无人脉关系时展示null页面-->
+    <block wx:else>
+      <view class='view_null'>
+        <view class='view_middle'>
+          <image class='view_null_image' src='/img/empty_people_img.png'></image>
+          <view class="view_null_text">暂无福利红包，快去发现</view>
+        </view>
+
+
+        <view style='width:750rpx;height:135rpx; background:#fff;position: fixed;bottom: 0rpx;'></view>
+        <button class='view_null_btn' bindtap='findWelfareBtn' hover-class='btn-press'>
+          <view>去找福利</view>
+        </button>
+      </view>
+    </block>
+  </block>
+
+  <!--底部btn-->
+  <view style='height:150rpx;'></view>
+  <view class='find_welfare_text-p' wx:if="{{dataSource!=null && dataSource.length>0}}">
+    <view class='find_welfare_text' bindtap='findWelfareBtn' hover-class='btn-press'>去找福利</view>
+  </view>
+
+  <!-- <view wx:if="{{dataSource!=null && dataSource.length>0}}" class='find_welfare_text'>去找福利</view> -->
+
+  <view wx:else class='find_welfare_text-p' style='display:none'>
+    <view class='find_welfare_text' style='display:none'></view>
+  </view>
+
+</view>

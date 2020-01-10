@@ -1,0 +1,92 @@
+
+<view wx:if="{{card.user_id}}" class='cover-img-p'>
+
+  <image wx:if="{{card.tpl_list != null}}" class='cover-img' src='{{card.tpl_list}}' mode='aspectFit'></image>
+  <image wx:else class='cover-img' src='{{card.banner_img}}'  mode='aspectFit'></image>
+</view>
+<view  wx:if="{{!card.user_id}}" style='height:30rpx;'></view>
+<view class='peo-info'>
+
+
+  <view bindtap='copy' data-title="姓名" data-cp="{{card.name}}" style='font-family:f{{item.code}}' wx:for="{{nameArr}}" wx:key="*this" class='peo-name'>{{item.str}}</view>
+
+
+
+
+
+  <view class='peo-zw'>
+
+    <block wx:if="{{card.job != ''}}">
+      <view bindtap='copy' data-title="职位" data-cp="{{card.job}}" wx:for="{{card.jobArr}}" wx:key="*this" class='peo-zw-1' style='{{card.jobArr.length > 1 ? "font-size:26rpx;" : ""}}  {{index == 0 && card.jobArr.length == 1 ? "top:-6rpx" : ""}} {{index == 1 ? "top:-6rpx" : ""}}'>
+        {{item}}
+      </view>
+    </block>
+    <view wx:if="{{card.job == '' && isMy}}" class='peo-zw-1' style='position:relative;top:-8rpx'>职位/职业</view>
+    <view wx:if="{{card.job == '' && !isMy}}" class='peo-zw-1' style='position:relative;top:-8rpx'>职位/职业</view>
+
+    <!-- <view class='peo-zw-2'>联合创始人</view> -->
+  </view>
+
+  <image wx:if="{{card.logo != ''}}" mode='aspectFill' src='{{card.logo}}' class='company-logo'></image>
+  <image wx:if="{{card.logo == ''}}" mode='aspectFill' src='/img/logo-de.jpg' class='company-logo'></image>
+</view>
+
+<view class='company-p'>
+
+  <view class='company-info'>
+    <view class='company-name'>
+
+      <text bindtap='copy' data-title="公司" data-cp="{{card.full_name}}" wx:if="{{card.full_name != null}}" class='com-text'> {{card.full_name}}</text>
+      <text wx:if="{{card.full_name == null && isMy}}" class='com-text'>单位/公司</text>
+      <text wx:if="{{card.full_name == null  && !isMy}}" class='com-text'>单位/公司名称</text>
+    </view>
+    <view class='company-addr'>
+      <image src='/img/com-danwei.png'></image>
+      <block wx:if="{{(!isShare) && card.public_card == 0 && (!status) && (!isMy) && step != 5}}">
+        <text>交换名片可见</text>
+      </block>
+      <block wx:else>
+        <text bindtap='copy' data-title="地址" data-cp="{{card.address}}" wx:if="{{card.address != ''}}">{{card.address}}</text>
+        <text wx:if="{{card.address == '' && isMy}}">单位/公司地址</text>
+        <text wx:if="{{card.address == '' && !isMy}}">单位/公司地址</text>
+      </block>
+      
+    </view>
+    <view    class='company-addr'>
+      <image src='/img/com-shouji.png'></image>
+      <block wx:if="{{(!isShare) && card.public_card == 0 && (!status) && (!isMy) && step != 5}}">
+        <text>交换名片可见</text>
+      </block>
+      <block wx:else>
+        <text bindtap='copy' data-cp="{{card.phone}}" data-title="手机号码">{{card.phone}}</text>
+      </block>
+     
+
+    </view>
+    <view class='company-addr'>
+      <image src='/img/com-email.png'></image>
+      <block wx:if="{{(!isShare) && card.public_card == 0 && (!status) && (!isMy) && step != 5}}">
+        <text>交换名片可见</text>
+      </block>
+      <block wx:else>
+         <text bindtap='copy' data-title="邮箱" data-cp="{{card.email}}" wx:if="{{card.email != ''}}">{{card.email}}</text>
+        <text wx:if="{{card.email == '' && isMy}}">邮箱</text>
+        <text wx:if="{{card.email == '' && !isMy}}">邮箱</text>
+      </block>
+     
+    </view>
+  </view>
+
+  <view wx:if="{{isMy}}" bindtap='toUpdateCard' hover-class='image-press'>
+    <image   class='bianji-btn' src='/img/bianji.png' style='top:150rpx;'></image>
+  </view>
+</view>
+
+<block wx:if="{{!card.user_id}}">
+  <view style='height:30rpx;'></view>
+  <view  class='cover-img-p'>
+
+    <image wx:if="{{card.tpl_list != null}}" class='cover-img' src='{{card.tpl_list}}' mode='aspectFit'></image>
+    <image wx:else class='cover-img' src='{{card.banner_img}}'  mode='aspectFit'></image>
+  </view>
+</block>

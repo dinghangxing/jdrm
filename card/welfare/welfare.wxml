@@ -1,0 +1,83 @@
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<wxs module="filter" src="../../util/filter.wxs"></wxs>
+
+<view  class='mome' >可选择1个您已发布的福利展示在名片上</view>
+<view class='welfare-list'>
+  
+  <view bindtap='select' data-index="{{index}}" wx:for="{{list}}" wx:key="*this" class='welfare-item {{item.active && actionHidden ? "active" : ""}} {{item.tempActive ? "active" : ""}}'>
+    <block wx:if="{{item.type == 2}}">
+      <image class='cover-img' src='{{item.prize_img1}}' mode='widthFix'></image>
+      <view class='wel-name'>奖品：{{item.prize_name1}}</view>
+      <view wx:if="{{item.open_type == 1}}" class='wel-time'>{{filter.date(item.open_date)}}  自动开奖</view>
+      <view wx:if="{{item.open_type == 2}}" class='wel-time'>达到{{item.open_users}}人，自动开奖</view>
+      <view wx:if="{{item.open_type == 3}}" class='wel-time'>手动开奖</view>
+      <view hidden='{{item.is_gender == 0 && item.active_key == null && item.group_user_limit == null}}' class='wel-codi'>
+        <text class="codi-text">参与条件：</text>
+        <view wx:if="{{item.is_gender == 1}}" class="codi-item" >男</view>
+        <view wx:if="{{item.is_gender == 2}}" class="codi-item" >女</view>     
+        <view wx:if="{{item.active_key != null}}" class="codi-item" >口令</view>
+        <view wx:if="{{item.group_user_limit > 0}}" class="codi-item" >可组队</view>
+      </view>
+    </block>
+
+    <block wx:if="{{item.type == 1}}">
+      <view class='red-bag-title'>
+        <text>{{card.name}}给您的红包</text> 
+        <view wx:if="{{item.lucky_type == 2}}" class='ping-text'>拼</view>
+      </view>
+      <view class='red-bag-desc'>{{item.info}}</view>
+      <image class='cover-img' src='/img/red-bag.png' mode='widthFix'></image>
+
+      <view wx:if="{{item.total_amounts%100 == 0}}" class='wel-name'>已领取 {{item.total_num - item.remain_num}}/{{item.total_num}}个，共{{item.total_amounts/100}}.00元</view>
+      <view wx:else class='wel-name'>已领取 {{item.total_num - item.remain_num}}/{{item.total_num}}个，共 {{item.total_amounts/100}}元</view>
+
+      <view class='wel-time'>{{item.expires}} 自动关闭并退回剩余金额</view>
+      <view class='wel-codi'>
+        <text class='codi-text'>领取条件：</text>
+        <view wx:if="{{item.sex_limit == 1}}" class='codi-item'>男</view>
+        <view  wx:if="{{item.sex_limit == 2}}" class='codi-item'>女</view>
+        <view  wx:if="{{item.contact_limit == 1}}" class='codi-item'>已存我的名片</view>
+        <view  wx:if="{{item.contact_limit == 5}}" class='codi-item'>已互存名片</view>
+        <view  wx:if="{{item.sex_limit != 1 && item.sex_limit != 2 && item.contact_limit != 1 && item.contact_limit != 5}}" class='codi-item'>不限</view>
+
+      </view>
+    </block>
+  </view>
+
+</view>
+<view class='no-welfare' wx:if="{{list.length == 0}}" style='margin:{{noWelTop}}px 0 0 0;'>
+    <image src='/img/empty_welfare_image.png' style='width:157rpx;height:156rpx;'></image>
+    <view class='no-welfare-desc'>暂无福利红包，快去发起</view>
+  </view>
+
+ <view class='bottom-space'></view>
+ <view class='bottom-v'>
+   
+    <view class='save-p'>
+      <navigator url='/card/sendRedPackage/sendRP' class='fa-wel-btn' hover-class='border-press-item'>
+        <image class='red-bag-img'  src='/img/hongbao_sign.png'></image>
+        <text class='middle'>去发红包</text>
+      </navigator>
+      <view style='display:inline-block;width:30rpx;'></view>
+      <navigator url="/welfare/pages/start/start" class='fa-wel-btn-1' hover-class='btn-press'>
+        <image  class='libao-img'  src='/img/libao-w.png'></image>
+        <text  class='middle'>去发福利</text>
+      </navigator>
+      <!-- <view bindtap='updateActive' class='create-btn'>保存</view> -->
+    </view>
+  </view>
+
+
+
+<view hidden="{{actionHidden}}" class='action-mask' catchtouchmove='true'>
+  <view  class='action-p {{isShowAct ? "show" : ""}}'>
+    <button bindtap='toDetail' class='action-item '>查看详情</button>
+    <button bindtap='showToCard' wx:if="{{!selectObj.active}}"  class='action-item'>展示在名片上</button>
+    
+    <button bindtap='cancel' wx:if="{{selectObj.active}}" class='action-item '>取消展示</button>
+    <button bindtap='closeAction'  class='action-cancel'>取消</button>
+  </view>
+</view>
+

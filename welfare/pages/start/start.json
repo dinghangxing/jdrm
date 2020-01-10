@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText": "发起抽奖福利",
+  "usingComponents": {
+    "spread-type": "../../components/spread-type/spread-type",
+    "award-way":"../../components/award-way/award-way",
+    "over-time":"../../components/over-time/over-time",
+    "app-spread":"../../components/app-spread/app-spread",
+    "kou-lin": "../../components/kou-lin/kou-lin",
+    "team": "../../components/team/team",
+    "set-prize":"../../components/set-prize/set-prize",
+    "set-fun": "../../components/set-fun/set-fun",
+    
+   
+    "gender":"../../components/gender/gender",
+    "navigationBar": "/components/navigationBar/index",
+    "modal":"/components/modal/modal"
+  },
+  "enablePullDownRefresh":false
+}
+

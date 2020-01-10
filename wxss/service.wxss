@@ -1,0 +1,57 @@
+
+.ser-desc{font-size: 28rpx;color: #777;padding:30rpx;}
+.ser-list{}
+.ser-item{padding:37rpx 0;border-bottom: 2rpx solid #f0f0f0;margin: 0 30rpx;position: relative;font-size: 34rpx;}
+.ser-key{display: inline-block;vertical-align: middle;color: #777;}
+.ser-value{display: inline-block;vertical-align: middle;width:430rpx;}
+.bot-p{padding: 60rpx 0;text-align: center;}
+.add-ser{text-align: center;display: inline-block;border: 1rpx solid #3ca1e1;color:#3ca1e1;border-radius: 10rpx;width: 370rpx;height: 70rpx;line-height: 70rpx;font-size: 32rpx;}
+.gray{border: 2rpx solid #777;color:#777;}
+.shanchu{position: absolute;width: 46rpx;height: 46rpx;right: -20rpx;top:20rpx;padding: 20rpx;}
+.save-v{padding:30rpx 0rpx;border-top:2rpx solid #dcdcdc;background: #fff;text-align: center;
+position: fixed;bottom: 0;width: 100%;box-sizing: border-box;}
+.save-btn{text-align: center;color: #fff;background: #46a8e6;height: 88rpx;line-height: 88rpx;border-radius: 10rpx;width: 690rpx;display: inline-block;font-size: 36rpx;}
+.bottom-space{height: 160rpx;}
+.item-view{background:#fff;
+margin:0rpx 0 0 0;
+
+box-shadow:0 0 5rpx 0 #ccc;
+position:relative;
+}
+.jia-zi{display: inline-block;vertical-align: middle;font-size: 50rpx;position: relative;top:-6rpx;padding: 0 6rpx 0 0;}
+.man-line{border-bottom:1rpx solid #e2e2e2;}
+.item-view-s{
+    height: 395rpx;
+    line-height: 395rpx;
+    margin-top: 21rpx;
+}
+.bot-p-s{
+    padding: 0;
+    text-align: center;
+}
+.item-view-t{
+    height: 569rpx;
+    margin-top: 21rpx;
+}
+.img-t{
+    height: 389rpx;  
+    width: 100%;
+    margin-bottom:40rpx;
+}
+.bot-p-t{
+    text-align: center;
+    padding:25rpx 30rpx 0 30rpx;
+    position: relative;
+    border-bottom:2rpx solid #f0f0f0;
+
+}
+.shanchu-t{
+    position:absolute;
+    width:46rpx;
+    height:46rpx;
+    right:10rpx;
+    top:-15rpx;
+   
+    border-radius: 50%;
+    padding: 20rpx;
+}

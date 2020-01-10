@@ -1,0 +1,4 @@
+/* welfare/pages/nameList/nameList.wxss */
+@import "/welfare/pages/detail/detail.wxss";
+page{background: #fff;}
+

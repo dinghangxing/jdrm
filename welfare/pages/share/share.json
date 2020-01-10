@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "生成分享图片",
+  "enablePullDownRefresh":false,
+  "usingComponents": {
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer",
+    "navigationBar": "/components/navigationBar/index"
+  }
+}
+

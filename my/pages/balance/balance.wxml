@@ -1,0 +1,31 @@
+<!--my/pages/balance/balance.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+
+  <view class='balance_detail' bindtap='clickBalanceDetail'>余额明细</view>
+
+  <view class='my_balance_view'>
+
+    <image class='my_balance_img' src='/img/yuer.png'></image>
+
+    <view class='my_balance_text'>我的余额</view>
+    <view class='balance_count'>￥{{money/100}}</view>
+  </view>
+
+  <view class='recharge_value' hover-class="btn-press" bindtap='clickRechargeBtn'>充值</view>
+  <view class='withdraw_value' bindtap='clickWithdrawBtn' hover-class="border-press-item">提现</view>
+
+
+  <view wx:if="{{showToast}}" class='modal-mask'>
+    <view class='modal-view' style='width:570rpx;'>
+      <view class='modal-title' style='text-align: justify; color:#080808; padding:60rpx 30rpx 10rpx 30rpx'>满100元可提现到微信。联系微信：koudaishequn。即时到账紧张开发中，给您带来的不便深表歉意。</view>
+      
+      <view class='modal-foot'>
+        
+        <view bindtap='confirm' class='modal-comfirm' style='color:#576B95;font-weight:500;font-size:36rpx;height: 90rpx;line-height: 90rpx'>确定</view>
+      </view>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,375 @@
+
+<wxs module="filter" src="../../../util/filter.wxs"></wxs>
+<view hidden='{{pageHidden}}' style='position:relative;overflow:hidden;' id="mainView">
+<!-- <view>activeDetail:{{invite_user_id}}--{{active_id}}--{{ref_id}}</view>  -->
+<swiper class="cover-img" autoplay="true" circular="true" interval="3000" indicator-dots="{{active.prize_img2 !== ''}}">
+    <swiper-item>
+      <image src="{{active.prize_img1}}" class="cover-img"  />
+    </swiper-item>
+    <swiper-item wx:if="{{active.prize_img2 !== ''}}">
+      <image src="{{active.prize_img2}}" class="cover-img"  />
+    </swiper-item>
+    <swiper-item wx:if="{{active.prize_img3 !== ''}}">
+      <image src="{{active.prize_img3}}" class="cover-img"  />
+    </swiper-item>
+</swiper>
+<view class='product-p'>
+  
+   <view class='view_prize shenlue'>
+      <text wx:if="{{active.prize_name2 != ''}}" class=''>奖项一:</text>
+      <text wx:if="{{active.prize_name2 == ''}}" class='' decode="{{true}}">奖品:</text>
+      {{filter.calcPrizeName(active.prize_name1,active.prize_num1)}}
+    </view>
+    <view wx:if="{{active.prize_name2 != ''}}" class='view_prize shenlue'>
+      <text class='prize-title'>奖项二:</text>
+      {{filter.calcPrizeName(active.prize_name2,active.prize_num2)}}
+    </view>
+    <view wx:if="{{active.prize_name3 != ''}}" class='view_prize shenlue'>
+      <text class='prize-title'>奖项三:</text>
+      {{filter.calcPrizeName(active.prize_name3,active.prize_num3)}}
+
+    </view>
+
+
+  <view  class='product-time'>
+    <block wx:if="{{ref_id != ''}}">
+      <image class='image_check' src='/img/image2.png'></image>
+      <text class=" join_text">已参与 | </text>
+    </block>
+    <block  wx:if="{{active.open_type == 1}}" >
+      <view class='middle'>{{filter.date(active.open_date)}}  自动开奖</view>
+      <image wx:if="{{active.group_user_limit > 0 }}" class='tuan-zi' src='/img/tuan-zi.png'></image>
+    </block>
+    <block  wx:if="{{active.open_type == 2}}" >
+      <view class='middle'>达到{{active.open_users}}人，自动开奖</view>
+      <image  wx:if="{{active.group_user_limit > 0 }}" class='tuan-zi' src='/img/tuan-zi.png'></image>
+    </block>
+    <block  wx:if="{{active.open_type == 3}}" >
+      <view class='middle'>由发起人手动开奖</view>
+      <image  wx:if="{{active.group_user_limit > 0 }}" class='tuan-zi' src='/img/tuan-zi.png'></image>
+    </block>
+  </view>
+
+
+  <view class='faqiren'>
+    <view class='product-n'>发起人</view>
+
+    <!-- bindtap='toCardDetail' 暂时不需要点入名片详情 -->
+    <view  class='product-ren'>
+      <image wx:if="{{ active.icon != '' }}" src='{{active.icon}}' class='faqi-head'></image>
+      <view class='middle'>{{active.nickname}}</view>
+    </view>
+  </view>
+ 
+</view>
+ <!--查看中奖者信息 -->
+  <view  bindtap='toWinner' wx:if="{{active.author_id == user_id && active.status == 1}}" class='look-zjz'>
+    <view class='look-zjz-title'>查看中奖者收货地址及留言详情 
+      <image  src='/img/into.png' class='look-zjz-arrow'></image>
+    </view>
+   
+    <view class='look-zjz-desc'>抽奖开奖后，请根据中奖人联系信息于7日内发奖。</view>
+    <view  class='look-zjz-desc'>若中奖人不满足发奖要求时，建议短信告知。</view>
+    
+  </view>
+  <!--查看中奖者信息 end -->
+<!-- 一句话广告 -->
+<view wx:if="{{active.one_ad != ''}}" class='product-num'>
+  <image class='yingdao-img' src='/img/yinghao.png'></image>
+  {{active.one_ad}}
+</view>
+<!-- 一句话广告 end-->
+<!--切换tab -->
+<view wx:if="{{active.status == 1 && active.open_content != ''}}">
+  <view bindtap='changeTab' data-tab="开奖" class='kt-tab {{tab == "开奖" ? "active" : ""}}'>开奖结果</view>
+  <view bindtap='changeTab' data-tab="图文" class='kt-tab {{tab == "图文" ? "active" : ""}}'>福利详情</view>
+</view>
+<!--切换tab end-->
+
+<!--开奖结果中奖 -->
+<view wx:if="{{tab == '开奖' && isWin}}" class='kjjg'>
+ 
+  <view class='gongxi'>恭喜您！中奖啦！</view>
+  <view class='win-prize-name'>奖品：{{active['prize_name' + win_lev]}}</view>
+  <!-- <view class='xyh'>您的幸运号码：{{ref_id}}</view> -->
+  <view wx:if="{{address == ''}}" bindtap='chooseAddress'  class='address-v'>
+    <image class='address-img'  src='/img/address.png'></image>
+    <view class='add-ad-text'>填写收货地址及留言</view>
+  </view>
+  <view wx:if="{{address != ''}}" bindtap='updateAddress'  class='address-v'>
+    <image class='address-img'  src='/img/address.png'></image>
+    <view class='add-ad-text'>{{address.name}}</view>
+  </view>
+  <view bindtap='flaunt' class='xy-v'>
+    <image class='xuanyao-img'  src='/img/xuanyao.png'></image>
+      <view class='xuanyao-text'>炫耀</view>
+  </view>
+
+  <!-- 
+  <view wx:if="{{address != ''}}" class='wa-p'>
+    
+    <view bindtap='updateAddress' class='alert-ad'>修改地址</view>
+    
+    <image class='home-img'  src='/img/home.png'></image>
+    <view class='wa-title'>收获地址</view>
+    <view class='wa-info'>
+      <text class='wa-name' >{{address.name}}</text>
+      <text class='wa-phone' >{{address.phone}}</text>
+      <view class='wa-address'>{{address.address}}</view>
+    </view>
+
+    <image class='liuyan-img' src='/img/liuyan.png'></image>
+    <view class='wa-title'>中奖者留言</view>
+    <view class='wa-info'>
+      <view class=''>{{address.info == null ? "无" : address.info}}</view>
+    </view>
+  </view>
+  -->
+  
+</view>
+<!--开奖结果中奖end -->
+<!--开奖结果未中奖 -->
+<view  wx:if="{{tab == '开奖' && !isWin}}" class='kjjg'>
+  <!-- <view bindtap='getPoint' class='xy-btn-bg'>
+    <image   src='/img/btn-bg.png' style='width:120rpx;height:120rpx;'></image>
+    <text >领取积分</text>
+  </view> -->
+  <view class='no-reward'>太可惜，您未中奖</view>
+  <!-- <view class='xyh'>您的抽奖号码：{{ref_id}}</view> -->
+  <view class='no-reward-desc'>为您准备了如下福利</view>
+  <view class='rxjl one'>
+    <image class='hb-img' src='/img/hongbao_img.png'></image>
+    <view class='rxjl-t'>德芙巧克力</view>
+    <view class='rxjl-d'>送你105元红包，购情人节专享礼盒</view>
+    <view class='rxjl-btn-1'>点击领取</view>
+  </view>
+  <view class='rxjl two'>
+    <image class='lb-img' src='/img/libao.png'></image>
+    <view class='rxjl-t'>简单人脉送给 {{nickname}}</view>
+    <view class='rxjl-d'>在天愿作比翼鸟，在地愿为连理枝。</view>
+    <view bindtap='showShi' class='rxjl-btn-2'>点击查看</view>
+  </view>
+</view>
+<!--开奖结果未中奖end -->
+<!--幸运儿 -->
+<!-- 
+<view  wx:if="{{tab == '开奖' && winUserList.length == 1 }}" class='join-p'>
+  <view class='xye'>幸运儿</view>
+  <image  class='xy-img' src='/img/xye.png'></image>
+  <image  class='ud-img'  src='{{ winUserList[0].icon }}'></image>
+  <view class='xy-name'>{{ winUserList[0].nickname }}</view>
+  
+ 
+</view>
+-->
+<!--幸运儿end -->
+<!--幸运儿列表 -->
+<view  wx:if="{{tab == '开奖'}}" class='join-p'>
+  <view class='xye'>幸运儿</view>
+  <image class='xy-img' src='/img/xye.png'></image>
+  
+  <view wx:for="{{winPrizeList}}" wx:if="{{item.users.length > 0}}" wx:key="*this" class='win-pri-p' style='{{(index + 1) == winPrizeList.length ? "border-bottom: none;" : ""}} '>
+    <view class='win-pri-na'>
+      <text wx:if="{{winPrizeList.length == 1}}">奖品</text>
+      <text wx:if="{{winPrizeList.length > 1}}">奖项{{item.num_text}}</text>：{{item.prize_name}}
+    </view>
+    <view class='win-pri-user-list' >
+      <view wx:for="{{item.users}}" wx:if="{{index < 6}}" wx:key="{{item.nickname}}" class='win-pri-user'>
+        <image class='win-pri-user-head' src='{{item.icon}}'></image>
+        <view class='win-pri-user-name'>{{item.nickname}}</view>
+      </view>
+    </view>
+  </view>
+  <view bindtap='toNameList' class='look-all-win'>
+    <text class='middle look-all'>完整名单</text>
+    <image class='middle' src='/img/into_blue.png' style='width:12rpx;height:20rpx;'></image>
+  </view>
+  <view style='clear:both;height:20rpx;'></view>
+  
+</view>
+<!--幸运儿列表 end -->
+<!-- <view wx:if="{{tab == '开奖'}}" class='xtkj '>
+   <view wx:if="{{active.open_type == 1}}" class=''>系统已于{{filter.date(active.open_date)}}  自动开奖</view>
+  <view wx:if="{{active.open_type == 2}}" class=''>系统达到{{active.open_users}}人，自动开奖</view>
+  <view wx:if="{{active.open_type == 3}}" class=''>由发起人手动开奖</view>
+</view> -->
+
+
+
+<!--图文详情 -->
+<view  wx:if="{{tab == '图文' && active.open_content.length > 0}}" class='tuwen-view'>
+<block wx:for="{{active.open_content}}" wx:for-item="node" wx:key="{{index}}">
+  <view class='html-con-text' wx:if="{{node.name === 'p'}}">{{node.children[0].text}}</view>
+  <image class='html-con-img' wx:if="{{node.name === 'img'}}" src='{{node.attrs.src}}' mode='widthFix' ></image>
+  <block wx:if="{{node.name === 'copy'}}">
+    <view class='copy-v'>
+
+      <view class='copy-desc'>{{node.desc ? node.desc : "点击【一键复制】按钮可复制下方文字"}}</view>
+        <view class='copy-content'>{{node.content}}</view>
+        <view  bindtap='copy' data-content="{{node.content}}" class='copy-btn '>
+          <image src='/img/hand_1.png' style='width:29rpx;height:35rpx;' class='copy-hand'></image>
+          <text class=''>一键复制</text> 
+        </view>
+    </view>
+    
+  </block>
+  <block wx:if="{{node.name === 'app'}}">
+    <view bindtap='openApp' class='add-app-p'>
+      <view class='add-app-ty'>
+        <text  class='middle'>点击体验</text>
+        <image mode="widthFix" class='middle' style="width:20rpx;margin:0 0 0 10rpx;" src="/img/into_blue.png"></image>
+      </view>
+      <image class='add-app-logo' mode='widthFix' src='/img/applets_image.png' ></image>
+      <text class='add-app-name'>{{node.desc}}</text>
+    </view>
+  </block>
+</block>
+</view>
+<!--图文详情 end-->
+
+
+<view wx:if="{{active.status == 3 || active.status == 4}}" class='join-p'>
+  <view class='red-btn' >待发布</view>
+</view>
+<view wx:if="{{active.status == 2}}" class='join-p'>
+  <view wx:if="{{active.author_id == user_id && active.active_key != ''}}" bindtap='lookKoulin' class='look-koulin'>查看口令</view>
+  <block wx:if="{{active.group_user_limit == 0}}">
+    <!-- 参与抽奖的按钮 -->
+    <form  bindsubmit="joinActive" report-submit='true'  class='join-btn'>
+      
+      <button form-type="submit" class='canyu-btn' hover-class='none'>
+       
+        <view class='red-btn {{joined ? "joined" : ""}}' >
+           {{joined == '' ? "参与抽奖" : "等待开奖"}}
+          <view class='white-circle {{joined ? "active" : ""}}'></view>
+        </view>
+      </button>
+    </form>
+    <!-- 参与抽奖的按钮 end-->
+   
+  </block>
+  <block wx:if="{{active.group_user_limit > 0}}">
+    <view wx:if="{{ref_id}}" class='team-tip'>
+      <image class='team-tip-bg' src='/welfare/img/team-join-tip.png'></image>
+      <view class='team-tip-text'>队内中有人中奖，其他队友获得相同奖品</view>
+    </view>
+    <form bindsubmit="joinActive" report-submit='true'  class='zutui-p' 
+    bindtouchstart="teamStart"
+    bindtouchmove="teamMove"
+    bindtouchend="teamEnd"
+    style='left:{{teamBtnLeft}}rpx;transition:{{transition}};'>
+      
+
+       <!-- 参与抽奖的按钮 -->
+      <button form-type="submit" class='zutui-item' hover-class='none' >
+       <view class='red-btn {{joined ? "joined" : ""}}' >
+           {{joined == '' ? "参与抽奖" : "等待开奖"}}
+          <view class='white-circle {{joined ? "active" : ""}}'></view>
+        </view>
+        <view wx:if="{{ref_id}}" class='red-line'></view>
+      </button>
+       <!-- 参与抽奖的按钮 end-->
+        <!-- 去组队的按钮 ref_id != '' && activeUserTotal ==  active.group_user_limit-->
+        <button  open-type="share" class='zutui-item' hover-class='none' disabled="{{ref_id && teamUserList.length != active.group_user_limit ? '' : 'true'}}" style='background:transparent;'>
+          
+          <view wx:if="{{ref_id}}" class='red-btn' >
+             <view class="yao-qing">
+              <image  class='team-img'  src='/welfare/img/team.png'> </image>
+              {{teamUserList.length == active.group_user_limit ? '组队完成' : '去邀请'}}
+            </view>
+          </view>
+          <view class='zdrs'>{{teamUserList.length}}/{{active.group_user_limit}}</view>
+         
+        </button>
+      <!-- 去组队的按钮 end-->
+      
+    </form>
+   </block>
+ 
+</view>
+ <!-- 去除展示抽奖号码-->
+  <!-- <view  wx:if="{{ref_id != '' }}" class='my-num'>您的抽奖号码：{{ref_id}}</view> -->
+
+  <view wx:if="{{active.group_user_limit && invite_user_id }}"  class='join-user-p'>
+    <text class='join-count'>当前队内好友，最多{{active.group_user_limit}}人</text>
+     <view class='head-list'>
+      <view wx:for="{{teamUserList}}" wx:key="{{index}}"  class='head-item-team'>
+        
+        <image class='head-img'  src='{{item.icon}}'></image>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{active.open_type == 1}}"  class='join-time '>{{timeDownStr}}后自动开奖</view>
+  <view wx:if="{{active.open_type == 2}}"  class='join-time '>达到{{active.open_users}}人，自动开奖</view>
+  <view wx:if="{{active.open_type == 3}}" class='join-time '>由发起人手动开奖</view>
+<view  class='join-user-p'>
+  
+  <navigator url="../users/users?active_id={{active.active_id}}" hover-class='none' class='join-count'>
+    <text class='middle'> 感谢 <text wx:if="{{active.group_user_limit == 0}}"> {{activeUserTotal}}</text>  <text wx:if="{{active.group_user_limit != 0}}"> {{activeUserList.length }}</text>人参与，</text>
+    <text class='look-all middle'> 查看全部</text>
+    <image class='middle'  style='width:12rpx;height:20rpx;' src='/img/into_blue.png'></image>
+  </navigator>
+  <view class='head-list'>
+  
+    <view  wx:for="{{activeUserList}}" wx:key="{{index}}" class='head-item'>
+   
+      <image class='head-img'  src='{{item.icon}}'></image>
+    </view>
+    
+  </view>
+</view>
+
+
+
+
+<view wx:if="{{active.group_user_limit > 0 }}" class='remainder'>不强制组队，组队不会增加单人中奖概率</view>
+
+<!--<view class='contact-us'>想成为赞助商请联系我们 ></view>
+<view class='advert-space'>广告位：虚位以待</view> -->
+<view  class='bottom-space'></view>
+
+<view animation="{{nextAniData}}" class='bottom-next' style=''>
+  <view  bindtap='switchAction' wx:if="{{active.status == 2}}" class='btn-1 btn'>
+    <text class=''>发送福利邀请</text>
+  </view>
+
+  <navigator wx:if="{{active.author_id != user_id}}" hover-class="none" url="../start/start" class='btn-2 btn' style='{{active.status == 1 ? "width:690rpx;" : ""}}'>
+    <text  class=''>我也要发福利</text>
+  </navigator>
+  <block wx:if="{{active.author_id == user_id}}">
+    <block wx:if="{{active.open_type == 3}}">
+       <view bindtap='openActive' wx:if="{{active.status == 2}}" class='btn-2 btn'>
+          <text class=''>手动开奖</text>
+       </view>
+       <navigator wx:else hover-class="none" url="../start/start" class='btn-2 btn' style='{{active.status == 1 ? "width:690rpx;" : ""}}'>
+          <text  class=''>再发一个福利</text>   
+       </navigator>
+    </block>
+    <block wx:else>
+       <navigator hover-class="none" url="../start/start" class='btn-2 btn' style='{{active.status == 1 ? "width:690rpx;" : ""}}'>
+          <text  class=''>再发一个福利</text>   
+       </navigator>
+    </block>
+
+  </block>
+ 
+ 
+  <view  class='next'>
+    <block wx:if="{{isSeries}}" >
+      <text wx:if="{{is_more}}">继续上划，抢下一个福利</text>
+      <text wx:else>没有下一个福利了</text>
+    </block>
+  </view>
+</view>
+
+
+</view>
+<!-- <navigator wx:if="{{isHome}}" open-type='switchTab' url='/pages/welfare/index/index' class='to-home-p' >
+  <image src='/img/home.png'  style='width:120rpx;height:120rpx;'></image>
+</navigator> -->
+
+
+
+
+

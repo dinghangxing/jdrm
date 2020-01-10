@@ -1,0 +1,12 @@
+
+/* .title{text-align: center; margin-top:45rpx;padding: 25rpx 0;font-size: 40rpx; color:rgb(51, 51, 51);}
+.desc{text-align: center;margin-top: 10rpx; margin-bottom: 100rpx; font-size: 30rpx;color:rgb(51, 51, 51);} */
+
+page{
+  background-color: #EB654F;
+}
+
+.image{width:750rpx;  position: relative}
+.com-btn1{width:750rpx;height: 100%; position: absolute; top:0rpx; }
+
+.com-btn{position: absolute; top:826rpx; border-radius: 16em; left:245rpx;}

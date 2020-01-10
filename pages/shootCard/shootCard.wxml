@@ -1,0 +1,33 @@
+<!-- <navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>  -->
+ <camera wx:if="{{!showImg}}"
+  device-position="back"
+  flash="off"
+  binderror="error"
+  style="width: 100%; height:100vh;"
+>
+
+<cover-image class='pai-rect' src='/img/pai-rect.png' style='top:{{rectTop}}rpx;'></cover-image>
+<cover-view class='oper-p'>
+  <cover-image bindtap='back' class='pai-back' src='/img/pai-back.png'></cover-image>
+  <cover-image bindtap='takePhoto' class='pai-btn' src='/img/pai-btn.png'></cover-image>
+  <cover-image bindtap='select' class='pai-card' src='/img/pai-card.png'></cover-image>
+  
+</cover-view> 
+
+
+</camera>
+
+<image wx:if="{{showImg}}" src='{{src}}' style="width: 100%; height: 100vh;"></image> 
+<view wx:if="{{showImg}}" class='oper-p'>
+  <view bindtap='done' class='pai-done-p'>
+    <image class='pai-done' src='/img/pai-done.png'></image>
+    <view>完成</view>
+  </view>
+  <view bindtap='restart' class='pai-again-p'>
+    <image  class='pai-again' src='/img/pai-again.png'></image>
+    <view>重新拍摄</view>
+  </view>
+</view>
+
+
+

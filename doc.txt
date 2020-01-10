@@ -1,0 +1,40 @@
+1931051388@qq.com
+
+ddg@ddgad123
+
+
+wx3e5218558c583505
+0d2f7b08b1ad27755b70d6470cf8b6a5
+
+
+ddg@ddgad.com
+
+3598208Abcd
+
+dev.ddgad.com
+
+
+
+// 微信登入
+wxLogin
+	{code,nickName,avatarUrl}
+
+// 用户信息，用户获取当前活动，判断用户是否登入	
+info
+	{}
+
+参与活动
+apply
+	{active_id}
+
+所有参与的用户
+userList
+	{active_id,from,size}
+// 我参与活动列表
+activeList
+	{from, size}
+// 活动详情
+activeInfo
+	{active_id}
+
+

@@ -1,0 +1,4 @@
+<!--welfare/pages/cutImg/cutImg.wxml-->
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<cut-image image="{{image}}"  bindcancelCrop="cancelCrop" bindcompeteCrop="competeCrop"></cut-image>

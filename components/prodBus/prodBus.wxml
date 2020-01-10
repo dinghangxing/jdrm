@@ -1,0 +1,30 @@
+<!--components/prodBus/prodBus.wxml-->
+<view class='the-item the-item-s'>
+    <view class='the-title'>
+        <navigator url="/card/service/service?card_id={{card_id}}" hover-class='image-press' wx:if="{{isMy}}">
+            <image class='bianji-btn' src='/img/bianji.png' style='top:-13px;right:-7px;'></image>
+        </navigator>
+        <image class='inline title-img' src='/img/product_im.png'></image>
+        <!-- <view class='the-item-line'></view> -->
+        <view class='cp-list inline'>
+            <view wx:if="{{products.length == 0}}" class='no-product-text'>{{isMy ? '您': 'TA'}}还未添加产品业务</view>
+        </view>
+    </view>
+    <view wx:for="{{products}}" wx:key="*this" class='cp-item inline {{index == current ? "active" : ""}}'>{{item.content}}</view>
+    <view wx:if="{{products.length > 0}}" class='img-box'>
+        <swiper class='img'
+          autoplay="true"
+          circular="true"
+          interval="3000"
+          indicator-dots="{{products.length > 1}}"
+          bindchange="imgChange"
+        >
+           
+              <swiper-item wx:for="{{products}}" wx:key="*this">
+                <image wx:if="{{item.img}}" src="{{item.img}}" class='img' mode='aspectFill'></image>
+                <view wx:else class='no-img-v'>该项产品业务未添加图片</view>
+              </swiper-item>
+           
+          </swiper>
+    </view>
+</view>

@@ -1,0 +1,63 @@
+<!--my/pages/cardProfessionCoupon/addService/addService.wxml-->
+
+<navigationBar id="navigationBar" placeholderBg="{{barBg}}" color="{{color}}" title="{{title}}" back="{{true}}" background="{{barBg}}"></navigationBar>
+
+<view class='view_background'>
+
+  <text class='title_text'>名片专业版</text>
+  <view class='use_text_view'>
+    <text class='use_text'>已有{{useCount}}人使用了名片专业版</text>
+    <text class='use_tips_text'>增加了以下功能</text>
+  </view>
+
+  <view style='margin-bottom:50rpx;'>
+    <view wx:for="{{addServiceArr}}" wx:key="*this" class='popup_middle_view'>
+      <image class='image_1' src='/img/selected_image.png'></image>
+      <text class='service_text'>{{item}}</text>
+    </view>
+  </view>
+
+  <text class='popup_buy_text_count'>请选择购买名片专业版的时长</text>
+
+  <view wx:for="{{buyUseCouponArr}}" wx:key="*this" class='popup_buy_view'>
+
+
+    <view data-id="{{index}}" wx:if="{{item.selected}}" class='item_view' style='background-color: #fff; border: 2px solid rgb(5, 144, 242);' bindtap='clickBuyCoupon'>
+
+      <view wx:if="{{index == 1}}" class='top_welcome_sign' style='background: rgb(5, 144, 242)'>最受欢迎</view>
+
+      <view class='buy_coupon_view'>
+        <text class='buy_coupon_type' style='color: rgb(5, 144, 242)'>{{item.card}}</text>
+
+      </view>
+
+      <text style='color: rgb(5, 144, 242)' class='buy_coupon_price'>{{item.price}}</text>
+
+
+      <text style='color: rgb(5, 144, 242)' class='buy_coupon_save_price'>{{item.savePrice}}</text>
+
+
+    </view>
+
+    <view data-id="{{index}}" wx:else class='item_view' style='background: #f0f0f0;' bindtap='clickBuyCoupon'>
+
+      <view wx:if="{{index == 1}}" style='background: rgb(119, 119, 119)' class='top_welcome_sign'>最受欢迎</view>
+
+      <view class='buy_coupon_view'>
+        <text class='buy_coupon_type' style='color: rgb(51, 51, 51)'>{{item.card}}</text>
+
+      </view>
+
+      <text style='color: rgb(51, 51, 51)' class='buy_coupon_price'>{{item.price}}</text>
+
+      <text style='color: rgb(51, 51, 51)' class='buy_coupon_save_price'>{{item.savePrice}}</text>
+
+    </view>
+
+  </view>
+
+
+  <view class='view_line'></view>
+  <view class='popup_right_now_btn'>立即支付</view>
+
+</view>

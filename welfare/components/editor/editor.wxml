@@ -1,0 +1,110 @@
+<!--components/xing-editor.wxml-->
+<view class="editor-wrapper" style="" scroll-y enable-back-to-top>
+  <view class="editor-add-wrapper">
+
+    <!-- 
+    <view class="editor-add iconfont icon-align-left" data-index="-1" bindtap="addText"></view>
+     <view class="editor-add iconfont icon-image" data-index="-1" bindtap="addImage"></view>
+   -->
+    <!-- <image data-index="-1" bindtap='openAdd' class='open_add' mode='widthFix'  src='/img/add_btn.png' style='width:66rpx;'></image> -->
+    <view class='add-btn-p active'>
+      <view bindtap="addText" data-index="-1" class='add-btn' hover-class='image-press'>
+        <image class='insert-img' src='/welfare/img/wenben.png'></image>
+        <view class='insert-text'>插入文字</view>
+      </view>
+      <view bindtap="addImage" data-index="-1" class='add-btn' hover-class='image-press'>
+        <image class='insert-img' src='/welfare/img/tupian.png'></image>
+        <view class='insert-text'>插入图片</view>
+      </view>
+      <view bindtap="addCopy" data-index="-1" class='add-btn' hover-class='image-press'>
+        <image class='insert-img' src='/welfare/img/fuzhi.png'></image>
+        <view class='insert-text'>一键复制</view>
+      </view>
+      <!-- 
+      <view wx:if="{{isSpread}}" bindtap="addApp" data-index="-1" class='add-btn'>
+        <image src='/img/applets_image_c.png' mode='widthFix'  style='width:66rpx;' ></image>
+        <view>小程序推广</view>
+      </view>
+      -->
+    </view>
+
+
+
+
+  </view>
+  <block wx:for="{{nodeList}}" wx:for-item="node" wx:for-index="index" wx:key="{{index}}">
+    <view class="editor-node-wrapper">
+      <block wx:if="{{node.name === 'p'}}">
+        <textarea class="editor-textarea" value="{{node.children[0].text}}" auto-height maxlength="-1" data-index="{{index}}" bindinput="onTextareaInput">
+        </textarea>
+      </block>
+      <block wx:if="{{node.name === 'img'}}">
+        <image class="editor-image" src="{{node.attrs.src}}" mode="widthFix" style="width:100%;"></image>
+      </block>
+      <block wx:if="{{node.name === 'copy'}}">
+        <view class='copy-v'>
+
+          <input class='copy-desc' placeholder-class='copy-desc-ph' data-index="{{index}}" data-type="desc" bindinput='onDescInput' value="{{node.desc}}" placeholder='点此填写引导文案'></input>
+          <input class='copy-content' placeholder-class='copy-desc-ph' data-index="{{index}}" data-type="content" bindinput='onContentInput' value="{{node.content}}" placeholder='点此填需要被复制的内容'></input>
+
+          <view class='copy-btn'>
+            <image src='/img/hand_1.png' mode='widthFix' class='copy-hand'></image>
+            一键复制
+          </view>
+        </view>
+
+      </block>
+      <block wx:if="{{node.name === 'app'}}">
+        <view class='add-app-p'>
+          <view class='add-app-ty'>
+            <text class='middle'>点击体验</text>
+            <image mode="widthFix" class='middle' style="width:20rpx;margin:0 0 0 10rpx;" src="/img/into_blue.png"></image>
+          </view>
+          <image class='add-app-logo' mode='widthFix' src='/img/applets_image.png'></image>
+          <text class='add-app-name'>{{node.desc}}</text>
+        </view>
+      </block>
+      <image class="editor-delete" data-index="{{index}}" src='/welfare/img/shanchu.png' bindtap="deleteNode"></image>
+    </view>
+    <view class="editor-add-wrapper">
+      <!-- 
+      <view class="editor-add iconfont icon-align-left" data-index="{{index}}" bindtap="addText"></view>
+      <view class="editor-add iconfont icon-image" data-index="{{index}}" bindtap="addImage"></view>
+    -->
+      <!-- <image bindtap='openAdd' class='open_add' mode='widthFix' data-index="{{index}}" src='/img/add_btn.png' style='width:66rpx;'></image> -->
+      <view class='add-btn-p active'>
+        <view bindtap="addText" data-index="{{index}}" class='add-btn' hover-class='image-press'>
+          <image class='insert-img' src='/welfare/img/wenben.png'></image>
+           <view class='insert-text'>插入文字</view>
+        </view>
+        <view bindtap="addImage" data-index="{{index}}" class='add-btn' hover-class='image-press'>
+           <image class='insert-img' src='/welfare/img/tupian.png'></image>
+         <view class='insert-text'>插入图片</view>
+        </view>
+        <view bindtap="addCopy" data-index="{{index}}" class='add-btn' hover-class='image-press'>
+           <image class='insert-img' src='/welfare/img/fuzhi.png'></image>
+            <view class='insert-text'>一键复制</view>
+        </view>
+        <!--
+      <view bindtap="addApp" data-index="{{index}}" class='add-btn'>
+        <image src='/img/applets_image_c.png' mode='widthFix'  style='width:66rpx;' ></image>
+        <view>小程序推广</view>
+      </view>
+       -->
+
+
+      </view>
+    </view>
+  </block>
+  <view style='height:200rpx;'></view>
+
+  <!-- <view class='editor-submit-btn'>
+
+    <view class="bottom-operate"  bindtap="onFinish">完成</view>
+  </view> -->
+
+   <cover-view class='bottom-view' style='left:0;'>
+
+    <cover-view class="bottom-operate"  bindtap="onFinish" style='{{isChange ? "" : "opacity:0.5;"}}'>完成</cover-view>
+  </cover-view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "人脉福利",
+ 
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}

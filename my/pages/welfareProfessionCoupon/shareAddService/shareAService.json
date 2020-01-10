@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "赠值服务",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "navigationBar": "/components/navigationBar/index"
+  }
+}
